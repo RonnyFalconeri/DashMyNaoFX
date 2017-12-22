@@ -1,6 +1,4 @@
-/*
-Alert!!! Class will be replaced by another controller in java FX
- */
+
 
 package sample;
 
