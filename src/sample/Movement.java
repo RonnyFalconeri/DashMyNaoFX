@@ -1,28 +1,27 @@
 package sample;
 
 public class Movement {
-    private int X_Axis;
-    private int Y_Axis;
-    private int Velocity;
+    protected int X_Axis;
+    protected int Y_Axis;
+    protected int Velocity;
 
-    private boolean Moving; // switch to turn movement on and off
-    private boolean MovingHead=true; //switch mode to move either head or body, true->Head | false->Body
-
-    public Movement(int pX_Axis, int pY_Axis, int pVelocity, boolean pMoving, boolean pMovingHead){
+    public Movement(int pX_Axis, int pY_Axis, int pVelocity){
         System.out.println("new Movement()...");
 
         this.X_Axis = pX_Axis;
         this.Y_Axis = pY_Axis;
         this.Velocity = pVelocity;
-        this.Moving = pMoving;
-        this.MovingHead = pMovingHead;
-
-        move();
     }
 
-    private void move(){
-        System.out.println("start moving to ("+this.X_Axis+", "+this.Y_Axis+") at "+this.Velocity+" m/s. Moving: "+this.Moving+", Moving Head: "+this.MovingHead);
+    private void moveBody(){
+        System.out.println("Starting parameters for body movement: ("+this.X_Axis+", "+this.Y_Axis+") at "+this.Velocity+" m/s.");
 
-        // TODO: check the moving state and the movinghead state and move with the given parameters
+        // TODO: make the body move at given parameters
+    }
+
+    private void moveHead(){
+        System.out.println("Starting parameters for head movement: ("+this.X_Axis+", "+this.Y_Axis);
+
+        // TODO: make the head move to given directions
     }
 }
