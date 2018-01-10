@@ -12,7 +12,7 @@ public class Speech {
         System.out.println("new Speech()...");
     }
 
-    public void sayText(){
+    public void sayText() throws Exception{
         System.out.println("sayText()...");
         System.out.println("to say: "+Speechtext);
 

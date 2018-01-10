@@ -22,7 +22,7 @@ public class Controller {
 
     Speech speech = new Speech();
 
-    public void clickButton(ActionEvent actionEvent) {
+    public void clickButton(ActionEvent actionEvent) throws Exception{
         System.out.println("Button wurde geklickt!");
         speech.sayText();
     }
