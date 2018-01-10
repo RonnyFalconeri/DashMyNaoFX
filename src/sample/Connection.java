@@ -3,16 +3,14 @@ package sample;
 import com.aldebaran.qi.Application;
 
 public class Connection {
-    private String IP_Adress;
-    private String Port;
+    private String IP_Adress="192.168.1.133";
+    private String Port="9559";
 
     public Application app;
 
-    public Connection(String pIP_Adress, String pPort){
+    public Connection(){
         System.out.println("new Classes.Connection()...");
 
-        this.IP_Adress = pIP_Adress;
-        this.Port = pPort;
 
         buildNewConnection();
     }
