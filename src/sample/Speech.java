@@ -20,14 +20,17 @@ public class Speech {
     }
 
     public void setSpeechtext(String pSpeechtext){
+        System.out.println("set speechtext to: "+pSpeechtext);
         this.Speechtext = pSpeechtext;
     }
 
     public void setLanguage(String pLanguage){
+        System.out.println("set language to: "+pLanguage);
         this.Language = pLanguage;
     }
 
     public void setVolume(int pVolume){
+        System.out.println("set language to: "+pVolume);
         this.Volume = pVolume;
     }
 }

@@ -30,7 +30,6 @@ public class Controller {
 
     public void textChanged(KeyEvent keyEvent) {
         String Inputtext = myTextfield.getText();
-        System.out.println("set speechtext to: "+myTextfield.getText());
         speech.setSpeechtext(myTextfield.getText());
     }
 }
