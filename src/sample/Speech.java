@@ -1,5 +1,8 @@
 package sample;
 
+import com.aldebaran.qi.Application;
+import com.aldebaran.qi.helper.proxies.ALTextToSpeech;
+
 public class Speech {
     private String Speechtext;
     private String Language;
@@ -7,15 +10,23 @@ public class Speech {
 
     public Speech(){
         System.out.println("new Speech()...");
-
     }
 
     public void sayText(){
         System.out.println("sayText()...");
         System.out.println("to say: "+Speechtext);
 
-        // TODO: make Nao speak the given text at given parameters
+        String[] x = {""};
 
+        //Verbindung
+        //Verbindung
+        String robotUrl = "tcp://192.168.1.133:9559";
+        Application app = new Application(x, robotUrl);
+        app.start();
+
+        // TODO: make Nao speak the given text at given parameters
+        ALTextToSpeech tts = new ALTextToSpeech(app.session());
+        tts.say(Speechtext);
 
     }
 

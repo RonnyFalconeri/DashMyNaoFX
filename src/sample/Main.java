@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+
     @Override //komentar
     public void start(Stage primaryStage) throws Exception{
 
@@ -15,6 +16,7 @@ public class Main extends Application {
         primaryStage.setTitle("Dash My Nao FX");
         primaryStage.setScene(new Scene(root, 700, 275));
         primaryStage.show();
+
 
     }
 
