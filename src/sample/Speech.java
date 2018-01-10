@@ -16,16 +16,9 @@ public class Speech {
         System.out.println("sayText()...");
         System.out.println("to say: "+Speechtext);
 
-        String[] x = {""};
-
-        //Verbindung
-        //Verbindung
-        String robotUrl = "tcp://192.168.1.133:9559";
-        Application app = new Application(x, robotUrl);
-        app.start();
 
         // TODO: make Nao speak the given text at given parameters
-        ALTextToSpeech tts = new ALTextToSpeech(app.session());
+        ALTextToSpeech tts = new ALTextToSpeech(sample.Connection.app.session());
         tts.say(Speechtext);
 
     }
