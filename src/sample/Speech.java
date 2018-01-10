@@ -5,17 +5,29 @@ public class Speech {
     private String Language;
     private int Volume;
 
-    public Speech(String pSpeechtext, String pLanguage, int pVolume){
+    public Speech(){
         System.out.println("new Speech()...");
 
-        this.Speechtext = pSpeechtext;
-        this.Language = pLanguage;
-        this.Volume = pVolume;
     }
 
-    public static void sayText(){
+    public void sayText(){
         System.out.println("sayText()...");
+        System.out.println("to say: "+Speechtext);
 
         // TODO: make Nao speak the given text at given parameters
+
+
+    }
+
+    public void setSpeechtext(String pSpeechtext){
+        this.Speechtext = pSpeechtext;
+    }
+
+    public void setLanguage(String pLanguage){
+        this.Language = pLanguage;
+    }
+
+    public void setVolume(int pVolume){
+        this.Volume = pVolume;
     }
 }
