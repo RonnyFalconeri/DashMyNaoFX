@@ -3,7 +3,7 @@ package sample;
 import com.aldebaran.qi.Application;
 
 public class Connection {
-    private String IP_Adress="\"\"tcp://192.168.1.133:9559";
+    private String IP_Adress="tcp://192.168.1.133:9559";
 
     public Application app;
 
