@@ -7,9 +7,11 @@ public class Speech {
     private String Speechtext;
     private String Language;
     private int Volume;
+    private Connection Con;
 
-    public Speech(){
+    public Speech(Connection pCon){
         System.out.println("new Speech()...");
+        this.Con = pCon;
     }
 
     public void sayText() throws Exception{
@@ -18,7 +20,7 @@ public class Speech {
 
 
         // TODO: make Nao speak the given text at given parameters
-        ALTextToSpeech tts = new ALTextToSpeech(sample.Connection.app.session());
+        ALTextToSpeech tts = new ALTextToSpeech(Con.app.session());
         tts.say(Speechtext);
 
     }

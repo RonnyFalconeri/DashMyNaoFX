@@ -20,7 +20,8 @@ public class Controller {
     @FXML
     TextField myTextfield;
 
-    Speech speech = new Speech();
+    Connection connection = new Connection();
+    Speech speech = new Speech(connection);
 
     public void clickButton(ActionEvent actionEvent) throws Exception{
         System.out.println("Button wurde geklickt!");
