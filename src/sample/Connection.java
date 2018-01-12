@@ -3,38 +3,46 @@ import com.aldebaran.qi.Application;
 
 public class Connection {
 
-    private String ConnectionURL = "tcp://192.168.1.133:9559";
-    public Application app;
+    private String IP_Adress;
+    private String Port;
+    //private String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
+    private boolean IsConnected=false;
+    private Application application;
 
 
 
     // Constructor
     public Connection(){
         System.out.println("new Connection()...");
-
-        buildNewConnection();
     }
 
 
     // methods for NAO
-    private void buildNewConnection(){
-        System.out.println("building new connection with IP: '"+this.ConnectionURL);
+    public void buildNewConnection(){
+        String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
+        System.out.println("building new connection with IP: "+ConnectionURL);
 
-        String[] bugfix = new String[]{};
-        app = new Application(bugfix, ConnectionURL);
-        app.start();
+        //application = new Application(new String[]{}, ConnectionURL);
+        //application.start();
     }
 
 
     //set n' get
-    public void setIP_Adress(String IP, String Port){
-        String URL = "tcp://"+IP+":"+Port;
-        System.out.println("set ConnectionURL to: "+URL);
-        this.ConnectionURL = URL;
+    public void setIP_Adress(String IP){
+        System.out.println("set IP_Adress to: "+IP);
+        this.IP_Adress = IP;
     }
 
-    public void setIP_Adress(String URL){
-        System.out.println("set ConnectionURL to: "+URL);
-        this.ConnectionURL = URL;
+    public void setPort(String Port){
+        System.out.println("set Port to: "+Port);
+        this.Port = Port;
+    }
+
+    public Application getApplication(){
+        return this.application;
+    }
+
+    public void setConnected(boolean connected) {
+        IsConnected = connected;
     }
 }

@@ -7,14 +7,15 @@ public class Speech {
     private String Speechtext;
     private String Language;
     private int Volume;
-    private Connection Con;
+    private Connection connection;
 
 
 
     // Constructor
-    public Speech(Connection pCon){
+    public Speech(Connection connection){
         System.out.println("new Speech()...");
-        this.Con = pCon;
+        this.connection = connection;
+
     }
 
 
@@ -23,8 +24,8 @@ public class Speech {
         System.out.println("sayText()...");
         System.out.println("to say: "+Speechtext);
 
-        ALTextToSpeech tts = new ALTextToSpeech(Con.app.session());
-        tts.say(Speechtext);
+        //ALTextToSpeech tts = new ALTextToSpeech(connection.getApplication().session());
+        //tts.say(Speechtext);
     }
 
 

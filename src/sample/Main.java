@@ -14,7 +14,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Dash My Nao FX");
-        primaryStage.setScene(new Scene(root, 700, 275));
+        primaryStage.setScene(new Scene(root, 1000, 900));
         primaryStage.show();
     }
 
