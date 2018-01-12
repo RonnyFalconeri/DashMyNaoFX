@@ -24,12 +24,12 @@ public class Appereance {
 
     // methods for NAO
     public void changeEyeColor(int whichEye){
-        // TODO: change color of the eye 'whichEye' (left-1, right-2, both-3)
+        // TODO: change color of the eye 'whichEye' (left-1, right-2)
 
     }
 
     public void changeEyeBlink(int whichEye){
-        // TODO: change blinking (on, off) of the eye 'whichEye' (left-1, right-2, both-3)
+        // TODO: change blinking (on, off) of the eye 'whichEye' (left-1, right-2)
     }
 
 
