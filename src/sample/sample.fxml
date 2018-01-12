@@ -22,7 +22,7 @@
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Button layoutX="107.0" layoutY="20.0" mnemonicParsing="false" onAction="#clickMove" text="walk" />
+            <Button fx:id="myWalkButton" layoutX="107.0" layoutY="20.0" mnemonicParsing="false" onAction="#clickMove" text="walk" />
          </children>
       </Pane>
       <BorderPane prefHeight="365.0" prefWidth="847.0" GridPane.columnIndex="1" GridPane.rowIndex="2">

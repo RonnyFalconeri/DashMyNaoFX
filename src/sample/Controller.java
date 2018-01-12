@@ -22,6 +22,8 @@ public class Controller {
     @FXML
     TextField myTextfield;
 
+    @FXML
+    Button myWalkButton;
 
     // instanciate new objects here
     Session session = new Session();
