@@ -35,4 +35,8 @@ public class Controller {
         String Inputtext = myTextfield.getText();
         speech.setSpeechtext(Inputtext);
     }
+
+    public void clickLetsGo(ActionEvent actionEvent) {
+
+    }
 }
