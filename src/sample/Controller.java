@@ -10,14 +10,6 @@ import javafx.scene.input.KeyEvent;
 public class Controller {
 
     // declaration of GUI objects here
-    @FXML
-    Button myButton;
-
-    @FXML
-    Label myLabel;
-
-    @FXML
-    TextField myTextfield;
 
 
     // instanciate new objects here
@@ -32,8 +24,7 @@ public class Controller {
     }
 
     public void textChanged(KeyEvent keyEvent) {
-        String Inputtext = myTextfield.getText();
-        speech.setSpeechtext(Inputtext);
+
     }
 
     public void clickLetsGo(ActionEvent actionEvent) {
