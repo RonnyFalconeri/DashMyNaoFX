@@ -6,23 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
-
-
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-
-        // TODO: to be moved into class GUI
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Dash My Nao FX");
-        primaryStage.setScene(new Scene(root, 700, 275));
-        primaryStage.show();
-    }
-
-
-    public static void main(String[] args) {
-
-        launch(args);
-
+public class Main
+{
+    public static void main(String[] args)
+    {
+        GUI.launch(GUI.class, args);
     }
 }

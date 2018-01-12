@@ -1,13 +1,15 @@
 package sample;
 
 public class Appereance {
-
+    private boolean Both_Ears_LED;
     private int Ear_Left_LED;
     private int Ear_Right_LED;
 
+    private boolean Both_Eyes_LED;
     private int Eye_Left_LED;
     private int Eye_Right_LED;
 
+    private boolean Both_Eyes_Blink;
     private boolean Eye_Left_Blink;
     private boolean Eye_Right_Blink;
     private int Blink_Rate;
