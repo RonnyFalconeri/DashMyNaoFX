@@ -24,12 +24,15 @@ public class Controller {
 
 
     // instanciate new objects here
+    Session session = new Session();
+    ALMotion motion = new ALMotion(session);
+
     Connection connection = new Connection();
     Speech speech = new Speech(connection);
 
-    Session session = new Session();
 
-    ALMotion motion = new ALMotion(session);
+
+
 
     Movement movement = new Movement(motion);
 
