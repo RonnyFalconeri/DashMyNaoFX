@@ -44,6 +44,7 @@ public class Controller {
     }
 
     public void textChanged(KeyEvent keyEvent) {
+
         String Inputtext = myTextfield.getText();
         speech.setSpeechtext(Inputtext);
     }
