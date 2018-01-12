@@ -4,7 +4,7 @@ import com.aldebaran.qi.Application;
 public class Connection {
 
     private String ConnectionURL = "tcp://192.168.1.133:9559";
-    private Application app;
+    public Application app;
 
 
 
@@ -36,9 +36,5 @@ public class Connection {
     public void setIP_Adress(String URL){
         System.out.println("set ConnectionURL to: "+URL);
         this.ConnectionURL = URL;
-    }
-
-    public Application getApp() {
-        return app;
     }
 }

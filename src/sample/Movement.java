@@ -1,30 +1,24 @@
 package sample;
 
-import com.aldebaran.qi.CallError;
-import com.aldebaran.qi.helper.proxies.ALMotion;
-
 public class Movement {
 
-    private float X_Axis=1;
-    private float Y_Axis=0;
-    private float Velocity=1;
+    private int X_Axis;
+    private int Y_Axis;
+    private int Velocity;
 
-    private ALMotion Motion;
 
 
     // Constructor
-    public Movement(ALMotion pMotion){
+    public Movement(){
         System.out.println("new Movement()...");
-        this.Motion = pMotion;
     }
 
 
     // methods for NAO
-    public void moveBody() throws InterruptedException, CallError {
+    public void moveBody(){
         System.out.println("Starting parameters for body movement: ("+this.X_Axis+", "+this.Y_Axis+") at "+this.Velocity+" m/s.");
 
         // TODO: make the body move at given parameters
-        Motion.move(this.X_Axis,this.Y_Axis,this.Velocity);
     }
 
     public void moveHead(){

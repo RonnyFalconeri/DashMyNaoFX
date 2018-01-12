@@ -1,7 +1,4 @@
 package sample;
-import com.aldebaran.qi.CallError;
-import com.aldebaran.qi.Session;
-import com.aldebaran.qi.helper.proxies.ALMotion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -22,24 +19,10 @@ public class Controller {
     @FXML
     TextField myTextfield;
 
-    @FXML
-    Button myWalkButton;
 
     // instanciate new objects here
-    Session session = new Session();
-    ALMotion motion = new ALMotion(session);
-
     Connection connection = new Connection();
     Speech speech = new Speech(connection);
-
-
-
-
-
-    Movement movement = new Movement(motion);
-
-    public Controller() throws Exception {
-    }
 
 
     // methods for GUI actions here
@@ -49,12 +32,7 @@ public class Controller {
     }
 
     public void textChanged(KeyEvent keyEvent) {
-
         String Inputtext = myTextfield.getText();
         speech.setSpeechtext(Inputtext);
-    }
-
-    public void clickMove(ActionEvent actionEvent) throws CallError, InterruptedException {
-        movement.moveBody();
     }
 }

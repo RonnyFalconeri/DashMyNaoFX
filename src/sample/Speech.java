@@ -23,7 +23,7 @@ public class Speech {
         System.out.println("sayText()...");
         System.out.println("to say: "+Speechtext);
 
-        ALTextToSpeech tts = new ALTextToSpeech(Con.getApp().session());
+        ALTextToSpeech tts = new ALTextToSpeech(Con.app.session());
         tts.say(Speechtext);
     }
 
