@@ -27,9 +27,9 @@
       <Pane prefHeight="300.0" prefWidth="500.0">
          <children>
             <Label layoutX="223.0" layoutY="14.0" text="Connection" />
-            <TextField fx:id="ConnectionIP" layoutX="60.0" layoutY="79.0" onKeyReleased="#changeIP_Adress" prefHeight="45.0" prefWidth="236.0" promptText="IP Adress" />
+            <TextField fx:id="ConnectionIP" layoutX="60.0" layoutY="79.0" onKeyReleased="#changeIP_Adress" prefHeight="45.0" prefWidth="236.0" promptText="IP Adress" text="192.168.1.133" />
             <Button layoutX="60.0" layoutY="148.0" mnemonicParsing="false" onAction="#clickConnectionButton" prefHeight="45.0" prefWidth="236.0" text="Connect" />
-            <TextField fx:id="ConnectionPort" layoutX="335.0" layoutY="79.0" onKeyReleased="#changePort" prefHeight="45.0" prefWidth="93.0" promptText="Port" />
+            <TextField fx:id="ConnectionPort" layoutX="335.0" layoutY="79.0" onKeyReleased="#changePort" prefHeight="45.0" prefWidth="93.0" promptText="Port" text="9559" />
             <Circle fx:id="ConnectionStatus" fill="#da0707" layoutX="382.0" layoutY="171.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
          </children>
       </Pane>
@@ -39,7 +39,7 @@
             <TextField fx:id="SpeechText" layoutX="38.0" layoutY="74.0" onKeyReleased="#changeSpeechText" prefHeight="53.0" prefWidth="314.0" promptText="Speech Text" />
             <Button fx:id="SpeechButton" layoutX="375.0" layoutY="82.0" mnemonicParsing="false" onAction="#clickSpeechButton" prefHeight="45.0" prefWidth="93.0" text="SAY" />
             <Slider fx:id="SpeechPitch" layoutX="159.0" layoutY="164.0" onMouseReleased="#changePitch" prefHeight="14.0" prefWidth="184.0" />
-            <Label fx:id="SpeechPitchLevel" layoutX="67.0" layoutY="163.0" prefHeight="17.0" prefWidth="61.0" text="Pitch" />
+            <Label fx:id="SpeechPitchLabel" layoutX="67.0" layoutY="163.0" prefHeight="17.0" prefWidth="61.0" text="Pitch" />
             <ComboBox fx:id="SpeechLanguage" layoutX="38.0" layoutY="216.0" onAction="#changeLanguage" prefHeight="45.0" prefWidth="314.0" promptText="Language">
                 <items>
                     <FXCollections fx:factory="observableArrayList">

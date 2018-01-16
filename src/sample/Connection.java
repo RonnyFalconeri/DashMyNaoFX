@@ -5,7 +5,6 @@ public class Connection {
 
     private String IP_Adress;
     private String Port;
-    //private String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
     private boolean IsConnected=false;
     private Application application;
 

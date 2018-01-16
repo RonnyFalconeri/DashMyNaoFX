@@ -21,7 +21,7 @@ public class Speech {
     // methods for NAO
     public void sayText() throws Exception{
         System.out.println("sayText()...");
-        System.out.println("to say: "+Speechtext);
+        System.out.println("to say: '"+this.Speechtext+"', language: "+this.Language);
 
         //ALTextToSpeech tts = new ALTextToSpeech(connection.getApplication().session());
         //tts.say(Speechtext,Language);
