@@ -22,8 +22,8 @@ public class Connection {
         String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
         System.out.println("building new connection with IP: "+ConnectionURL);
 
-        application = new Application(new String[]{}, ConnectionURL);
-        application.start();
+        //application = new Application(new String[]{}, ConnectionURL);
+        //application.start();
     }
 
 
