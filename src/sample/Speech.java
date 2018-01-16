@@ -20,6 +20,8 @@ public class Speech {
     }
 
 
+
+
     // methods for NAO
     public void sayText() throws Exception{
         System.out.println("sayText()...");
