@@ -2,10 +2,12 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 
 public class Controller {
@@ -21,6 +23,7 @@ public class Controller {
         // Speech
         @FXML TextField SpeechText;
         @FXML Button SpeechButton;
+        @FXML ComboBox SpeechLanguage;
 
     // instanciate new objects here
     Connection connection = new Connection();
@@ -54,5 +57,10 @@ public class Controller {
 
     public void clickSpeechButton(ActionEvent actionEvent) throws Exception {
         speech.sayText();
+    }
+
+
+    public void changeLanguage(ActionEvent actionEvent) {
+        speech.setLanguage(SpeechLanguage.getSelectionModel().getSelectedItem().toString());
     }
 }

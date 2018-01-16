@@ -2,9 +2,9 @@ package sample;
 
 public class Movement {
 
-    private int X_Axis;
-    private int Y_Axis;
-    private int Velocity;
+    private float X_Axis;
+    private float Y_Axis;
+    private float Velocity;
 
 
 
@@ -19,12 +19,6 @@ public class Movement {
         System.out.println("Starting parameters for body movement: ("+this.X_Axis+", "+this.Y_Axis+") at "+this.Velocity+" m/s.");
 
         // TODO: make the body move at given parameters
-    }
-
-    public void moveHead(){
-        System.out.println("Starting parameters for head movement: ("+this.X_Axis+", "+this.Y_Axis);
-
-        // TODO: make the head move to given directions
     }
 
 

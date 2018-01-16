@@ -5,8 +5,8 @@ import com.aldebaran.qi.helper.proxies.ALTextToSpeech;
 public class Speech {
 
     private String Speechtext;
-    private String Language;
-    private int Volume;
+    private String Language = "Deutsch";
+    private int Pitch;
     private Connection connection;
 
 
@@ -15,7 +15,6 @@ public class Speech {
     public Speech(Connection connection){
         System.out.println("new Speech()...");
         this.connection = connection;
-
     }
 
 
@@ -24,8 +23,8 @@ public class Speech {
         System.out.println("sayText()...");
         System.out.println("to say: "+Speechtext);
 
-        //ALTextToSpeech tts = new ALTextToSpeech(connection.getApplication().session());
-        //tts.say(Speechtext);
+        ALTextToSpeech tts = new ALTextToSpeech(connection.getApplication().session());
+        tts.say(Speechtext,Language);
     }
 
 
@@ -40,8 +39,8 @@ public class Speech {
         this.Language = pLanguage;
     }
 
-    public void setVolume(int pVolume){
-        System.out.println("set language to: "+pVolume);
-        this.Volume = pVolume;
+    public void setPitch(int pPitch){
+        System.out.println("set language to: "+pPitch);
+        this.Pitch = pPitch;
     }
 }
