@@ -8,6 +8,7 @@ public class Movement {
 
 
 
+
     // Constructor
     public Movement(){
         System.out.println("new Movement()...");

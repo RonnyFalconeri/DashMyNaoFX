@@ -12,7 +12,7 @@ public class Connection {
 
     // Constructor
     public Connection(){
-        System.out.println("new Connection()...");
+        System.out.println("new Connection()... ");
     }
 
 

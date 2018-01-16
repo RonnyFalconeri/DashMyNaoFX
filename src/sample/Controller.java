@@ -17,6 +17,7 @@ public class Controller {
         @FXML Button ConnectionButton;
         @FXML Circle ConnectionStatus;
 
+
         // Speech
         @FXML TextField SpeechText;
         @FXML Button SpeechButton;

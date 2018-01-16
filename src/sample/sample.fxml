@@ -43,7 +43,7 @@
             <ComboBox fx:id="SpeechLanguage" layoutX="38.0" layoutY="216.0" onAction="#changeLanguage" prefHeight="45.0" prefWidth="314.0" promptText="Language">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:id="German" fx:value="German" />
+                        <String fx:id="German"  fx:value="German" />
                         <String fx:id="English" fx:value="English" />
                     </FXCollections>
                 </items>
