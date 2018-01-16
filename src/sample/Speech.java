@@ -12,6 +12,7 @@ public class Speech {
 
 
 
+
     // Constructor
     public Speech(Connection connection){
         System.out.println("new Speech()...");
