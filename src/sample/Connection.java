@@ -19,7 +19,7 @@ public class Connection {
     // methods for NAO
     public void buildNewConnection(){
         String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
-        System.out.println("building new connection with IP: "+ConnectionURL);
+        System.out.println("building new connection with IP:  "+ConnectionURL);
 
         //application = new Application(new String[]{}, ConnectionURL);
         //application.start();
