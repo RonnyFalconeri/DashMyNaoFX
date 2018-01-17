@@ -15,9 +15,6 @@ public class Connection {
     public Connection() throws Exception {
         System.out.println("new Connection()... ");
 
-        // instanciate new objects here
-        speech = new Speech(this);
-        posture = new Posture(this);
     }
 
 
@@ -28,6 +25,10 @@ public class Connection {
 
         application = new Application(new String[]{}, ConnectionURL);
         application.start();
+
+        // instanciate new objects here
+        posture = new Posture(this);
+        speech = new Speech(this);
 
         speech.sayText("I am connected.", "English");
     }

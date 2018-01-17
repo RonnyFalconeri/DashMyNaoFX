@@ -12,11 +12,11 @@ public class Posture {
 
     private ALRobotPosture pos;
 
-    public Posture(Connection connection) throws Exception {
+    public Posture(Connection pConnection) throws Exception {
         System.out.println("new Posture()...");
-        this.connection = connection;
+        this.connection = pConnection;
 
-        pos = new ALRobotPosture(connection.getApplication().session());
+        pos = new ALRobotPosture(this.connection.getApplication().session());
 
     }
 
