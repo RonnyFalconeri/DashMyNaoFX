@@ -24,6 +24,7 @@ public class Controller {
         @FXML Button SpeechButton;
         @FXML ComboBox SpeechLanguage;
         @FXML Slider SpeechPitch;
+        @FXML Slider SpeechVolumeSlider;
 
         // Posture
         @FXML ComboBox PostureComboBox;
@@ -52,13 +53,11 @@ public class Controller {
 
         public void clickConnectionButton(ActionEvent actionEvent) throws Exception {
             connection.buildNewConnection();
-
         }
 
         private void changeConnectionStatus(){
             // TODO: change color of the connection state dipentend on the actual state
         }
-
 
 
         // Speech
@@ -79,7 +78,7 @@ public class Controller {
         }
 
         public void changeSpeechVolume(MouseEvent mouseEvent) {
-            float vol = (float) PostureSpeedSlider.getValue();
+            float vol = (float) SpeechVolumeSlider.getValue();
             connection.getSpeech().setSpeechVolume(vol);
         }
 

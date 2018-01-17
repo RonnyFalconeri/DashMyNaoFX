@@ -5,7 +5,7 @@ import com.aldebaran.qi.helper.proxies.ALRobotPosture;
 
 public class Posture {
 
-    private String Posture;
+    private String Posture="Stand";
     private float Speed=1.0f;
 
     private Connection connection;
@@ -28,6 +28,7 @@ public class Posture {
         pos.goToPosture("StandInit", this.Speed);
         pos.goToPosture(this.Posture, this.Speed);
     }
+
 
     // set n' get
     public void setPosture(String Posture){

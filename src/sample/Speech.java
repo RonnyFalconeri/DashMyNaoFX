@@ -4,13 +4,14 @@ import com.aldebaran.qi.helper.proxies.ALTextToSpeech;
 
 public class Speech {
 
-    private String Speechtext;
+    private String Speechtext="null";
     private String Language = "Deutsch";
     private float Pitch = 2.0f;
     private float Volume = 0.5f;
 
     private Connection con;
     private ALTextToSpeech tts;
+
 
 
     // Constructor
@@ -20,11 +21,11 @@ public class Speech {
     }
 
 
+
     // methods for NAO
     public void sayText() throws Exception{
         System.out.println("sayText()...");
         System.out.println("to say: '"+this.Speechtext+"', language: "+this.Language);
-
         tts = new ALTextToSpeech(con.getApplication().session());
         tts.setParameter("pitchShift",this.Pitch);
         tts.setVolume(this.Volume);
@@ -34,7 +35,6 @@ public class Speech {
     public void sayText(String pSpeechtext, String pLanguage) throws Exception{
         System.out.println("sayText()...");
         System.out.println("to say: '"+pSpeechtext+"', language: "+pLanguage);
-
         ALTextToSpeech tts = new ALTextToSpeech(con.getApplication().session());
         tts.say(pSpeechtext,pLanguage);
     }

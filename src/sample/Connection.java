@@ -11,17 +11,19 @@ public class Connection {
     private Speech speech;
     private Posture posture;
 
+
+
     // Constructor
     public Connection() throws Exception {
         System.out.println("new Connection()... ");
     }
 
 
+
     // methods for NAO
     public void buildNewConnection() throws Exception {
         String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
         System.out.println("building new connection with IP:  "+ConnectionURL);
-
         application = new Application(new String[]{}, ConnectionURL);
         application.start();
 
@@ -29,6 +31,7 @@ public class Connection {
         posture = new Posture(this);
         speech = new Speech(this);
 
+        // TODO: instanciate temporary speech object
         speech.sayText("I am connected.", "English");
     }
 
@@ -44,6 +47,14 @@ public class Connection {
         this.Port = Port;
     }
 
+    public void setConnected(boolean connected) {
+        IsConnected = connected;
+    }
+
+    public boolean isConnected(){
+        return this.IsConnected;
+    }
+
     public Speech getSpeech(){
         return this.speech;
     }
@@ -56,7 +67,5 @@ public class Connection {
         return this.posture;
     }
 
-    public void setConnected(boolean connected) {
-        IsConnected = connected;
-    }
+
 }
