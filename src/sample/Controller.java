@@ -29,8 +29,8 @@ public class Controller {
 
     // instanciate new objects here
     Connection connection = new Connection();
-    Speech speech = new Speech(connection);
-    Posture posture = new Posture();
+    //Speech speech = new Speech(connection);
+    //Posture posture = new Posture();
 
 
     // methods for GUI actions here
@@ -44,7 +44,7 @@ public class Controller {
             connection.setPort(ConnectionPort.getText());
         }
 
-        public void clickConnectionButton(ActionEvent actionEvent) {
+        public void clickConnectionButton(ActionEvent actionEvent) throws Exception {
             connection.buildNewConnection();
 
         }
@@ -57,28 +57,28 @@ public class Controller {
 
         // Speech
         public void changeSpeechText(KeyEvent keyEvent) {
-            speech.setSpeechtext(SpeechText.getText());
+            connection.getSpeech().setSpeechtext(SpeechText.getText());
         }
 
         public void clickSpeechButton(ActionEvent actionEvent) throws Exception {
-            speech.sayText();
+            connection.getSpeech().sayText();
         }
 
         public void changeLanguage(ActionEvent actionEvent) {
-            speech.setLanguage(SpeechLanguage.getSelectionModel().getSelectedItem().toString());
+            connection.getSpeech().setLanguage(SpeechLanguage.getSelectionModel().getSelectedItem().toString());
         }
 
         public void changePitch(MouseEvent mouseEvent) {
-            speech.setPitch(SpeechPitch.getValue());
+            connection.getSpeech().setPitch(SpeechPitch.getValue());
         }
 
 
         // Posture
         public void changePosture(ActionEvent actionEvent) {
-            posture.setPosture(PostureComboBox.getSelectionModel().getSelectedItem().toString());
+            connection.getPosture().setPosture(PostureComboBox.getSelectionModel().getSelectedItem().toString());
         }
 
         public void clickPostureButton(ActionEvent actionEvent) {
-            posture.posePosture();
+            connection.getPosture().posePosture();
         }
 }

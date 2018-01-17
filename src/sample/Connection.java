@@ -6,23 +6,30 @@ public class Connection {
     private String IP_Adress;
     private String Port;
     private boolean IsConnected=false;
+
     private Application application;
-
-
+    private Speech speech;
+    private Posture posture;
 
     // Constructor
     public Connection(){
         System.out.println("new Connection()... ");
+
+        // instanciate new objects here
+        speech = new Speech(this);
+        posture = new Posture();
     }
 
 
     // methods for NAO
-    public void buildNewConnection(){
+    public void buildNewConnection() throws Exception {
         String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
         System.out.println("building new connection with IP:  "+ConnectionURL);
 
-        //application = new Application(new String[]{}, ConnectionURL);
-        //application.start();
+        application = new Application(new String[]{}, ConnectionURL);
+        application.start();
+
+        speech.sayText("I am connected.", "English");
     }
 
 
@@ -37,8 +44,16 @@ public class Connection {
         this.Port = Port;
     }
 
+    public Speech getSpeech(){
+        return this.speech;
+    }
+
     public Application getApplication(){
         return this.application;
+    }
+
+    public Posture getPosture() {
+        return this.posture;
     }
 
     public void setConnected(boolean connected) {

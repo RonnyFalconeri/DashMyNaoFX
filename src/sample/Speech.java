@@ -27,9 +27,18 @@ public class Speech {
         System.out.println("sayText()...");
         System.out.println("to say: '"+this.Speechtext+"', language: "+this.Language);
 
+        ALTextToSpeech tts = new ALTextToSpeech(connection.getApplication().session());
+        tts.say(Speechtext,Language);
+    }
+
+    public void sayText(String Speechtext, String English) throws Exception{
+        System.out.println("sayText()...");
+        System.out.println("to say: '"+Speechtext+"', language: "+Language);
+
         //ALTextToSpeech tts = new ALTextToSpeech(connection.getApplication().session());
         //tts.say(Speechtext,Language);
     }
+
 
 
     // set n' get
