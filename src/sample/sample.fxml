@@ -56,9 +56,15 @@
              <ComboBox fx:id="PostureComboBox" layoutX="44.0" layoutY="151.0" onAction="#changePosture" prefHeight="45.0" prefWidth="290.0" promptText="Posture">
                  <items>
                      <FXCollections fx:factory="observableArrayList">
-                         <String fx:id="TaiChi" fx:value="TaiChi" />
-                         <String fx:id="LayDown" fx:value="LyingBack" />
-                         <String fx:id="SitDown" fx:value="StandUp" />
+                         <String fx:id="Crouch" fx:value="Crouch" />
+                         <String fx:id="LyingBack" fx:value="LyingBack" />
+                         <String fx:id="LyingBelly" fx:value="LyingBelly" />
+                         <String fx:id="Sit" fx:value="Sit" />
+                         <String fx:id="SitOnChair" fx:value="SitOnChair" />
+                         <String fx:id="SitRelax" fx:value="SitRelax" />
+                         <String fx:id="Stand" fx:value="Stand" />
+                         <String fx:id="StandInit" fx:value="StandInit" />
+                         <String fx:id="StandZero" fx:value="StandZero" />
                      </FXCollections>
                  </items>
              </ComboBox>

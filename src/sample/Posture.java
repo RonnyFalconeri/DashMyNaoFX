@@ -4,7 +4,7 @@ import com.aldebaran.qi.CallError;
 import com.aldebaran.qi.helper.proxies.ALRobotPosture;
 
 public class Posture {
-
+    // Crouch, LyingBack, LyingBelly, Sit, SitOnChair, SitRelax, Stand, StandInit, StandZero
     private String Posture;
     private float Speed=1.0f;
 
@@ -24,8 +24,7 @@ public class Posture {
     public void posePosture() throws InterruptedException, CallError {
         System.out.println("posing to: "+this.Posture);
 
-        // TODO: make the NAO pose the given posture
-
+        pos.goToPosture("StandInit", this.Speed);
         pos.goToPosture(this.Posture, this.Speed);
     }
 
