@@ -58,7 +58,7 @@
                      <FXCollections fx:factory="observableArrayList">
                          <String fx:id="TaiChi" fx:value="TaiChi" />
                          <String fx:id="LayDown" fx:value="LyingBack" />
-                         <String fx:id="StandUp" fx:value="SitDown" />
+                         <String fx:id="SitDown" fx:value="StandUp" />
                      </FXCollections>
                  </items>
              </ComboBox>
