@@ -88,7 +88,8 @@ public class Controller {
             connection.getPosture().posePosture();
         }
 
-        public void changePostureSpeed(MouseDragEvent mouseDragEvent) {
+        public void changePostureSpeed(MouseEvent mouseEvent) {
+            System.out.println("slider changed");
             float speed = (float) PostureSpeedSlider.getValue();
             connection.getPosture().setSpeed(speed);
         }

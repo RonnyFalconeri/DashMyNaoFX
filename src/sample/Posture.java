@@ -31,7 +31,7 @@ public class Posture {
 
     // set n' get
     public void setPosture(String Posture){
-        System.out.println("set Posture to: "+this.Posture);
+        System.out.println("set Posture to: "+Posture);
         this.Posture = Posture;
     }
 
