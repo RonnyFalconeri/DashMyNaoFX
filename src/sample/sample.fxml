@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="980.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="980.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -69,6 +69,8 @@
                  </items>
              </ComboBox>
             <Button fx:id="PostureButton" layoutX="418.0" layoutY="148.0" mnemonicParsing="false" onAction="#clickPostureButton" prefHeight="45.0" prefWidth="100.0" text="Pose" />
+            <Slider fx:id="PostureSpeedSlider" layoutX="228.0" layoutY="246.0" max="1.0" onMouseDragReleased="#changePostureSpeed" prefHeight="24.0" prefWidth="290.0" />
+            <Label layoutX="110.0" layoutY="243.0" text="Speed" />
          </children>
       </Pane>
    </children>

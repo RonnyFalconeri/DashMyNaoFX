@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 
@@ -27,6 +28,7 @@ public class Controller {
         // Posture
         @FXML ComboBox PostureComboBox;
         @FXML Button PostureButton;
+        @FXML Slider PostureSpeedSlider;
 
     // instanciate new objects here
     Connection connection = new Connection();
@@ -84,5 +86,10 @@ public class Controller {
 
         public void clickPostureButton(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getPosture().posePosture();
+        }
+
+        public void changePostureSpeed(MouseDragEvent mouseDragEvent) {
+            float speed = (float) PostureSpeedSlider.getValue();
+            connection.getPosture().setSpeed(speed);
         }
 }

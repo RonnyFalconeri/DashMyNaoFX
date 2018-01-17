@@ -7,19 +7,16 @@ public class Speech {
     private String Speechtext;
     private String Language = "Deutsch";
     private double Pitch;
-    private Connection connection;
 
-
-
+    private Connection con;
+    private ALTextToSpeech tts;
 
 
     // Constructor
     public Speech(Connection connection){
         System.out.println("new Speech()...");
-        this.connection = connection;
+        this.con = connection;
     }
-
-
 
 
     // methods for NAO
@@ -27,18 +24,17 @@ public class Speech {
         System.out.println("sayText()...");
         System.out.println("to say: '"+this.Speechtext+"', language: "+this.Language);
 
-        ALTextToSpeech tts = new ALTextToSpeech(connection.getApplication().session());
-        tts.say(Speechtext,Language);
+        tts = new ALTextToSpeech(con.getApplication().session());
+        tts.say(this.Speechtext, this.Language);
     }
 
     public void sayText(String pSpeechtext, String pLanguage) throws Exception{
         System.out.println("sayText()...");
         System.out.println("to say: '"+pSpeechtext+"', language: "+pLanguage);
 
-        ALTextToSpeech tts = new ALTextToSpeech(connection.getApplication().session());
+        ALTextToSpeech tts = new ALTextToSpeech(con.getApplication().session());
         tts.say(pSpeechtext,pLanguage);
     }
-
 
 
     // set n' get

@@ -3,8 +3,8 @@ import com.aldebaran.qi.Application;
 
 public class Connection {
 
-    private String IP_Adress;
-    private String Port;
+    private String IP_Adress = "192.168.1.133";
+    private String Port = "9559";
     private boolean IsConnected=false;
 
     private Application application;
