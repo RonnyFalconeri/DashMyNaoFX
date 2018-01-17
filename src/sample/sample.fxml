@@ -48,6 +48,8 @@
                     </FXCollections>
                 </items>
              </ComboBox>
+            <Slider fx:id="SpeechVolumeSlider" layoutX="528.0" layoutY="45.0" max="4.0" onMouseReleased="#changeSpeechVolume" orientation="VERTICAL" prefHeight="181.0" prefWidth="24.0" />
+            <Label layoutX="504.0" layoutY="246.0" text="Volume" />
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">

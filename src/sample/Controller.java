@@ -75,7 +75,12 @@ public class Controller {
         }
 
         public void changePitch(MouseEvent mouseEvent) {
-            connection.getSpeech().setPitch(SpeechPitch.getValue());
+            connection.getSpeech().setPitch((float)SpeechPitch.getValue());
+        }
+
+        public void changeSpeechVolume(MouseEvent mouseEvent) {
+            float vol = (float) PostureSpeedSlider.getValue();
+            connection.getSpeech().setSpeechVolume(vol);
         }
 
 
@@ -89,8 +94,9 @@ public class Controller {
         }
 
         public void changePostureSpeed(MouseEvent mouseEvent) {
-            System.out.println("slider changed");
             float speed = (float) PostureSpeedSlider.getValue();
             connection.getPosture().setSpeed(speed);
         }
+
+
 }

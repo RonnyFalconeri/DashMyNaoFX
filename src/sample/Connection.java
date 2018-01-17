@@ -14,7 +14,6 @@ public class Connection {
     // Constructor
     public Connection() throws Exception {
         System.out.println("new Connection()... ");
-
     }
 
 

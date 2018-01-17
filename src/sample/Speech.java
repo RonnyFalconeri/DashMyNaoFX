@@ -6,7 +6,8 @@ public class Speech {
 
     private String Speechtext;
     private String Language = "Deutsch";
-    private double Pitch;
+    private float Pitch;
+    private float Volume;
 
     private Connection con;
     private ALTextToSpeech tts;
@@ -25,6 +26,8 @@ public class Speech {
         System.out.println("to say: '"+this.Speechtext+"', language: "+this.Language);
 
         tts = new ALTextToSpeech(con.getApplication().session());
+        tts.setParameter("pitchShift",this.Pitch);
+        tts.setVolume(this.Volume);
         tts.say(this.Speechtext, this.Language);
     }
 
@@ -48,8 +51,12 @@ public class Speech {
         this.Language = pLanguage;
     }
 
-    public void setPitch(double pPitch){
+    public void setPitch(float pPitch){
         System.out.println("set Pitch to: "+pPitch);
         this.Pitch = pPitch;
+    }
+
+    public void setSpeechVolume(float volume) {
+        this.Volume = volume;
     }
 }
