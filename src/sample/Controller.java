@@ -1,4 +1,5 @@
 package sample;
+import com.aldebaran.qi.CallError;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -29,6 +30,9 @@ public class Controller {
 
     // instanciate new objects here
     Connection connection = new Connection();
+
+    public Controller() throws Exception {
+    }
     //Speech speech = new Speech(connection);
     //Posture posture = new Posture();
 
@@ -78,7 +82,7 @@ public class Controller {
             connection.getPosture().setPosture(PostureComboBox.getSelectionModel().getSelectedItem().toString());
         }
 
-        public void clickPostureButton(ActionEvent actionEvent) {
+        public void clickPostureButton(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getPosture().posePosture();
         }
 }

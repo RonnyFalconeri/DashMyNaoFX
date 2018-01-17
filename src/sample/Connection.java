@@ -12,12 +12,12 @@ public class Connection {
     private Posture posture;
 
     // Constructor
-    public Connection(){
+    public Connection() throws Exception {
         System.out.println("new Connection()... ");
 
         // instanciate new objects here
         speech = new Speech(this);
-        posture = new Posture();
+        posture = new Posture(this);
     }
 
 

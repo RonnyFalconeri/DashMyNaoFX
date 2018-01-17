@@ -1,19 +1,32 @@
 package sample;
 
+import com.aldebaran.qi.CallError;
+import com.aldebaran.qi.helper.proxies.ALRobotPosture;
+
 public class Posture {
 
     private String Posture;
+    private float Speed=1.0f;
 
-    public Posture(){
+    private Connection connection;
+
+    private ALRobotPosture pos;
+
+    public Posture(Connection connection) throws Exception {
         System.out.println("new Posture()...");
+        this.connection = connection;
+
+        pos = new ALRobotPosture(connection.getApplication().session());
 
     }
 
     // methods for NAO
-    public void posePosture(){
+    public void posePosture() throws InterruptedException, CallError {
         System.out.println("posing to: "+this.Posture);
 
         // TODO: make the NAO pose the given posture
+
+        pos.goToPosture(this.Posture, this.Speed);
     }
 
     // set n' get
