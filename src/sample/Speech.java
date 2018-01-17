@@ -6,8 +6,8 @@ public class Speech {
 
     private String Speechtext;
     private String Language = "Deutsch";
-    private float Pitch;
-    private float Volume;
+    private float Pitch = 2.0f;
+    private float Volume = 0.5f;
 
     private Connection con;
     private ALTextToSpeech tts;
@@ -57,6 +57,7 @@ public class Speech {
     }
 
     public void setSpeechVolume(float volume) {
+        System.out.println("set Volume to: "+volume);
         this.Volume = volume;
     }
 }
