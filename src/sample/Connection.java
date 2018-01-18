@@ -44,6 +44,15 @@ public class Connection {
         // TODO: kill the connection with NAO
     }
 
+    public void checkConnectionState(){
+        System.out.println("checking the connection state...");
+        boolean state=false;
+
+        // TODO: check the current connection of NAO
+
+        setConnected(state);
+    }
+
 
     //set n' get
     public void setIP_Adress(String IP){
@@ -56,12 +65,8 @@ public class Connection {
         this.Port = Port;
     }
 
-    public void setConnected() {
-        if (IsConnected){
-            IsConnected = false;
-        } else {
-            IsConnected = true;
-        }
+    private void setConnected(boolean ConnectionState) {
+        this.IsConnected = ConnectionState;
     }
 
     public boolean isConnected(){

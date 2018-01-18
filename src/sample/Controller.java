@@ -39,30 +39,28 @@ public class Controller {
         @FXML Slider AudioPlayerSlider;
 
 
-    // BugFix
-    public Controller() throws Exception {
-    }
-
-
     // methods for GUI actions here
 
         // GUI modification
-        private void changeButtonText(Button ButtonName, String Text){
-            ButtonName.setText(Text);
+        private void changeButtonText(Button ButtonName, String Text){ ButtonName.setText(Text);}public Controller() throws Exception {}
+
+        private void changeConnectionState(boolean state){
+            // TODO: change the connection state of GUI
         }
 
 
         // Connection
         public void clickConnectionButton(ActionEvent actionEvent) throws Exception {
+            connection.checkConnectionState();
             if (connection.isConnected()){
                 // kill connection
                 connection.killConnection();
-                changeConnectionStatus();
+                changeConnectionState(false);
                 changeButtonText(ConnectionButton, "Connect");
             } else {
                 // build connection
                 connection.buildNewConnection();
-                changeConnectionStatus();
+                changeConnectionState(true);
                 changeButtonText(ConnectionButton,"Disconnect");
             }
         }
@@ -75,9 +73,7 @@ public class Controller {
             connection.setPort(ConnectionPort.getText());
         }
 
-        private void changeConnectionStatus(){
-            connection.setConnected();
-        }
+
 
 
         // Speech
