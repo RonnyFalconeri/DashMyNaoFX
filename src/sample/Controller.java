@@ -16,21 +16,21 @@ public class Controller {
     // declaration of GUI objects here
 
         // Connection
+        @FXML Button ConnectionButton;
         @FXML TextField ConnectionIP;
         @FXML TextField ConnectionPort;
-        @FXML Button ConnectionButton;
         @FXML Circle ConnectionStatus;
 
         // Speech
-        @FXML TextField SpeechText;
         @FXML Button SpeechButton;
+        @FXML TextField SpeechText;
         @FXML ComboBox SpeechLanguage;
         @FXML Slider SpeechPitch;
         @FXML Slider SpeechVolumeSlider;
 
         // Posture
-        @FXML ComboBox PostureComboBox;
         @FXML Button PostureButton;
+        @FXML ComboBox PostureComboBox;
         @FXML Slider PostureSpeedSlider;
 
         // AudioPlayer
