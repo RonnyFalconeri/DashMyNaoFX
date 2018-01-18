@@ -11,6 +11,8 @@ import javafx.scene.shape.Circle;
 
 public class Controller {
 
+    Connection connection = new Connection();
+
     // declaration of GUI objects here
 
         // Connection
@@ -31,18 +33,40 @@ public class Controller {
         @FXML Button PostureButton;
         @FXML Slider PostureSpeedSlider;
 
-    // instanciate new objects here
-    Connection connection = new Connection();
+        // AudioPlayer
+        @FXML Button AudioPlayerButton;
+        @FXML ComboBox AudioPlayerComboBox;
+        @FXML Slider AudioPlayerSlider;
 
+
+    // BugFix
     public Controller() throws Exception {
     }
-    //Speech speech = new Speech(connection);
-    //Posture posture = new Posture();
 
 
     // methods for GUI actions here
 
+        // GUI modification
+        private void changeButtonText(Button ButtonName, String Text){
+            ButtonName.setText(Text);
+        }
+
+
         // Connection
+        public void clickConnectionButton(ActionEvent actionEvent) throws Exception {
+            if (connection.isConnected()){
+                // kill connection
+                connection.killConnection();
+                changeConnectionStatus();
+                changeButtonText(ConnectionButton, "Connect");
+            } else {
+                // build connection
+                connection.buildNewConnection();
+                changeConnectionStatus();
+                changeButtonText(ConnectionButton,"Disconnect");
+            }
+        }
+
         public void changeIP_Adress(KeyEvent keyEvent) {
             connection.setIP_Adress(ConnectionIP.getText());
         }
@@ -51,22 +75,18 @@ public class Controller {
             connection.setPort(ConnectionPort.getText());
         }
 
-        public void clickConnectionButton(ActionEvent actionEvent) throws Exception {
-            connection.buildNewConnection();
-        }
-
         private void changeConnectionStatus(){
-            // TODO: change color of the connection state dipentend on the actual state
+            connection.setConnected();
         }
 
 
         // Speech
-        public void changeSpeechText(KeyEvent keyEvent) {
-            connection.getSpeech().setSpeechtext(SpeechText.getText());
-        }
-
         public void clickSpeechButton(ActionEvent actionEvent) throws Exception {
             connection.getSpeech().sayText();
+        }
+
+        public void changeSpeechText(KeyEvent keyEvent) {
+            connection.getSpeech().setSpeechtext(SpeechText.getText());
         }
 
         public void changeLanguage(ActionEvent actionEvent) {
@@ -84,12 +104,12 @@ public class Controller {
 
 
         // Posture
-        public void changePosture(ActionEvent actionEvent) {
-            connection.getPosture().setPosture(PostureComboBox.getSelectionModel().getSelectedItem().toString());
-        }
-
         public void clickPostureButton(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getPosture().posePosture();
+        }
+
+        public void changePosture(ActionEvent actionEvent) {
+            connection.getPosture().setPosture(PostureComboBox.getSelectionModel().getSelectedItem().toString());
         }
 
         public void changePostureSpeed(MouseEvent mouseEvent) {
@@ -98,4 +118,16 @@ public class Controller {
         }
 
 
+        // AudioPlayer
+        public void clickAudioPlayerButton(ActionEvent actionEvent) {
+            connection.getAudioplayer().playAudiosample();
+        }
+
+        public void changeAudioPlayerAudiosample(ActionEvent actionEvent) {
+            connection.getAudioplayer().setAudiosample(AudioPlayerComboBox.getSelectionModel().getSelectedItem().toString());
+        }
+
+        public void changeAudioPlayerVolume(MouseEvent mouseEvent) {
+            connection.getAudioplayer().setVolume((float)AudioPlayerSlider.getValue());
+        }
 }

@@ -10,6 +10,7 @@ public class Connection {
     private Application application;
     private Speech speech;
     private Posture posture;
+    private AudioPlayer audioplayer;
 
 
 
@@ -27,12 +28,20 @@ public class Connection {
         application = new Application(new String[]{}, ConnectionURL);
         application.start();
 
+        // TODO: move to constructor for bugfix
         // instanciate new objects here
         posture = new Posture(this);
         speech = new Speech(this);
+        audioplayer = new AudioPlayer();
 
         // TODO: instanciate temporary speech object
         speech.sayText("I am connected.", "English");
+    }
+
+    public void killConnection(){
+        System.out.println("kill current connection...");
+
+        // TODO: kill the connection with NAO
     }
 
 
@@ -47,8 +56,12 @@ public class Connection {
         this.Port = Port;
     }
 
-    public void setConnected(boolean connected) {
-        IsConnected = connected;
+    public void setConnected() {
+        if (IsConnected){
+            IsConnected = false;
+        } else {
+            IsConnected = true;
+        }
     }
 
     public boolean isConnected(){
@@ -67,5 +80,8 @@ public class Connection {
         return this.posture;
     }
 
+    public AudioPlayer getAudioplayer(){
+        return this.audioplayer;
+    }
 
 }

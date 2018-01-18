@@ -32,6 +32,7 @@ public class Speech {
         tts.say(this.Speechtext, this.Language);
     }
 
+    // additional method for external use
     public void sayText(String pSpeechtext, String pLanguage) throws Exception{
         System.out.println("sayText()...");
         System.out.println("to say: '"+pSpeechtext+"', language: "+pLanguage);
