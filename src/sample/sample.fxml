@@ -78,7 +78,7 @@
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
             <Label layoutX="248.0" layoutY="14.0" text="Audio Player" />
-             <ComboBox fx:id="AudioPlayerComboBox" layoutX="69.0" layoutY="141.0" onAction="#changeAudioPlayerAudiosample" prefHeight="45.0" prefWidth="290.0" promptText="Audio Sample" >
+             <ComboBox fx:id="AudioPlayerComboBox" layoutX="69.0" layoutY="141.0" onAction="#changeAudioPlayerAudiosample" prefHeight="45.0" prefWidth="290.0" promptText="Audio Sample">
                  <items>
                      <FXCollections fx:factory="observableArrayList">
                          <String fx:id="sample1" fx:value="sample1" />
@@ -89,7 +89,7 @@
                  </items>
              </ComboBox>
             <Button fx:id="AudioPlayerButton" layoutX="439.0" layoutY="141.0" mnemonicParsing="false" onAction="#clickAudioPlayerButton" text="Play" />
-            <Slider fx:id="AudioPlayerSlider" layoutX="214.0" layoutY="235.0" onMouseReleased="#changeAudioPlayerVolume" prefHeight="24.0" prefWidth="263.0" />
+            <Slider fx:id="AudioPlayerSlider" layoutX="214.0" layoutY="235.0" max="1.0" onMouseReleased="#changeAudioPlayerVolume" prefHeight="24.0" prefWidth="263.0" />
             <Label layoutX="80.0" layoutY="232.0" text="Volume" />
          </children>
       </Pane>

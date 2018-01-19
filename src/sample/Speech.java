@@ -27,8 +27,8 @@ public class Speech {
         System.out.println("sayText()...");
         System.out.println("to say: '"+this.Speechtext+"', language: "+this.Language);
         tts = new ALTextToSpeech(con.getApplication().session());
-        tts.setParameter("pitchShift",this.Pitch);
-        tts.setVolume(this.Volume);
+        //tts.setParameter("pitchShift",this.Pitch);
+        //tts.setVolume(this.Volume);
         tts.say(this.Speechtext, this.Language);
     }
 
