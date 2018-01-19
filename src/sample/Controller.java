@@ -51,6 +51,8 @@ public class Controller {
 
         // Connection
         public void clickConnectionButton(ActionEvent actionEvent) throws Exception {
+            connection.buildNewConnection();
+           /*
             connection.checkConnectionState();
             if (connection.isConnected()){
                 // kill connection
@@ -63,6 +65,7 @@ public class Controller {
                 changeConnectionState(true);
                 changeButtonText(ConnectionButton,"Disconnect");
             }
+            */
         }
 
         public void changeIP_Adress(KeyEvent keyEvent) {
