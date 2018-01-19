@@ -2,8 +2,9 @@ package sample;
 
 public class Movement {
 
-    private float X_Axis;
-    private float Y_Axis;
+    private float X_Axis; // forwarth (W), negative value for backwards (S)
+    private float Y_Axis; // left (A), negative value for right (D)
+    private float Z_Axis; // forward+left (AW), forward+right "-left" (WD), backwards+left "-forward" (AS), backwards+right "-forward+-left" (SD)
     private float Velocity;
 
 
@@ -32,6 +33,11 @@ public class Movement {
     public void setY_Axis(int pY_Axis){
         System.out.println("set Y_Axis to: "+pY_Axis);
         this.Y_Axis = pY_Axis;
+    }
+
+    public void setZ_Axis(int pZ_Axis){
+        System.out.println("set Z_Axis to: "+pZ_Axis);
+        this.Y_Axis = pZ_Axis;
     }
 
     public void setVelocity(int pVelocity){

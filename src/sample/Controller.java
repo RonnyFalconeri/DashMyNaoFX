@@ -38,6 +38,13 @@ public class Controller {
         @FXML ComboBox AudioPlayerComboBox;
         @FXML Slider AudioPlayerSlider;
 
+        // Movement
+        @FXML Button MovementButtonW;
+        @FXML Button MovementButtonA;
+        @FXML Button MovementButtonS;
+        @FXML Button MovementButtonD;
+        @FXML Slider MovementSliderVel;
+
 
     // methods for GUI actions here
 
@@ -128,5 +135,22 @@ public class Controller {
 
         public void changeAudioPlayerVolume(MouseEvent mouseEvent) {
             connection.getAudioplayer().setVolume((float)AudioPlayerSlider.getValue());
+        }
+
+
+        // Movement
+        public void clickMovementButtonW(ActionEvent actionEvent) {
+        }
+
+        public void clickMovementButtonA(ActionEvent actionEvent) {
+        }
+
+        public void clickMovementButtonS(ActionEvent actionEvent) {
+        }
+
+        public void clickMovementButtonD(ActionEvent actionEvent) {
+        }
+
+        public void changeMovementVel(MouseEvent mouseEvent) {
         }
 }
