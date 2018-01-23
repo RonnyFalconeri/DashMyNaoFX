@@ -1,24 +1,24 @@
 package sample;
 
+import com.aldebaran.qi.CallError;
 import com.aldebaran.qi.helper.proxies.ALLeds;
 
 public class Appereance {
-    private String All = "ALLeds";
 
-    private boolean Both_Ears_LED;
-    private String Ear_Left_LED = "gg";
-    private int Ear_Right_LED;
+    //allowed colors: "white", "red", "green", "blue", "yellow", "magenta", "cyan"
 
-    private boolean Both_Eyes_LED;
-    private int Eye_Left_LED;
-    private int Eye_Right_LED;
+    private String LeftEar = "LeftEarLeds";
+    private String RightEar = "RightEarLeds";
 
-    private boolean Both_Eyes_Blink;
-    private boolean Eye_Left_Blink;
-    private boolean Eye_Right_Blink;
-    private int Blink_Rate;
+    private boolean BothEyes;
+    private String LeftEye = "LeftEye";
+    private String RightEye = "RightEye";
 
-    ALLeds leds;
+    private String LeftEyeColor = "white";
+    private String RightEyeColor = "white";
+    private float dur = 1.0f;
+
+    private ALLeds leds;
     private Connection Con;
 
     // colors-string: white, red, green, blue, yellow, magenta, cyan
@@ -30,18 +30,26 @@ public class Appereance {
 
         leds = new ALLeds(Con.getApplication().session());
 
-        //reset
-        leds.reset("ALLeds");
-
-        //fade
-        leds.fadeRGB("ALLeds", "red", 10.0f);
-
     }
 
 
     // methods for NAO
-    public void changeEyeColor(int whichEye){
-        // TODO: change color of the eye 'whichEye' (left-1, right-2, both-3)
+    public void changeEyeColor(int whichEye) throws InterruptedException, CallError {
+        leds.reset("ALLeds");
+        switch (whichEye){
+            case 0: // left eye
+                leds.fadeRGB(this.LeftEye, this.LeftEyeColor, this.dur);
+                break;
+            case 1: // right eye
+                leds.fadeRGB(this.RightEye, this.RightEyeColor, this.dur);
+                break;
+            case 2: // both eye
+                leds.fadeRGB(this.LeftEye, this.LeftEyeColor, this.dur);
+                leds.fadeRGB(this.RightEye, this.LeftEyeColor, this.dur);
+                break;
+            default:
+                System.out.println("error");
+        }
 
     }
 
@@ -53,23 +61,74 @@ public class Appereance {
     //set n' get
 
 
-    public void setEar_Right_LED(int color){
-        this.Ear_Right_LED = color;
-    }
-
 ////////////////////////////////////////////////////////////////////////
-    // public static ALLeds leds;
-    //leds
-    //public static String name = "AllLeds";
-    //public static String colorname = "red";
-    //public static float duration = 5.0f;
+
+    //[AllLeds,
+    // AllLedsBlue
+    // AllLedsGreen,
+    // AllLedsRed,
+    // BrainLeds,
+    // BrainLedsBack,
+    // BrainLedsFront,
+    // BrainLedsLeft,
+    // BrainLedsMiddle,
+    // BrainLedsRight,
+    // ChestLeds,
+    // EarLeds,
+    // FaceLed0,
+    // FaceLed1,
+    // FaceLed2,
+    // FaceLed3,
+    // FaceLed4,
+    // FaceLed5,
+    // FaceLed6,
+    // FaceLed7,
+    // FaceLedLeft0,
+    // FaceLedLeft1,
+    // FaceLedLeft2,
+    // FaceLedLeft3,
+    // FaceLedLeft4,
+    // FaceLedLeft5,
+    // FaceLedLeft6,
+    // FaceLedLeft7,
+    // FaceLedRight0,
+    // FaceLedRight1,
+    // FaceLedRight2,
+    // FaceLedRight3,
+    // FaceLedRight4,
+    // FaceLedRight5,
+    // FaceLedRight6,
+    // FaceLedRight7,
+    // FaceLeds,
+    // FaceLedsBottom,
+    // FaceLedsExternal,
+    // FaceLedsInternal,
+    // FaceLedsLeftBottom,
+    // FaceLedsLeftExternal,
+    // FaceLedsLeftInternal,
+    // FaceLedsLeftTop,
+    // FaceLedsRightBottom,
+    // FaceLedsRightExternal,
+    // FaceLedsRightInternal,
+    // FaceLedsRightTop,
+    // FaceLedsTop,
+    // FeetLeds,
+    // LeftEarLeds,
+    // LeftEarLedsBack,
+    // LeftEarLedsEven,
+    // LeftEarLedsFront,
+    // LeftEarLedsOdd,
 
 
-    //"white", "red", "green", "blue", "yellow", "magenta", "cyan"
-    //[AllLeds, AllLedsBlue, AllLedsGreen, AllLedsRed, BrainLeds, BrainLedsBack, BrainLedsFront, BrainLedsLeft, BrainLedsMiddle, BrainLedsRight, ChestLeds, EarLeds, FaceLed0, FaceLed1, FaceLed2, FaceLed3, FaceLed4, FaceLed5, FaceLed6, FaceLed7, FaceLedLeft0, FaceLedLeft1, FaceLedLeft2, FaceLedLeft3, FaceLedLeft4, FaceLedLeft5, FaceLedLeft6, FaceLedLeft7, FaceLedRight0, FaceLedRight1, FaceLedRight2, FaceLedRight3, FaceLedRight4, FaceLedRight5, FaceLedRight6, FaceLedRight7, FaceLeds, FaceLedsBottom, FaceLedsExternal, FaceLedsInternal, FaceLedsLeftBottom, FaceLedsLeftExternal, FaceLedsLeftInternal, FaceLedsLeftTop, FaceLedsRightBottom, FaceLedsRightExternal, FaceLedsRightInternal, FaceLedsRightTop, FaceLedsTop, FeetLeds, LeftEarLeds, LeftEarLedsBack, LeftEarLedsEven, LeftEarLedsFront, LeftEarLedsOdd, LeftEye, LeftFaceLeds, LeftFaceLedsBlue, LeftFaceLedsGreen, LeftFaceLedsRed, LeftFootLeds, RightEarLeds, RightEarLedsBack, RightEarLedsEven, RightEarLedsFront, RightEarLedsOdd, RightEye, RightFaceLeds, RightFaceLedsBlue, RightFaceLedsGreen, RightFaceLedsRed, RightFootLeds
+    // LeftEarLeds,
+    // RightEarLeds,
 
-    //leds = new ALLeds(app.session());
-    //System.out.println(leds.listGroups());
+    // RightEye,
+    // LeftEye,
+
+    // RightFootLeds
+    // LeftFootLeds,
+
     //leds.reset("AllLeds");
     //leds.fadeRGB(name, colorname, duration);
 }
