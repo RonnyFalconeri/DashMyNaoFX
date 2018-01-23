@@ -45,6 +45,12 @@ public class Controller {
         @FXML Button MovementButtonD;
         @FXML Slider MovementSliderVel;
 
+        // Appereance
+        @FXML Button AppereanceButtonSet;
+        @FXML Button AppereanceButtonReset;
+        @FXML ComboBox AppereanceComboBoxColor;
+        @FXML ComboBox AppereanceComboBoxGroup;
+
 
     // methods for GUI actions here
 
@@ -153,4 +159,24 @@ public class Controller {
 
         public void changeMovementVel(MouseEvent mouseEvent) {
         }
+
+
+        // Appereance
+        public void clickAppereanceButtonReset(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getAppereance().resetLEDs();
+        }
+
+        public void clickAppereanceButtonSet(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getAppereance().changeLEDColor();
+        }
+
+        public void changeAppereanceGroup(ActionEvent actionEvent) {
+            connection.getAppereance().setGroup(AppereanceComboBoxGroup.getSelectionModel().getSelectedItem().toString());
+        }
+
+        public void changeAppereanceColor(ActionEvent actionEvent) {
+            connection.getAppereance().setColor(AppereanceComboBoxColor.getSelectionModel().getSelectedItem().toString());
+        }
+
+
 }

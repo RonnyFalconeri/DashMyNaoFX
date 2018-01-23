@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -12,9 +13,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
-<?import java.net.URL?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="980.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="980.0" prefWidth="1226.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -27,16 +27,16 @@
    <children>
       <Pane prefHeight="300.0" prefWidth="500.0" styleClass="connection">
          <children>
-            <Label layoutX="223.0" layoutY="14.0" text="Connection" styleClass="titel" />
-            <TextField fx:id="ConnectionIP" id="ConnectionIP" layoutX="60.0" layoutY="79.0" onKeyReleased="#changeIP_Adress" prefHeight="45.0" prefWidth="236.0" promptText="IP Adress" text="192.168.1.133" />
+            <Label layoutX="223.0" layoutY="14.0" styleClass="titel" text="Connection" />
+            <TextField id="ConnectionIP" fx:id="ConnectionIP" layoutX="60.0" layoutY="79.0" onKeyReleased="#changeIP_Adress" prefHeight="45.0" prefWidth="236.0" promptText="IP Adress" text="192.168.1.133" />
             <Button fx:id="ConnectionButton" layoutX="60.0" layoutY="148.0" mnemonicParsing="false" onAction="#clickConnectionButton" prefHeight="45.0" prefWidth="236.0" text="Connect" />
             <TextField fx:id="ConnectionPort" layoutX="335.0" layoutY="79.0" onKeyReleased="#changePort" prefHeight="45.0" prefWidth="93.0" promptText="Port" text="9559" />
             <Circle fx:id="ConnectionStatus" fill="#da0707" layoutX="382.0" layoutY="171.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
          </children>
       </Pane>
-      <Pane prefHeight="300.0" prefWidth="500.0" GridPane.columnIndex="1" styleClass="speech">
+      <Pane prefHeight="300.0" prefWidth="500.0" styleClass="speech" GridPane.columnIndex="1">
          <children>
-            <Label layoutX="234.0" layoutY="14.0" text="Speech" styleClass="titel" />
+            <Label layoutX="234.0" layoutY="14.0" styleClass="titel" text="Speech" />
             <TextField fx:id="SpeechText" layoutX="38.0" layoutY="74.0" onKeyReleased="#changeSpeechText" prefHeight="53.0" prefWidth="314.0" promptText="Speech Text" />
             <Button fx:id="SpeechButton" layoutX="375.0" layoutY="82.0" mnemonicParsing="false" onAction="#clickSpeechButton" prefHeight="45.0" prefWidth="93.0" text="SAY" />
             <Slider fx:id="SpeechPitch" layoutX="159.0" layoutY="164.0" max="4.0" min="1.0" onMouseReleased="#changePitch" prefHeight="14.0" prefWidth="184.0" />
@@ -55,7 +55,7 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
-            <Label layoutX="286.0" layoutY="14.0" text="Posture" styleClass="titel" />
+            <Label layoutX="286.0" layoutY="14.0" styleClass="titel" text="Posture" />
              <ComboBox fx:id="PostureComboBox" layoutX="44.0" layoutY="151.0" onAction="#changePosture" prefHeight="45.0" prefWidth="290.0" promptText="Posture">
                  <items>
                      <FXCollections fx:factory="observableArrayList">
@@ -78,7 +78,7 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Label layoutX="248.0" layoutY="14.0" text="Audio Player" styleClass="titel" />
+            <Label layoutX="248.0" layoutY="14.0" styleClass="titel" text="Audio Player" />
              <ComboBox fx:id="AudioPlayerComboBox" layoutX="69.0" layoutY="141.0" onAction="#changeAudioPlayerAudiosample" prefHeight="45.0" prefWidth="290.0" promptText="Audio Sample">
                  <items>
                      <FXCollections fx:factory="observableArrayList">
@@ -96,13 +96,45 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
-            <Label layoutX="278.0" layoutY="14.0" text="Movement" styleClass="titel" />
+            <Label layoutX="278.0" layoutY="14.0" styleClass="titel" text="Movement" />
             <Button fx:id="MovementButtonW" layoutX="123.0" layoutY="59.0" mnemonicParsing="false" onAction="#clickMovementButtonW" prefHeight="67.0" prefWidth="76.0" text="W" />
             <Button fx:id="MovementButtonA" layoutX="47.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickMovementButtonA" prefHeight="67.0" prefWidth="76.0" text="A" />
             <Button fx:id="MovementButtonS" layoutX="123.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickMovementButtonS" prefHeight="67.0" prefWidth="76.0" text="S" />
             <Button fx:id="MovementButtonD" layoutX="199.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickMovementButtonD" prefHeight="67.0" prefWidth="76.0" text="D" />
             <Slider fx:id="MovementSliderVel" layoutX="461.0" layoutY="56.0" onMouseReleased="#changeMovementVel" orientation="VERTICAL" />
             <Label layoutX="447.0" layoutY="219.0" text="Velocity" />
+         </children>
+      </Pane>
+      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Label layoutX="294.0" layoutY="14.0" text="LEDs" />
+             <ComboBox fx:id="AppereanceComboBoxGroup" layoutX="35.0" layoutY="66.0" onAction="#changeAppereanceGroup" prefHeight="25.0" prefWidth="201.0" promptText="Select Body Group" >
+                 <items>
+                     <FXCollections fx:factory="observableArrayList">
+                         <String fx:id="Ears" fx:value="Ears" />
+                         <String fx:id="LeftEar" fx:value="LeftEar" />
+                         <String fx:id="RightEar" fx:value="RightEar" />
+                         <String fx:id="Eyes" fx:value="Eyes" />
+                         <String fx:id="LeftEye" fx:value="LeftEye" />
+                         <String fx:id="RightEye" fx:value="RightEye" />
+                     </FXCollections>
+                 </items>
+             </ComboBox>
+            <Button fx:id="AppereanceButtonSet" layoutX="378.0" layoutY="79.0" mnemonicParsing="false" onAction="#clickAppereanceButtonSet" prefHeight="45.0" prefWidth="67.0" text="set LED" />
+             <ComboBox fx:id="AppereanceComboBoxColor" layoutX="35.0" layoutY="139.0" onAction="#changeAppereanceColor" prefHeight="25.0" prefWidth="201.0" promptText="Pick a color" >
+                 <items>
+                     <FXCollections fx:factory="observableArrayList">
+                         <String fx:id="white" fx:value="white" />
+                         <String fx:id="red" fx:value="red" />
+                         <String fx:id="green" fx:value="green" />
+                         <String fx:id="blue" fx:value="blue" />
+                         <String fx:id="yellow" fx:value="yellow" />
+                         <String fx:id="magenta" fx:value="magenta" />
+                         <String fx:id="cyan" fx:value="cyan" />
+                     </FXCollections>
+                 </items>
+             </ComboBox>
+            <Button fx:id="AppereanceButtonReset" layoutX="486.0" layoutY="89.0" mnemonicParsing="false" onAction="#clickAppereanceButtonReset" text="reset" />
          </children>
       </Pane>
    </children>

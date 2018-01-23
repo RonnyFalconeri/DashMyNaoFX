@@ -14,7 +14,6 @@ public class Connection {
     private Appereance appereance;
 
 
-
     // Constructor
     public Connection() throws Exception {
         System.out.println("new Connection()... ");
@@ -92,4 +91,7 @@ public class Connection {
         return this.audioplayer;
     }
 
+    public Appereance getAppereance() {
+        return this.appereance;
+    }
 }

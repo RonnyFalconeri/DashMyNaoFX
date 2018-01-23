@@ -6,59 +6,43 @@ import com.aldebaran.qi.helper.proxies.ALLeds;
 public class Appereance {
 
     //allowed colors: "white", "red", "green", "blue", "yellow", "magenta", "cyan"
-
-    private String LeftEar = "LeftEarLeds";
-    private String RightEar = "RightEarLeds";
-
-    private boolean BothEyes;
-    private String LeftEye = "LeftEye";
-    private String RightEye = "RightEye";
-
-    private String LeftEyeColor = "white";
-    private String RightEyeColor = "white";
+    private String Color = "white";
+    private String Group = "ALLeds";
     private float dur = 1.0f;
 
     private ALLeds leds;
     private Connection Con;
 
-    // colors-string: white, red, green, blue, yellow, magenta, cyan
+
 
     // Constructor
     public Appereance(Connection connection) throws Exception {
         System.out.println("new Appereance()...");
         this.Con = connection;
-
         leds = new ALLeds(Con.getApplication().session());
-
     }
 
 
     // methods for NAO
-    public void changeEyeColor(int whichEye) throws InterruptedException, CallError {
-        leds.reset("ALLeds");
-        switch (whichEye){
-            case 0: // left eye
-                leds.fadeRGB(this.LeftEye, this.LeftEyeColor, this.dur);
-                break;
-            case 1: // right eye
-                leds.fadeRGB(this.RightEye, this.RightEyeColor, this.dur);
-                break;
-            case 2: // both eye
-                leds.fadeRGB(this.LeftEye, this.LeftEyeColor, this.dur);
-                leds.fadeRGB(this.RightEye, this.LeftEyeColor, this.dur);
-                break;
-            default:
-                System.out.println("error");
-        }
-
+    public void changeLEDColor() throws InterruptedException, CallError {
+        resetLEDs();
+        leds.fadeRGB(this.Group, this.Color, this.dur);
     }
 
-    public void changeEyeBlink(int whichEye){
-        // TODO: change blinking (on, off) of the eye 'whichEye' (left-1, right-2, both-3)
+    public void resetLEDs() throws InterruptedException, CallError {
+        leds.reset("ALLeds");
     }
 
 
     //set n' get
+    public void setGroup(String pGroup){
+        this.Group = pGroup;
+    }
+
+    public void setColor(String pColor){
+        this.Color = pColor;
+    }
+}
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -131,4 +115,3 @@ public class Appereance {
 
     //leds.reset("AllLeds");
     //leds.fadeRGB(name, colorname, duration);
-}
