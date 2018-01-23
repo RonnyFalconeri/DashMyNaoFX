@@ -1,8 +1,12 @@
 package sample;
 
+import com.aldebaran.qi.helper.proxies.ALLeds;
+
 public class Appereance {
+    private String All = "ALLeds";
+
     private boolean Both_Ears_LED;
-    private int Ear_Left_LED;
+    private String Ear_Left_LED = "gg";
     private int Ear_Right_LED;
 
     private boolean Both_Eyes_LED;
@@ -14,11 +18,23 @@ public class Appereance {
     private boolean Eye_Right_Blink;
     private int Blink_Rate;
 
+    ALLeds leds;
+    private Connection Con;
 
+    // colors-string: white, red, green, blue, yellow, magenta, cyan
 
     // Constructor
-    public Appereance(){
+    public Appereance(Connection connection) throws Exception {
         System.out.println("new Appereance()...");
+        this.Con = connection;
+
+        leds = new ALLeds(Con.getApplication().session());
+
+        //reset
+        leds.reset("ALLeds");
+
+        //fade
+        leds.fadeRGB("ALLeds", "red", 10.0f);
 
     }
 
@@ -35,9 +51,7 @@ public class Appereance {
 
 
     //set n' get
-    public void setEar_Left_LED(int color){
-        this.Ear_Left_LED = color;
-    }
+
 
     public void setEar_Right_LED(int color){
         this.Ear_Right_LED = color;

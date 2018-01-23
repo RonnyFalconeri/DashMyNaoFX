@@ -11,6 +11,7 @@ public class Connection {
     private Speech speech;
     private Posture posture;
     private AudioPlayer audioplayer;
+    private Appereance appereance;
 
 
 
@@ -33,6 +34,7 @@ public class Connection {
         posture = new Posture(this);
         speech = new Speech(this);
         audioplayer = new AudioPlayer();
+        appereance = new Appereance(this);
 
         // TODO: instanciate temporary speech object
         speech.sayText("I am connected.", "English");
@@ -42,6 +44,7 @@ public class Connection {
         System.out.println("kill current connection...");
 
         // TODO: kill the connection with NAO
+        application.session().close();
     }
 
     public void checkConnectionState(){
