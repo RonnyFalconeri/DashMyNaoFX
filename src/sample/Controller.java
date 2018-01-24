@@ -145,19 +145,28 @@ public class Controller {
 
 
         // Movement
-        public void clickMovementButtonW(ActionEvent actionEvent) {
+        public void clickMovementButtonW(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().moveBodyForward();
         }
 
-        public void clickMovementButtonA(ActionEvent actionEvent) {
+        public void clickMovementButtonA(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().changeMovementDirectionLeft();
         }
 
-        public void clickMovementButtonS(ActionEvent actionEvent) {
+        public void clickMovementButtonS(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().moveBodyBackwards();
         }
 
-        public void clickMovementButtonD(ActionEvent actionEvent) {
+        public void clickMovementButtonD(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().changeMovementDirectionRight();
+        }
+
+        public void releaseMovementButton(MouseEvent mouseEvent) throws CallError, InterruptedException {
+            connection.getMovement().stopMovement();
         }
 
         public void changeMovementVel(MouseEvent mouseEvent) {
+            connection.getMovement().setX_Axis((float)MovementSliderVel.getValue());
         }
 
 
@@ -177,6 +186,7 @@ public class Controller {
         public void changeAppereanceColor(ActionEvent actionEvent) {
             connection.getAppereance().setColor(AppereanceComboBoxColor.getSelectionModel().getSelectedItem().toString());
         }
+
 
 
 }

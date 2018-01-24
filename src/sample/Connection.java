@@ -12,6 +12,7 @@ public class Connection {
     private Posture posture;
     private AudioPlayer audioplayer;
     private Appereance appereance;
+    private Movement movement;
 
 
     // Constructor
@@ -34,6 +35,7 @@ public class Connection {
         speech = new Speech(this);
         audioplayer = new AudioPlayer();
         appereance = new Appereance(this);
+        movement = new Movement(this);
 
         // TODO: instanciate temporary speech object
         speech.sayText("I am connected.", "English");
@@ -93,5 +95,9 @@ public class Connection {
 
     public Appereance getAppereance() {
         return this.appereance;
+    }
+
+    public Movement getMovement() {
+        return this.movement;
     }
 }

@@ -1,48 +1,85 @@
 package sample;
 
+import com.aldebaran.qi.CallError;
+import com.aldebaran.qi.helper.proxies.ALMotion;
+
 public class Movement {
 
-    private float X_Axis; // forwarth (W), negative value for backwards (S)
+    private float X_Axis = 1.0f; // forwarth (W), negative value for backwards (S)
     private float Y_Axis; // left (A), negative value for right (D)
     private float Z_Axis; // forward+left (AW), forward+right "-left" (WD), backwards+left "-forward" (AS), backwards+right "-forward+-left" (SD)
-    private float Velocity;
 
-
+    private Connection Con;
+    private ALMotion motion;
 
     // Constructor
-    public Movement(){
+    public Movement(Connection pConnection) throws Exception {
         System.out.println("new Movement()...");
+        this.Con = pConnection;
+        motion = new ALMotion(Con.getApplication().session());
 
     }
 
 
     // methods for NAO
-    public void moveBody(){
-        System.out.println("Starting parameters for body movement: ("+this.X_Axis+", "+this.Y_Axis+") at "+this.Velocity+" m/s.");
+    public void moveBodyForward() throws InterruptedException, CallError {
 
-        // TODO: make the body move at given parameters
+        this.Y_Axis = 0.0f;
+        this.Z_Axis = 0.0f;
+
+        motion.stopMove();
+        motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
+    }
+
+    public void moveBodyBackwards() throws InterruptedException, CallError {
+
+        this.Y_Axis = 0.0f;
+        this.X_Axis = -1.0f;
+        this.Z_Axis = 0.0f;
+
+        motion.stopMove();
+        motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
+    }
+
+    public void changeMovementDirectionLeft() throws InterruptedException, CallError {
+
+        this.Y_Axis = 0.0f;
+        this.X_Axis = 0.0f;
+        this.Z_Axis = -0.50f;
+
+        motion.stopMove();
+        motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
+    }
+
+    public void changeMovementDirectionRight() throws InterruptedException, CallError {
+
+        this.Y_Axis = 0.0f;
+        this.X_Axis = 0.0f;
+        this.Z_Axis = 0.50f;
+
+        motion.stopMove();
+        motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
+    }
+
+    public void stopMovement() throws InterruptedException, CallError {
+        motion.stopMove();
     }
 
 
     // set n' get
-    public void setX_Axis(int pX_Axis){
+    public void setX_Axis(float pX_Axis){
         System.out.println("set X_Axis to: "+pX_Axis);
         this.X_Axis = pX_Axis;
     }
 
-    public void setY_Axis(int pY_Axis){
+    public void setY_Axis(float pY_Axis){
         System.out.println("set Y_Axis to: "+pY_Axis);
         this.Y_Axis = pY_Axis;
     }
 
-    public void setZ_Axis(int pZ_Axis){
+    public void setZ_Axis(float pZ_Axis){
         System.out.println("set Z_Axis to: "+pZ_Axis);
         this.Y_Axis = pZ_Axis;
-    }
-
-    public void setVelocity(int pVelocity){
-        System.out.println("set Velocity to: "+pVelocity);
-        this.Velocity = pVelocity;
     }
 
 }
