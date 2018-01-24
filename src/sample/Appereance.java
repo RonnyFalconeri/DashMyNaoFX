@@ -7,7 +7,7 @@ public class Appereance {
 
     //allowed colors: "white", "red", "green", "blue", "yellow", "magenta", "cyan"
     private String Color = "white";
-    private String Group = "ALLeds";
+    private String Group = "AllLeds";
     private float dur = 2.0f;
 
     private ALLeds leds;
