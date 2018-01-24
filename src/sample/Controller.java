@@ -106,7 +106,7 @@ public class Controller {
         }
 
         public void changePitch(MouseEvent mouseEvent) {
-            connection.getSpeech().setPitch((float)SpeechPitch.getValue());
+            connection.getSpeech().setPitch((int)SpeechPitch.getValue());
         }
 
         public void changeSpeechVolume(MouseEvent mouseEvent) {

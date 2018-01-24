@@ -27,7 +27,6 @@ public class Appereance {
     // methods for NAO
     public void changeLEDColor() throws InterruptedException, CallError {
         System.out.println("changing LED colors...");
-        leds.reset("AllLeds");
         leds.fadeRGB(this.Group, this.Color, this.dur);
     }
 

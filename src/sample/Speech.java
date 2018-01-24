@@ -6,7 +6,7 @@ public class Speech {
 
     private String Speechtext="null";
     private String Language = "Deutsch";
-    private float Pitch = 2.0f;
+    private int Pitch = 100;
     private float Volume = 0.5f;
 
     private Connection con;
@@ -27,9 +27,8 @@ public class Speech {
         System.out.println("sayText()...");
         System.out.println("to say: '"+this.Speechtext+"', language: "+this.Language);
         tts = new ALTextToSpeech(con.getApplication().session());
-        tts.setParameter("pitchShift",this.Pitch);
         tts.setVolume(this.Volume);
-        tts.say("\\vct=150\\"+this.Speechtext, this.Language);
+        tts.say("\\vct="+this.Pitch+"\\"+this.Speechtext, this.Language);
     }
 
     // additional method for external use
@@ -52,7 +51,7 @@ public class Speech {
         this.Language = pLanguage;
     }
 
-    public void setPitch(float pPitch){
+    public void setPitch(int pPitch){
         System.out.println("set Pitch to: "+pPitch);
         this.Pitch = pPitch;
     }
