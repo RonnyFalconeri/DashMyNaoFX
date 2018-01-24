@@ -119,12 +119,9 @@
                              <items>
                                  <FXCollections fx:factory="observableArrayList">
                                      <String fx:id="AllLeds" fx:value="AllLeds" />
-                                     <String fx:id="Ears" fx:value="Ears" />
-                                     <String fx:id="LeftEar" fx:value="LeftEar" />
-                                     <String fx:id="RightEar" fx:value="RightEar" />
-                                     <String fx:id="Eyes" fx:value="Eyes" />
-                                     <String fx:id="LeftEye" fx:value="LeftEye" />
-                                     <String fx:id="RightEye" fx:value="RightEye" />
+                                     <String fx:id="Ears" fx:value="LeftFaceLeds" />
+                                     <String fx:id="LeftEar" fx:value="RightFaceLeds" />
+                                     <String fx:id="ChestLeds" fx:value="ChestLeds" />
                                  </FXCollections>
                              </items>
                          </ComboBox>
@@ -156,7 +153,12 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Pane layoutX="191.0" layoutY="133.0" prefHeight="305.0" prefWidth="470.0" />
+                  <Pane layoutX="191.0" layoutY="133.0" prefHeight="305.0" prefWidth="470.0">
+                     <children>
+                        <Label layoutX="207.0" layoutY="23.0" text="Body State" />
+                        <Label layoutX="58.0" layoutY="78.0" text="Temperature:" />
+                        <Label layoutX="64.0" layoutY="136.0" text="Battery:" />
+                     </children></Pane>
                </children></AnchorPane>
         </content>
       </Tab>

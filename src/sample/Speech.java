@@ -29,7 +29,7 @@ public class Speech {
         tts = new ALTextToSpeech(con.getApplication().session());
         tts.setParameter("pitchShift",this.Pitch);
         tts.setVolume(this.Volume);
-        tts.say(this.Speechtext, this.Language);
+        tts.say("\\vct=150\\"+this.Speechtext, this.Language);
     }
 
     // additional method for external use
