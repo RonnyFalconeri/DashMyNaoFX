@@ -119,9 +119,9 @@
                              <items>
                                  <FXCollections fx:factory="observableArrayList">
                                      <String fx:id="AllLeds" fx:value="AllLeds" />
-                                     <String fx:id="Ears" fx:value="LeftFaceLeds" />
-                                     <String fx:id="LeftEar" fx:value="RightFaceLeds" />
-                                     <String fx:id="ChestLeds" fx:value="ChestLeds" />
+                                     <String fx:id="LeftFaceLeds" fx:value="LeftFaceLeds" />
+                                     <String fx:id="RightFaceLeds" fx:value="RightFaceLeds" />
+                                     <String fx:id="FaceLeds" fx:value="FaceLeds" />
                                  </FXCollections>
                              </items>
                          </ComboBox>
