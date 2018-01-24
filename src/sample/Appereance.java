@@ -8,7 +8,7 @@ public class Appereance {
     //allowed colors: "white", "red", "green", "blue", "yellow", "magenta", "cyan"
     private String Color = "white";
     private String Group = "ALLeds";
-    private float dur = 1.0f;
+    private float dur = 2.0f;
 
     private ALLeds leds;
     private Connection Con;
@@ -25,21 +25,25 @@ public class Appereance {
 
     // methods for NAO
     public void changeLEDColor() throws InterruptedException, CallError {
-        resetLEDs();
+        System.out.println("changing LED colors..."+this.Group+", "+this.Color);
+        leds.reset("AllLeds");
         leds.fadeRGB(this.Group, this.Color, this.dur);
     }
 
     public void resetLEDs() throws InterruptedException, CallError {
+        System.out.println("reseting LED colors...");
         leds.reset("ALLeds");
     }
 
 
     //set n' get
     public void setGroup(String pGroup){
+        System.out.println("set Group to: "+pGroup);
         this.Group = pGroup;
     }
 
     public void setColor(String pColor){
+        System.out.println("set Color to: "+pColor);
         this.Color = pColor;
     }
 }
