@@ -32,7 +32,7 @@ public class Appereance {
 
     public void resetLEDs() throws InterruptedException, CallError {
         System.out.println("reseting LED colors...");
-        leds.reset("ALLeds");
+        leds.reset("AllLeds");
     }
 
 
