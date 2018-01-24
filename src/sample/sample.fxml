@@ -139,6 +139,6 @@
       </Pane>
    </children>
     <stylesheets>
-        <URL value="@test.css" />
+        <URL value="@standard.css" />
     </stylesheets>
 </GridPane>
