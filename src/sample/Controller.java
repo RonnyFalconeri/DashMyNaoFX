@@ -90,8 +90,6 @@ public class Controller {
         }
 
 
-
-
         // Speech
         public void clickSpeechButton(ActionEvent actionEvent) throws Exception {
             connection.getSpeech().sayText();
@@ -186,7 +184,5 @@ public class Controller {
         public void changeAppereanceColor(ActionEvent actionEvent) {
             connection.getAppereance().setColor(AppereanceComboBoxColor.getSelectionModel().getSelectedItem().toString());
         }
-
-
 
 }

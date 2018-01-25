@@ -5,58 +5,52 @@ import com.aldebaran.qi.helper.proxies.ALMotion;
 
 public class Movement {
 
-    private float X_Axis = 1.0f; // forwarth (W), negative value for backwards (S)
-    private float Y_Axis; // left (A), negative value for right (D)
-    private float Z_Axis; // forward+left (AW), forward+right "-left" (WD), backwards+left "-forward" (AS), backwards+right "-forward+-left" (SD)
+    private float X_Axis = 1.0f;
+    private float Y_Axis;
+    private float Z_Axis;
 
     private Connection Con;
     private ALMotion motion;
+
+
 
     // Constructor
     public Movement(Connection pConnection) throws Exception {
         System.out.println("new Movement()...");
         this.Con = pConnection;
         motion = new ALMotion(Con.getApplication().session());
-
     }
+
 
 
     // methods for NAO
     public void moveBodyForward() throws InterruptedException, CallError {
-
         this.Y_Axis = 0.0f;
         this.Z_Axis = 0.0f;
-
         motion.stopMove();
         motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
     }
 
     public void moveBodyBackwards() throws InterruptedException, CallError {
-
         this.Y_Axis = 0.0f;
         this.X_Axis = -1.0f;
         this.Z_Axis = 0.0f;
-
         motion.stopMove();
         motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
     }
 
     public void changeMovementDirectionLeft() throws InterruptedException, CallError {
-
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
         this.Z_Axis = -0.50f;
-
         motion.stopMove();
         motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
     }
 
     public void changeMovementDirectionRight() throws InterruptedException, CallError {
-
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
         this.Z_Axis = 0.50f;
-
         motion.stopMove();
         motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
     }

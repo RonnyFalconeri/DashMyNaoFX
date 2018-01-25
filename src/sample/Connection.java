@@ -15,6 +15,7 @@ public class Connection {
     private Movement movement;
 
 
+
     // Constructor
     public Connection() throws Exception {
         System.out.println("new Connection()... ");
@@ -29,7 +30,6 @@ public class Connection {
         application = new Application(new String[]{}, ConnectionURL);
         application.start();
 
-        // TODO: move to constructor for bugfix
         // instanciate new objects here
         posture = new Posture(this);
         speech = new Speech(this);
@@ -37,14 +37,11 @@ public class Connection {
         appereance = new Appereance(this);
         movement = new Movement(this);
 
-        // TODO: instanciate temporary speech object
         speech.sayText("I am connected.", "English");
     }
 
     public void killConnection(){
         System.out.println("kill current connection...");
-
-        // TODO: kill the connection with NAO
         application.session().close();
     }
 
