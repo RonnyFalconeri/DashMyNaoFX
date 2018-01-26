@@ -26,6 +26,7 @@ public class Movement {
 
     // methods for NAO
     public void moveBodyForward() throws InterruptedException, CallError {
+        System.out.println("move forward...");
         this.X_Axis = 1.0f*this.Velocity;
         this.Y_Axis = 0.0f;
         this.Z_Axis = 0.0f;
@@ -34,6 +35,7 @@ public class Movement {
     }
 
     public void moveBodyBackwards() throws InterruptedException, CallError {
+        System.out.println("move backwards...");
         this.Y_Axis = 0.0f;
         this.X_Axis = -0.5f;
         this.Z_Axis = 0.0f;
@@ -42,6 +44,7 @@ public class Movement {
     }
 
     public void changeMovementDirectionLeft() throws InterruptedException, CallError {
+        System.out.println("rotate to left...");
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
         this.Z_Axis = 0.30f;
@@ -50,6 +53,7 @@ public class Movement {
     }
 
     public void changeMovementDirectionRight() throws InterruptedException, CallError {
+        System.out.println("rotate to right...");
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
         this.Z_Axis = -0.30f;
@@ -58,30 +62,19 @@ public class Movement {
     }
 
     public void stopMovement() throws InterruptedException, CallError {
+        System.out.println("stop movement...");
         motion.stopMove();
         motion.moveToward( 0.0f,0.0f,0.0f);
     }
 
 
     // set n' get
-    public void setX_Axis(float pX_Axis){
-        System.out.println("set X_Axis to: "+pX_Axis);
-        this.X_Axis = pX_Axis;
-    }
 
     public void setVelocity(float pVel) {
+        System.out.println("set Velocity to: "+pVel);
         this.Velocity = pVel;
     }
 
-    public void setY_Axis(float pY_Axis){
-        System.out.println("set Y_Axis to: "+pY_Axis);
-        this.Y_Axis = pY_Axis;
-    }
-
-    public void setZ_Axis(float pZ_Axis){
-        System.out.println("set Z_Axis to: "+pZ_Axis);
-        this.Y_Axis = pZ_Axis;
-    }
 
 }
 
