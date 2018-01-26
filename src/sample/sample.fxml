@@ -134,6 +134,7 @@
             <Label layoutX="64.0" layoutY="136.0" text="Battery:" />
          <Button fx:id="BodyStateButton" layoutX="64.0" layoutY="201.0" mnemonicParsing="false" onAction="#clickBodyStateButton" text="update" />
          <Label fx:id="BodyStateBatteryPerc" layoutX="157.0" layoutY="136.0" />
+         <Label fx:id="BodyStateLabelTemp" layoutX="197.0" layoutY="78.0" />
         </Pane>
     </Tab>
 </TabPane>

@@ -55,6 +55,7 @@ public class Controller {
         // BodyState
         @FXML Button BodyStateButton;
         @FXML Label BodyStateBatteryPerc;
+        @FXML Label BodyStateLabelTemp;
 
 
     // methods for GUI actions here
@@ -207,6 +208,10 @@ public class Controller {
             changeLabelText(BodyStateBatteryPerc, BatteryPerc);
 
             // get temperature
+            String Temp;
+            Temp = connection.getBodystate().getTemperature();
+            changeLabelText(BodyStateLabelTemp,Temp);
+
         }
 
 

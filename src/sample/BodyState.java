@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class BodyState {
 
-    private double Temperature;
+    private String Temperature;
     private int BatteryPercentage;
 
     private ALBattery battery;
@@ -32,15 +32,32 @@ public class BodyState {
     public void checkTemperature() throws InterruptedException, CallError {
         System.out.println("checking Temperature...");
 
-        /*
+        int Temperatures=0;
+
         tempOb = temp.getTemperatureDiagnosis();
         if (tempOb instanceof ArrayList) {
             ArrayList tempList = (ArrayList) tempOb;
-            System.out.println("Temp level: " + tempList.get(0));
+            Temperatures = (int) tempList.get(0);
         } else {
-            System.out.println("Dieser NAO liefert noch keine Temperaturangaben");
+            System.out.println("no given return values");
         }
-        */
+
+        switch (Temperatures){
+            case 0:
+                // everything is fine
+                this.Temperature = " Green - Everything is fine.";
+            break;
+            case 1:
+                // watch out
+                this.Temperature = "Yellow - Watch out.";
+            break;
+            case 2:
+                // caution - let cool down
+                this.Temperature = "Red - let the NAO cool down!";
+            break;
+            default:
+                System.out.println("temperature return error");
+        }
     }
 
     public void checkBatteryPercentage() throws InterruptedException, CallError {
@@ -50,7 +67,8 @@ public class BodyState {
 
 
     // set n' get
-    public double getTemperature(){
+    public String getTemperature() throws CallError, InterruptedException {
+        checkTemperature();
         return this.Temperature;
     }
 
