@@ -31,9 +31,7 @@ public class BodyState {
     // methods for NAO
     public void checkTemperature() throws InterruptedException, CallError {
         System.out.println("checking Temperature...");
-
         int Temperatures=0;
-
         tempOb = temp.getTemperatureDiagnosis();
         if (tempOb instanceof ArrayList) {
             ArrayList tempList = (ArrayList) tempOb;
@@ -76,5 +74,4 @@ public class BodyState {
         checkBatteryPercentage();
         return this.BatteryPercentage;
     }
-
 }
