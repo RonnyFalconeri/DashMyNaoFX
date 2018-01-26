@@ -43,6 +43,7 @@ public class Controller {
         @FXML Button MovementButtonA;
         @FXML Button MovementButtonS;
         @FXML Button MovementButtonD;
+        @FXML Button MovementButtonStop;
         @FXML Slider MovementSliderVel;
 
         // Appereance
