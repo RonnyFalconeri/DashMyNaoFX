@@ -29,6 +29,10 @@ public class Posture {
         pos.goToPosture(this.Posture, this.Speed);
     }
 
+    public void posePosture(String pPosture) throws InterruptedException, CallError { // for external use
+        pos.goToPosture(pPosture, 1.0f);
+    }
+
 
     // set n' get
     public void setPosture(String Posture){

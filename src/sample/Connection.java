@@ -37,6 +37,7 @@ public class Connection {
         appereance = new Appereance(this);
         movement = new Movement(this);
 
+        posture.posePosture("Stand");
         speech.sayText("I am connected.", "English");
     }
 
