@@ -138,7 +138,7 @@ public class Controller {
 
 
         // AudioPlayer
-        public void clickAudioPlayerButton(ActionEvent actionEvent) {
+        public void clickAudioPlayerButton(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getAudioplayer().playAudiosample();
         }
 
@@ -148,6 +148,10 @@ public class Controller {
 
         public void changeAudioPlayerVolume(MouseEvent mouseEvent) {
             connection.getAudioplayer().setVolume((float)AudioPlayerSlider.getValue());
+        }
+
+        public void clickAudioPlayerButtonStop(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getAudioplayer().stopPlaying();
         }
 
 
@@ -197,8 +201,13 @@ public class Controller {
 
         // BodyState
         public void clickBodyStateButton(ActionEvent actionEvent) throws InterruptedException, CallError {
+            // get battery percentage
             String BatteryPerc;
             BatteryPerc = connection.getBodystate().getBatteryPercentage()+" %";
             changeLabelText(BodyStateBatteryPerc, BatteryPerc);
+
+            // get temperature
         }
+
+
 }

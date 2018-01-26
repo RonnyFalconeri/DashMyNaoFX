@@ -34,7 +34,7 @@ public class Connection {
         // instanciate new objects here
         posture = new Posture(this);
         speech = new Speech(this);
-        audioplayer = new AudioPlayer();
+        audioplayer = new AudioPlayer(this);
         appereance = new Appereance(this);
         movement = new Movement(this);
         bodystate = new BodyState(this);
