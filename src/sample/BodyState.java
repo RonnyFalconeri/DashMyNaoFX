@@ -43,3 +43,10 @@ public class BodyState {
     }
 
 }
+//Object tempOb = temp.getTemperatureDiagnosis();
+//if(tempOb instanceof ArrayList) {
+//   ArrayList tempList = (ArrayList)tempOb;
+//   System.out.println("Temp level: " + tempList.get(0));
+//}
+//else {
+//    System.out.println("Dieser NAO liefert noch keine Temperaturangaben");
