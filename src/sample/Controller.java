@@ -160,7 +160,7 @@ public class Controller {
             connection.getMovement().changeMovementDirectionRight();
         }
 
-        public void releaseMovementButton(MouseEvent mouseEvent) throws CallError, InterruptedException {
+        public void clickMovementButtonStop(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getMovement().stopMovement();
         }
 
@@ -185,5 +185,6 @@ public class Controller {
         public void changeAppereanceColor(ActionEvent actionEvent) {
             connection.getAppereance().setColor(AppereanceComboBoxColor.getSelectionModel().getSelectedItem().toString());
         }
+
 
 }

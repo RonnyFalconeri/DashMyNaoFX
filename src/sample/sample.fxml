@@ -31,7 +31,7 @@
             <Button fx:id="MovementButtonD" layoutX="199.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickMovementButtonD" prefHeight="67.0" prefWidth="76.0" text="D" />
             <Slider fx:id="MovementSliderVel" layoutX="461.0" layoutY="56.0" max="1.0" onMouseReleased="#changeMovementVel" orientation="VERTICAL" />
             <Label layoutX="447.0" layoutY="219.0" text="Velocity" />
-         <Button fx:id="MovementButtonStop" layoutX="126.0" layoutY="252.0" mnemonicParsing="false" onAction="#releaseMovementButton" text="Stop" />
+         <Button fx:id="MovementButtonStop" layoutX="126.0" layoutY="252.0" mnemonicParsing="false" onAction="#clickMovementButtonStop" text="Stop" />
         </Pane>
     </Tab>
     <Tab text="Posture">
