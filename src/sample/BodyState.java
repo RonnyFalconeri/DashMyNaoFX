@@ -36,4 +36,8 @@ public class BodyState {
     public int getBatteryPercentage(){
         return this.BatteryPercentage;
     }
+
 }
+//battery
+//battery = new ALBattery(app.session());
+//System.out.println(battery.getBatteryCharge());

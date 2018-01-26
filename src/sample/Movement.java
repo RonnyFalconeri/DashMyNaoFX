@@ -79,6 +79,7 @@ public class Movement {
 }
 
 // y wert steht für geschwindigkeit? also doch parameter?
+
 //public static ALMotion motion;
 
 // gerade aus
