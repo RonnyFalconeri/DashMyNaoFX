@@ -27,6 +27,7 @@ public class AudioPlayer {
         System.out.println("playing Audiosample: "+this.Audiosample);
 
         audioplayer.setMasterVolume(this.Volume);
+        System.out.println(audioplayer.getMasterVolume());
         audioplayer.playSoundSetFile("Aldebaran",this.Audiosample);
     }
 
