@@ -16,9 +16,9 @@ public class Appereance {
 
 
     // Constructor
-    public Appereance(Connection connection) throws Exception {
+    public Appereance(Connection pCon) throws Exception {
         System.out.println("new Appereance()...");
-        this.Con = connection;
+        this.Con = pCon;
         leds = new ALLeds(Con.getApplication().session());
     }
 

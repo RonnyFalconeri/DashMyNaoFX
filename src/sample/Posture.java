@@ -14,9 +14,9 @@ public class Posture {
 
 
     // Constructor
-    public Posture(Connection pConnection) throws Exception {
+    public Posture(Connection pCon) throws Exception {
         System.out.println("new Posture()...");
-        this.connection = pConnection;
+        this.connection = pCon;
         pos = new ALRobotPosture(this.connection.getApplication().session());
     }
 

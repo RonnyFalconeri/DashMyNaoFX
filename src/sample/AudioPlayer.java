@@ -18,7 +18,6 @@ public class AudioPlayer {
         System.out.println("new AudioPlayer()...");
         this.Con = pCon;
         audioplayer = new ALAudioPlayer(Con.getApplication().session());
-
     }
 
 

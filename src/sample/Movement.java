@@ -16,9 +16,9 @@ public class Movement {
 
 
     // Constructor
-    public Movement(Connection pConnection) throws Exception {
+    public Movement(Connection pCon) throws Exception {
         System.out.println("new Movement()...");
-        this.Con = pConnection;
+        this.Con = pCon;
         motion = new ALMotion(Con.getApplication().session());
     }
 

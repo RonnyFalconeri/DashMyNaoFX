@@ -15,9 +15,9 @@ public class Speech {
 
 
     // Constructor
-    public Speech(Connection connection){
+    public Speech(Connection pCon){
         System.out.println("new Speech()...");
-        this.con = connection;
+        this.con = pCon;
     }
 
 
