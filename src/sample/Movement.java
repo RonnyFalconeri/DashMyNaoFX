@@ -8,6 +8,7 @@ public class Movement {
     private float X_Axis = 1.0f;
     private float Y_Axis;
     private float Z_Axis;
+    private float Velocity = 0.5f;
 
     private Connection Con;
     private ALMotion motion;
@@ -25,6 +26,7 @@ public class Movement {
 
     // methods for NAO
     public void moveBodyForward() throws InterruptedException, CallError {
+        this.X_Axis = 1.0f*this.Velocity;
         this.Y_Axis = 0.0f;
         this.Z_Axis = 0.0f;
         motion.stopMove();
@@ -64,6 +66,10 @@ public class Movement {
     public void setX_Axis(float pX_Axis){
         System.out.println("set X_Axis to: "+pX_Axis);
         this.X_Axis = pX_Axis;
+    }
+
+    public void setVelocity(float pVel) {
+        this.Velocity = pVel;
     }
 
     public void setY_Axis(float pY_Axis){

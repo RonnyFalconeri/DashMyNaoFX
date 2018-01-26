@@ -165,7 +165,7 @@ public class Controller {
         }
 
         public void changeMovementVel(MouseEvent mouseEvent) {
-            connection.getMovement().setX_Axis((float)MovementSliderVel.getValue());
+            connection.getMovement().setVelocity((float)MovementSliderVel.getValue());
         }
 
 
