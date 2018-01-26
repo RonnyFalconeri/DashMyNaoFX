@@ -13,6 +13,7 @@ public class Connection {
     private AudioPlayer audioplayer;
     private Appereance appereance;
     private Movement movement;
+    private BodyState bodystate;
 
 
 
@@ -36,6 +37,7 @@ public class Connection {
         audioplayer = new AudioPlayer();
         appereance = new Appereance(this);
         movement = new Movement(this);
+        bodystate = new BodyState(this);
 
         posture.posePosture("Stand");
         speech.sayText("I am connected.", "English");
@@ -95,7 +97,7 @@ public class Connection {
         return this.appereance;
     }
 
-    public Movement getMovement() {
-        return this.movement;
-    }
+    public Movement getMovement() {return this.movement;}
+
+    public BodyState getBodystate() {return this.bodystate;}
 }

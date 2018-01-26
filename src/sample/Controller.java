@@ -52,11 +52,19 @@ public class Controller {
         @FXML ComboBox AppereanceComboBoxColor;
         @FXML ComboBox AppereanceComboBoxGroup;
 
+        // BodyState
+        @FXML Button BodyStateButton;
+        @FXML Label BodyStateBatteryPerc;
+
 
     // methods for GUI actions here
 
         // GUI modification
         private void changeButtonText(Button ButtonName, String Text){ ButtonName.setText(Text);}public Controller() throws Exception {}
+
+        private void changeLabelText(Label Labelname, String Text){
+            Labelname.setText(Text);
+        }
 
         private void changeConnectionState(boolean state){
             // TODO: change the connection state of GUI
@@ -187,4 +195,10 @@ public class Controller {
         }
 
 
+        // BodyState
+        public void clickBodyStateButton(ActionEvent actionEvent) throws InterruptedException, CallError {
+            String BatteryPerc;
+            BatteryPerc = connection.getBodystate().getBatteryPercentage()+" %";
+            changeLabelText(BodyStateBatteryPerc, BatteryPerc);
+        }
 }
