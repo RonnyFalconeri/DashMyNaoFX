@@ -147,15 +147,6 @@ public class Controller {
             connection.getAudioplayer().setAudiosample(AudioPlayerComboBox.getSelectionModel().getSelectedItem().toString());
         }
 
-        public void changeAudioPlayerVolume(MouseEvent mouseEvent) {
-            connection.getAudioplayer().setVolume((float)AudioPlayerSlider.getValue());
-        }
-
-        public void clickAudioPlayerButtonStop(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getAudioplayer().stopPlaying();
-        }
-
-
         // Movement
         public void clickMovementButtonW(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getMovement().moveBodyForward();

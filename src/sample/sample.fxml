@@ -92,9 +92,6 @@
                 </items>
             </ComboBox>
             <Button fx:id="AudioPlayerButton" layoutX="439.0" layoutY="141.0" mnemonicParsing="false" onAction="#clickAudioPlayerButton" text="Play" />
-            <Slider fx:id="AudioPlayerSlider" layoutX="214.0" layoutY="235.0" max="1.0" onMouseReleased="#changeAudioPlayerVolume" prefHeight="24.0" prefWidth="263.0" />
-            <Label layoutX="80.0" layoutY="232.0" text="Volume" />
-         <Button fx:id="AudioPlayerButtonStop" layoutX="549.0" layoutY="141.0" mnemonicParsing="false" onAction="#clickAudioPlayerButtonStop" text="Stop" />
         </Pane>
     </Tab>
     <Tab text="LEDs">
