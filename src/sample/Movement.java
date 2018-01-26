@@ -35,7 +35,7 @@ public class Movement {
 
     public void moveBodyBackwards() throws InterruptedException, CallError {
         this.Y_Axis = 0.0f;
-        this.X_Axis = -1.0f;
+        this.X_Axis = -0.5f;
         this.Z_Axis = 0.0f;
         motion.stopMove();
         motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
@@ -44,7 +44,7 @@ public class Movement {
     public void changeMovementDirectionLeft() throws InterruptedException, CallError {
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
-        this.Z_Axis = 0.50f;
+        this.Z_Axis = 0.30f;
         motion.stopMove();
         motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
     }
@@ -52,13 +52,14 @@ public class Movement {
     public void changeMovementDirectionRight() throws InterruptedException, CallError {
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
-        this.Z_Axis = -0.50f;
+        this.Z_Axis = -0.30f;
         motion.stopMove();
         motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
     }
 
     public void stopMovement() throws InterruptedException, CallError {
         motion.stopMove();
+        motion.moveToward( 0.0f,0.0f,0.0f);
     }
 
 
