@@ -12,12 +12,12 @@ public class AudioPlayer {
 
 
 
-    // Constructor
-    public AudioPlayer(Connection pCon) throws Exception {
-        System.out.println("new AudioPlayer()...");
-        this.Con = pCon;
-        audioplayer = new ALAudioPlayer(Con.getApplication().session());
-    }
+        // Constructor
+        public AudioPlayer(Connection pCon) throws Exception {
+            System.out.println("new AudioPlayer()...");
+            this.Con = pCon;
+            audioplayer = new ALAudioPlayer(Con.getApplication().session());
+        }
 
 
     // methods for NAO
@@ -25,7 +25,6 @@ public class AudioPlayer {
         System.out.println("playing Audiosample: "+this.Audiosample);
         audioplayer.playSoundSetFile("Aldebaran",this.Audiosample);
     }
-
 
 
     // set n' get

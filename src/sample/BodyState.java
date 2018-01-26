@@ -3,7 +3,6 @@ package sample;
 import com.aldebaran.qi.CallError;
 import com.aldebaran.qi.helper.proxies.ALBattery;
 import com.aldebaran.qi.helper.proxies.ALBodyTemperature;
-
 import java.util.ArrayList;
 
 public class BodyState {
@@ -18,21 +17,22 @@ public class BodyState {
 
 
 
-    // Constructor
-    public BodyState(Connection pCon) throws Exception {
-        System.out.println("new BodyState()...");
-        this.Con = pCon;
-        battery = new ALBattery(Con.getApplication().session());
-        temp = new ALBodyTemperature(Con.getApplication().session());
+        // Constructor
+        public BodyState(Connection pCon) throws Exception {
+            System.out.println("new BodyState()...");
+            this.Con = pCon;
+            battery = new ALBattery(Con.getApplication().session());
+            temp = new ALBodyTemperature(Con.getApplication().session());
 
-    }
+        }
 
 
     // methods for NAO
     public void checkTemperature() throws InterruptedException, CallError {
         System.out.println("checking Temperature...");
-        int Temperatures=0;
         tempOb = temp.getTemperatureDiagnosis();
+        int Temperatures=5;
+
         if (tempOb instanceof ArrayList) {
             ArrayList tempList = (ArrayList) tempOb;
             Temperatures = (int) tempList.get(0);
@@ -42,15 +42,12 @@ public class BodyState {
 
         switch (Temperatures){
             case 0:
-                // everything is fine
                 this.Temperature = " Green - Everything is fine.";
             break;
             case 1:
-                // watch out
                 this.Temperature = "Yellow - Watch out.";
             break;
             case 2:
-                // caution - let cool down
                 this.Temperature = "Red - let the NAO cool down!";
             break;
             default:

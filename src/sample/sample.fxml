@@ -12,7 +12,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
+
 <TabPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+
+    <!-- CONNECTION ____________________________-->
     <Tab text="Connection">
         <Pane prefHeight="300.0" prefWidth="500.0">
             <Label layoutX="223.0" layoutY="14.0" styleClass="titel" text="Connection" />
@@ -22,6 +25,8 @@
             <Circle fx:id="ConnectionStatus" fill="#da0707" layoutX="382.0" layoutY="171.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
         </Pane>
     </Tab>
+
+    <!-- MOVEMENT ____________________________-->
     <Tab text="Movement">
         <Pane prefHeight="200.0" prefWidth="200.0">
             <Label layoutX="278.0" layoutY="14.0" styleClass="titel" text="Movement" />
@@ -34,6 +39,8 @@
          <Button fx:id="MovementButtonStop" layoutX="46.0" layoutY="218.0" mnemonicParsing="false" onAction="#clickMovementButtonStop" prefHeight="65.0" prefWidth="231.0" text="Stop" />
         </Pane>
     </Tab>
+
+    <!-- POSTURE ____________________________-->
     <Tab text="Posture">
         <Pane prefHeight="200.0" prefWidth="200.0">
             <Label layoutX="286.0" layoutY="14.0" styleClass="titel" text="Posture" />
@@ -57,6 +64,8 @@
             <Label layoutX="110.0" layoutY="243.0" text="Speed" />
         </Pane>
     </Tab>
+
+    <!-- SPEECH ____________________________-->
     <Tab text="Speech">
         <Pane prefHeight="300.0" prefWidth="500.0">
             <Label layoutX="234.0" layoutY="14.0" styleClass="titel" text="Speech" />
@@ -76,6 +85,8 @@
             <Label layoutX="504.0" layoutY="246.0" text="Volume" />
         </Pane>
     </Tab>
+
+    <!-- AUDIOPLAYER ____________________________-->
     <Tab text="Audio Sample">
         <Pane prefHeight="200.0" prefWidth="200.0">
             <Label layoutX="248.0" layoutY="14.0" styleClass="titel" text="Audio Player" />
@@ -94,9 +105,13 @@
             <Button fx:id="AudioPlayerButton" layoutX="439.0" layoutY="141.0" mnemonicParsing="false" onAction="#clickAudioPlayerButton" text="Play" />
         </Pane>
     </Tab>
+
+    <!-- APPEREANCE ____________________________-->
     <Tab text="LEDs">
         <Pane prefHeight="200.0" prefWidth="200.0">
             <Label layoutX="294.0" layoutY="14.0" text="LEDs" />
+
+            <!-- GROUP SELECTION -->
             <ComboBox fx:id="AppereanceComboBoxGroup" layoutX="35.0" layoutY="66.0" onAction="#changeAppereanceGroup" prefHeight="25.0" prefWidth="201.0" promptText="Select Body Group">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
@@ -108,6 +123,8 @@
                 </items>
             </ComboBox>
             <Button fx:id="AppereanceButtonSet" layoutX="378.0" layoutY="79.0" mnemonicParsing="false" onAction="#clickAppereanceButtonSet" prefHeight="45.0" prefWidth="67.0" text="set LED" />
+
+            <!-- COLOR SELECTION -->
             <ComboBox fx:id="AppereanceComboBoxColor" layoutX="35.0" layoutY="139.0" onAction="#changeAppereanceColor" prefHeight="25.0" prefWidth="201.0" promptText="Pick a color">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
@@ -124,6 +141,8 @@
             <Button fx:id="AppereanceButtonReset" layoutX="486.0" layoutY="89.0" mnemonicParsing="false" onAction="#clickAppereanceButtonReset" text="reset" />
         </Pane>
     </Tab>
+
+    <!-- BODYSTATE ____________________________-->
     <Tab text="Body State">
         <Pane prefHeight="305.0" prefWidth="470.0">
             <Label layoutX="207.0" layoutY="23.0" text="Body State" />
@@ -134,4 +153,5 @@
          <Label fx:id="BodyStateLabelTemp" layoutX="197.0" layoutY="78.0" />
         </Pane>
     </Tab>
+
 </TabPane>

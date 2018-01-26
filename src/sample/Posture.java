@@ -13,12 +13,12 @@ public class Posture {
 
 
 
-    // Constructor
-    public Posture(Connection pCon) throws Exception {
-        System.out.println("new Posture()...");
-        this.connection = pCon;
-        pos = new ALRobotPosture(this.connection.getApplication().session());
-    }
+        // Constructor
+        public Posture(Connection pCon) throws Exception {
+            System.out.println("new Posture()...");
+            this.connection = pCon;
+            pos = new ALRobotPosture(this.connection.getApplication().session());
+        }
 
 
 
@@ -29,7 +29,8 @@ public class Posture {
         pos.goToPosture(this.Posture, this.Speed);
     }
 
-    public void posePosture(String pPosture) throws InterruptedException, CallError { // for external use
+    // additional method for external use
+    public void posePosture(String pPosture) throws InterruptedException, CallError {
         pos.goToPosture(pPosture, 1.0f);
     }
 
@@ -44,4 +45,5 @@ public class Posture {
         System.out.println("set Speed to: "+Speed);
         this.Speed = Speed;
     }
+
 }

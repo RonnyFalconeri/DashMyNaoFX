@@ -36,7 +36,6 @@ public class Controller {
         // AudioPlayer
         @FXML Button AudioPlayerButton;
         @FXML ComboBox AudioPlayerComboBox;
-        @FXML Slider AudioPlayerSlider;
 
         // Movement
         @FXML Button MovementButtonW;
@@ -101,13 +100,9 @@ public class Controller {
 
 
         // Speech
-        public void clickSpeechButton(ActionEvent actionEvent) throws Exception {
-            connection.getSpeech().sayText();
-        }
+        public void clickSpeechButton(ActionEvent actionEvent) throws Exception {connection.getSpeech().sayText();}
 
-        public void changeSpeechText(KeyEvent keyEvent) {
-            connection.getSpeech().setSpeechtext(SpeechText.getText());
-        }
+        public void changeSpeechText(KeyEvent keyEvent) {connection.getSpeech().setSpeechtext(SpeechText.getText());}
 
         public void changeLanguage(ActionEvent actionEvent) {
             connection.getSpeech().setLanguage(SpeechLanguage.getSelectionModel().getSelectedItem().toString());
@@ -146,6 +141,7 @@ public class Controller {
         public void changeAudioPlayerAudiosample(ActionEvent actionEvent) {
             connection.getAudioplayer().setAudiosample(AudioPlayerComboBox.getSelectionModel().getSelectedItem().toString());
         }
+
 
         // Movement
         public void clickMovementButtonW(ActionEvent actionEvent) throws CallError, InterruptedException {
@@ -202,8 +198,6 @@ public class Controller {
             String Temp;
             Temp = connection.getBodystate().getTemperature();
             changeLabelText(BodyStateLabelTemp,Temp);
-
         }
-
 
 }

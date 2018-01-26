@@ -15,12 +15,12 @@ public class Movement {
 
 
 
-    // Constructor
-    public Movement(Connection pCon) throws Exception {
-        System.out.println("new Movement()...");
-        this.Con = pCon;
-        motion = new ALMotion(Con.getApplication().session());
-    }
+        // Constructor
+        public Movement(Connection pCon) throws Exception {
+            System.out.println("new Movement()...");
+            this.Con = pCon;
+            motion = new ALMotion(Con.getApplication().session());
+        }
 
 
 
@@ -69,49 +69,9 @@ public class Movement {
 
 
     // set n' get
-
     public void setVelocity(float pVel) {
         System.out.println("set Velocity to: "+pVel);
         this.Velocity = pVel;
     }
 
-
 }
-
-// y wert steht für geschwindigkeit? also doch parameter?
-
-//public static ALMotion motion;
-
-// gerade aus
-//public static float x = 1.0f;
-//public static float y = 0.0f;
-//public static float gerade = 0.0f;
-
-//drehen links
-//public static float x1 = 0.0f;
-//public static float y1 = 0.0f;
-//public static float drehunglinks = -0.50f;
-
-// drehen rechts
-//public static float x2 = 0.0f;
-//public static float y2 = 0.0f;
-//public static float drehungrechts = 0.50f;
-
-//gerade aus
-//motion = new ALMotion(app.session());
-//motion.stopMove();
-//motion.moveToward( x, y, gerade);
-
-// nach links
-//motion = new ALMotion(app.session());
-//motion.stopMove();
-//motion.moveToward( x1, y1, drehunglinks);
-// nach rechts
-
-//motion = new ALMotion(app.session());
-//motion.stopMove();
-//motion.moveToward( x2, y2, drehungrechts);
-
-//stoppen
-//motion = new ALMotion(app.session());
-// motion.stopMove();

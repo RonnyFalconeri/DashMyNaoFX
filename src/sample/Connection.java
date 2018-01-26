@@ -17,10 +17,10 @@ public class Connection {
 
 
 
-    // Constructor
-    public Connection() throws Exception {
-        System.out.println("new Connection()... ");
-    }
+        // Constructor
+        public Connection() throws Exception {
+            System.out.println("new Connection()... ");
+        }
 
 
 
@@ -39,6 +39,7 @@ public class Connection {
         movement = new Movement(this);
         bodystate = new BodyState(this);
 
+        // giving feedback
         posture.posePosture("Stand");
         speech.sayText("I am connected.", "English");
     }
@@ -77,6 +78,8 @@ public class Connection {
         return this.IsConnected;
     }
 
+
+    // get objects from outside
     public Speech getSpeech(){
         return this.speech;
     }

@@ -14,11 +14,11 @@ public class Speech {
 
 
 
-    // Constructor
-    public Speech(Connection pCon){
-        System.out.println("new Speech()...");
-        this.con = pCon;
-    }
+        // Constructor
+        public Speech(Connection pCon){
+            System.out.println("new Speech()...");
+            this.con = pCon;
+        }
 
 
 
@@ -60,4 +60,5 @@ public class Speech {
         System.out.println("set Volume to: "+volume);
         this.Volume = volume;
     }
+
 }

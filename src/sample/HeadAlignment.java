@@ -8,11 +8,11 @@ public class HeadAlignment {
 
 
 
-    // Constructor
-    public HeadAlignment(){
-        System.out.println("new HeadAlignment()...");
+        // Constructor
+        public HeadAlignment(){
+            System.out.println("new HeadAlignment()...");
 
-    }
+        }
 
 
     // methods for NAO
