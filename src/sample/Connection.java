@@ -14,6 +14,7 @@ public class Connection {
     private Appereance appereance;
     private Movement movement;
     private BodyState bodystate;
+    private HeadAlignment headalignment;
 
 
 
@@ -38,6 +39,7 @@ public class Connection {
         appereance = new Appereance(this);
         movement = new Movement(this);
         bodystate = new BodyState(this);
+        headalignment = new HeadAlignment(this);
 
         // giving feedback
         posture.posePosture("Stand");
@@ -103,4 +105,8 @@ public class Connection {
     public Movement getMovement() {return this.movement;}
 
     public BodyState getBodystate() {return this.bodystate;}
+
+    public HeadAlignment getHeadalignment() {
+        return this.headalignment;
+    }
 }

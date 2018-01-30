@@ -56,6 +56,13 @@ public class Controller {
         @FXML Label BodyStateBatteryPerc;
         @FXML Label BodyStateLabelTemp;
 
+        // HeadAlignment
+        @FXML Button HeadAlButtonUp;
+        @FXML Button HeadAlButtonRight;
+        @FXML Button HeadAlButtonDown;
+        @FXML Button HeadAlButtonLeft;
+        @FXML Button HeadAlButtonCenter;
+
 
     // methods for GUI actions here
 
@@ -198,6 +205,28 @@ public class Controller {
             String Temp;
             Temp = connection.getBodystate().getTemperature();
             changeLabelText(BodyStateLabelTemp,Temp);
+        }
+
+
+        // HeadAlignment
+        public void clickHeadAlButtonUp(ActionEvent actionEvent) {
+            connection.getHeadalignment().moveHeadUp();
+        }
+
+        public void clickHeadAlButtonDown(ActionEvent actionEvent) {
+            connection.getHeadalignment().moveHeadDown();
+        }
+
+        public void clickHeadAlButtonCenter(ActionEvent actionEvent) {
+            connection.getHeadalignment().moveHeadCenter();
+        }
+
+        public void clickHeadAlButtonLeft(ActionEvent actionEvent) {
+            connection.getHeadalignment().moveHeadLeft();
+        }
+
+        public void clickHeadAlButtonRight(ActionEvent actionEvent) {
+            connection.getHeadalignment().moveHeadRight();
         }
 
 }

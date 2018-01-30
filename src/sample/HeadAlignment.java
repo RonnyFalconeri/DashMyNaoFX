@@ -6,19 +6,45 @@ public class HeadAlignment {
     private double Y_Axis;
     private double Z_Axis;
 
+    private Connection Con;
+
 
 
         // Constructor
-        public HeadAlignment(){
+        public HeadAlignment(Connection pCon){
             System.out.println("new HeadAlignment()...");
-
+            this.Con = pCon;
         }
 
 
 
     // methods for NAO
-    public void moveHead(double X_Axis, double Y_Axis, double Z_Axis){
-        System.out.println("moving head to: ("+X_Axis + Y_Axis + Z_Axis+")");
+    public void moveHeadUp(){
+        System.out.println("moving head up");
+
+        // TODO: make the head move with the given parameters
+    }
+
+    public void moveHeadRight(){
+        System.out.println("moving head right");
+
+        // TODO: make the head move with the given parameters
+    }
+
+    public void moveHeadDown(){
+        System.out.println("moving head down");
+
+        // TODO: make the head move with the given parameters
+    }
+
+    public void moveHeadLeft(){
+        System.out.println("moving head left");
+
+        // TODO: make the head move with the given parameters
+    }
+
+    public void moveHeadCenter(){
+        System.out.println("moving head center");
 
         // TODO: make the head move with the given parameters
     }
@@ -36,4 +62,5 @@ public class HeadAlignment {
     public void setZ_Axis(double z_Axis) {
         Z_Axis = z_Axis;
     }
+
 }
