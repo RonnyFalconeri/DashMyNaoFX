@@ -82,31 +82,20 @@ public class Connection {
 
 
     // get objects from outside
-    public Speech getSpeech(){
-        return this.speech;
-    }
+    public Speech getSpeech(){return this.speech;}
 
-    public Application getApplication(){
-        return this.application;
-    }
+    public Application getApplication(){return this.application;}
 
-    public Posture getPosture() {
-        return this.posture;
-    }
+    public Posture getPosture() {return this.posture;}
 
-    public AudioPlayer getAudioplayer(){
-        return this.audioplayer;
-    }
+    public AudioPlayer getAudioplayer(){return this.audioplayer;}
 
-    public Appereance getAppereance() {
-        return this.appereance;
-    }
+    public Appereance getAppereance() {return this.appereance;}
 
     public Movement getMovement() {return this.movement;}
 
     public BodyState getBodystate() {return this.bodystate;}
 
-    public HeadAlignment getHeadalignment() {
-        return this.headalignment;
-    }
+    public HeadAlignment getHeadalignment() {return this.headalignment;}
+
 }

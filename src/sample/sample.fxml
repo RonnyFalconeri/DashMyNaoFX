@@ -152,6 +152,8 @@
          <Label fx:id="BodyStateLabelTemp" layoutX="197.0" layoutY="78.0" />
         </Pane>
     </Tab>
+
+    <!-- HEADALIGNMENT ____________________________-->
    <Tab text="Head Alignment">
       <content>
          <Pane prefHeight="200.0" prefWidth="200.0">
