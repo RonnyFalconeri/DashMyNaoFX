@@ -171,6 +171,19 @@ public class Controller {
             connection.getMovement().stopMovement();
         }
 
+        public void clickMovementKey(KeyEvent keyEvent) throws CallError, InterruptedException {
+            if(keyEvent.getText().equals("w")){
+                connection.getMovement().moveBodyForward();
+            } else if(keyEvent.getText().equals("a")){
+                connection.getMovement().changeMovementDirectionLeft();
+            } else if(keyEvent.getText().equals("s")){
+                connection.getMovement().moveBodyBackwards();
+            } else if(keyEvent.getText().equals("d")){
+                connection.getMovement().changeMovementDirectionRight();
+            } else if(keyEvent.getText().equals(" ")){
+                connection.getMovement().stopMovement();
+            }
+        }
         public void changeMovementVel(MouseEvent mouseEvent) {
             connection.getMovement().setVelocity((float)MovementSliderVel.getValue());
         }
@@ -228,5 +241,6 @@ public class Controller {
         public void clickHeadAlButtonRight(ActionEvent actionEvent) {
             connection.getHeadalignment().moveHeadRight();
         }
+
 
 }

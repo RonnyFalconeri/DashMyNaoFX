@@ -29,13 +29,13 @@
     <Tab text="Movement">
         <Pane prefHeight="200.0" prefWidth="200.0">
             <Label layoutX="278.0" layoutY="14.0" styleClass="titel" text="Movement" />
-            <Button fx:id="MovementButtonW" layoutX="123.0" layoutY="59.0" mnemonicParsing="false" onAction="#clickMovementButtonW" prefHeight="67.0" prefWidth="76.0" text="W" />
-            <Button fx:id="MovementButtonA" layoutX="47.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickMovementButtonA" prefHeight="67.0" prefWidth="76.0" text="A" />
-            <Button fx:id="MovementButtonS" layoutX="123.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickMovementButtonS" prefHeight="67.0" prefWidth="76.0" text="S" />
-            <Button fx:id="MovementButtonD" layoutX="199.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickMovementButtonD" prefHeight="67.0" prefWidth="76.0" text="D" />
+            <Button fx:id="MovementButtonW" layoutX="123.0" layoutY="59.0" mnemonicParsing="false" onAction="#clickMovementButtonW" onKeyPressed="#clickMovementKey" prefHeight="67.0" prefWidth="76.0" text="W" />
+            <Button fx:id="MovementButtonA" layoutX="47.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickMovementButtonA" onKeyPressed="#clickMovementKey" prefHeight="67.0" prefWidth="76.0" text="A" />
+            <Button fx:id="MovementButtonS" layoutX="123.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickMovementButtonS" onKeyPressed="#clickMovementKey" prefHeight="67.0" prefWidth="76.0" text="S" />
+            <Button fx:id="MovementButtonD" layoutX="199.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickMovementButtonD" onKeyPressed="#clickMovementKey" prefHeight="67.0" prefWidth="76.0" text="D" />
             <Slider fx:id="MovementSliderVel" layoutX="461.0" layoutY="56.0" max="1.0" onMouseReleased="#changeMovementVel" orientation="VERTICAL" />
             <Label layoutX="447.0" layoutY="219.0" text="Velocity" />
-         <Button fx:id="MovementButtonStop" layoutX="46.0" layoutY="218.0" mnemonicParsing="false" onAction="#clickMovementButtonStop" prefHeight="65.0" prefWidth="231.0" text="Stop" />
+         <Button fx:id="MovementButtonStop" layoutX="46.0" layoutY="218.0" mnemonicParsing="false" onAction="#clickMovementButtonStop" onKeyPressed="#clickMovementKey" prefHeight="65.0" prefWidth="231.0" text="Stop" />
         </Pane>
     </Tab>
 
