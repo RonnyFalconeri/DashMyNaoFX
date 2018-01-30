@@ -15,6 +15,7 @@ public class HeadAlignment {
         }
 
 
+
     // methods for NAO
     public void moveHead(double X_Axis, double Y_Axis, double Z_Axis){
         System.out.println("moving head to: ("+X_Axis + Y_Axis + Z_Axis+")");

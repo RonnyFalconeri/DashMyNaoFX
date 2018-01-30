@@ -20,6 +20,7 @@ public class AudioPlayer {
         }
 
 
+
     // methods for NAO
     public void playAudiosample() throws InterruptedException, CallError {
         System.out.println("playing Audiosample: "+this.Audiosample);

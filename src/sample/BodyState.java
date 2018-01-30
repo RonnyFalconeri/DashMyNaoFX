@@ -23,8 +23,8 @@ public class BodyState {
             this.Con = pCon;
             battery = new ALBattery(Con.getApplication().session());
             temp = new ALBodyTemperature(Con.getApplication().session());
-
         }
+
 
 
     // methods for NAO

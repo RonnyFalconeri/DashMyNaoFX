@@ -9,7 +9,7 @@ public class Speech {
     private int Pitch = 100;
     private float Volume = 0.5f;
 
-    private Connection con;
+    private Connection Con;
     private ALTextToSpeech tts;
 
 
@@ -17,7 +17,7 @@ public class Speech {
         // Constructor
         public Speech(Connection pCon){
             System.out.println("new Speech()...");
-            this.con = pCon;
+            this.Con = pCon;
         }
 
 
@@ -26,7 +26,7 @@ public class Speech {
     public void sayText() throws Exception{
         System.out.println("sayText()...");
         System.out.println("to say: '"+this.Speechtext+"', language: "+this.Language);
-        tts = new ALTextToSpeech(con.getApplication().session());
+        tts = new ALTextToSpeech(Con.getApplication().session());
         tts.setVolume(this.Volume);
         tts.say("\\vct="+this.Pitch+"\\"+this.Speechtext, this.Language);
     }
@@ -35,7 +35,7 @@ public class Speech {
     public void sayText(String pSpeechtext, String pLanguage) throws Exception{
         System.out.println("sayText()...");
         System.out.println("to say: '"+pSpeechtext+"', language: "+pLanguage);
-        ALTextToSpeech tts = new ALTextToSpeech(con.getApplication().session());
+        ALTextToSpeech tts = new ALTextToSpeech(Con.getApplication().session());
         tts.say(pSpeechtext,pLanguage);
     }
 

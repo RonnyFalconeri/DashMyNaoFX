@@ -8,7 +8,7 @@ public class Posture {
     private String Posture="Stand";
     private float Speed=1.0f;
 
-    private Connection connection;
+    private Connection Con;
     private ALRobotPosture pos;
 
 
@@ -16,8 +16,8 @@ public class Posture {
         // Constructor
         public Posture(Connection pCon) throws Exception {
             System.out.println("new Posture()...");
-            this.connection = pCon;
-            pos = new ALRobotPosture(this.connection.getApplication().session());
+            this.Con = pCon;
+            pos = new ALRobotPosture(this.Con.getApplication().session());
         }
 
 
