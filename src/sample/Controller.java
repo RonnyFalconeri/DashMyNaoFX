@@ -172,15 +172,21 @@ public class Controller {
         }
 
         public void clickMovementKey(KeyEvent keyEvent) throws CallError, InterruptedException {
+            System.out.print("key pressed: ");
             if(keyEvent.getText().equals("w")){
+                System.out.println("w pressed");
                 connection.getMovement().moveBodyForward();
             } else if(keyEvent.getText().equals("a")){
+                System.out.println("a pressed");
                 connection.getMovement().changeMovementDirectionLeft();
             } else if(keyEvent.getText().equals("s")){
+                System.out.println("s pressed");
                 connection.getMovement().moveBodyBackwards();
             } else if(keyEvent.getText().equals("d")){
+                System.out.println("d pressed");
                 connection.getMovement().changeMovementDirectionRight();
             } else if(keyEvent.getText().equals(" ")){
+                System.out.println("space pressed");
                 connection.getMovement().stopMovement();
             }
         }
