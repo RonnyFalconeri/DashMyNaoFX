@@ -27,34 +27,34 @@ public class HeadAlignment {
     // methods for NAO
     public void moveHeadUp() throws InterruptedException, CallError {
         System.out.println("moving head up");
-        this.Vertical_Axis = 1.0f;
-        motion.angleInterpolationWithSpeed("HeadPitch",this.Vertical_Axis, 0.50f);
+        this.Vertical_Axis = -1.0f;
+        motion.angleInterpolationWithSpeed("HeadPitch",this.Vertical_Axis, 0.20f);
     }
 
     public void moveHeadRight() throws InterruptedException, CallError {
         System.out.println("moving head right");
         this.Horizontal_Axis = -1.0f;
-        motion.angleInterpolationWithSpeed("HeadPitch",this.Horizontal_Axis, 0.50f);
+        motion.angleInterpolationWithSpeed("HeadYaw",this.Horizontal_Axis, 0.20f);
     }
 
     public void moveHeadDown() throws InterruptedException, CallError {
         System.out.println("moving head down");
-        this.Vertical_Axis = -1.0f;
-        motion.angleInterpolationWithSpeed("HeadPitch",this.Vertical_Axis, 0.50f);
+        this.Vertical_Axis = 1.0f;
+        motion.angleInterpolationWithSpeed("HeadPitch",this.Vertical_Axis, 0.20f);
     }
 
     public void moveHeadLeft() throws InterruptedException, CallError {
         System.out.println("moving head left");
         this.Horizontal_Axis = 1.0f;
-        motion.angleInterpolationWithSpeed("HeadPitch",this.Horizontal_Axis, 0.50f);
+        motion.angleInterpolationWithSpeed("HeadYaw",this.Horizontal_Axis, 0.20f);
     }
 
     public void moveHeadCenter() throws InterruptedException, CallError {
         System.out.println("moving head center");
         this.Horizontal_Axis = 0.0f;
         this.Vertical_Axis = 0.0f;
-        motion.angleInterpolationWithSpeed("HeadPitch",this.Horizontal_Axis, 0.50f);
-        motion.angleInterpolationWithSpeed("HeadPitch",this.Vertical_Axis, 0.50f);
+        motion.angleInterpolationWithSpeed("HeadYaw",this.Horizontal_Axis, 0.20f);
+        motion.angleInterpolationWithSpeed("HeadPitch",this.Vertical_Axis, 0.20f);
     }
 
 }
