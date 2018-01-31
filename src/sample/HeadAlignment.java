@@ -1,53 +1,60 @@
 package sample;
 
+import com.aldebaran.qi.CallError;
+import com.aldebaran.qi.helper.proxies.ALMotion;
+
 public class HeadAlignment {
 
     // variables of instance
-    private double Vertical_Axis; //HeadYaw
-    private double Horizontal_Axis; //Pitch
+    private double Vertical_Axis; //HeadPitch
+    private double Horizontal_Axis; //HeadYaw
 
     // variables of other objects
     private Connection Con;
+    private ALMotion motion;
 
 
 
         // Constructor
-        public HeadAlignment(Connection pCon){
+        public HeadAlignment(Connection pCon) throws Exception {
             System.out.println("new HeadAlignment()...");
             this.Con = pCon;
+            motion = new ALMotion(Con.getApplication().session());
         }
 
 
 
     // methods for NAO
-    public void moveHeadUp(){
+    public void moveHeadUp() throws InterruptedException, CallError {
         System.out.println("moving head up");
-
-        // TODO: make the head move with the given parameters
+        this.Vertical_Axis = 1.0f;
+        motion.angleInterpolationWithSpeed("HeadPitch",this.Vertical_Axis, 0.50f);
     }
 
-    public void moveHeadRight(){
+    public void moveHeadRight() throws InterruptedException, CallError {
         System.out.println("moving head right");
-
-        // TODO: make the head move with the given parameters
+        this.Horizontal_Axis = -1.0f;
+        motion.angleInterpolationWithSpeed("HeadPitch",this.Horizontal_Axis, 0.50f);
     }
 
-    public void moveHeadDown(){
+    public void moveHeadDown() throws InterruptedException, CallError {
         System.out.println("moving head down");
-
-        // TODO: make the head move with the given parameters
+        this.Vertical_Axis = -1.0f;
+        motion.angleInterpolationWithSpeed("HeadPitch",this.Vertical_Axis, 0.50f);
     }
 
-    public void moveHeadLeft(){
+    public void moveHeadLeft() throws InterruptedException, CallError {
         System.out.println("moving head left");
-
-        // TODO: make the head move with the given parameters
+        this.Horizontal_Axis = 1.0f;
+        motion.angleInterpolationWithSpeed("HeadPitch",this.Horizontal_Axis, 0.50f);
     }
 
-    public void moveHeadCenter(){
+    public void moveHeadCenter() throws InterruptedException, CallError {
         System.out.println("moving head center");
-
-        // TODO: make the head move with the given parameters
+        this.Horizontal_Axis = 0.0f;
+        this.Vertical_Axis = 0.0f;
+        motion.angleInterpolationWithSpeed("HeadPitch",this.Horizontal_Axis, 0.50f);
+        motion.angleInterpolationWithSpeed("HeadPitch",this.Vertical_Axis, 0.50f);
     }
 
 }
