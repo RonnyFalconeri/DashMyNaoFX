@@ -9,7 +9,7 @@ public class Movement {
     private float X_Axis = 1.0f;
     private float Y_Axis;
     private float Z_Axis;
-    private float Velocity = 0.5f;
+    private float Velocity = 1.0f;
 
     // variables of other objects
     private Connection Con;

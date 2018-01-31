@@ -33,12 +33,19 @@ public class Speech {
         tts.say("\\vct="+this.Pitch+"\\"+this.Speechtext, this.Language);
     }
 
-    // additional method for external use
+    // additional methods for external use
     public void sayText(String pSpeechtext, String pLanguage) throws Exception{
         System.out.println("sayText()...");
         System.out.println("to say: '"+pSpeechtext+"', language: "+pLanguage);
         ALTextToSpeech tts = new ALTextToSpeech(Con.getApplication().session());
         tts.say(pSpeechtext,pLanguage);
+    }
+
+    public void sayText(String pSpeechtext, String pLanguage, int pPitch) throws Exception{
+        System.out.println("sayText()...");
+        System.out.println("to say: '"+pSpeechtext+"', language: "+pLanguage);
+        ALTextToSpeech tts = new ALTextToSpeech(Con.getApplication().session());
+        tts.say("\\vct="+pPitch+"\\"+pSpeechtext,pLanguage);
     }
 
 
