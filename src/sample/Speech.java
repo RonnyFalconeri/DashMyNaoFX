@@ -4,11 +4,13 @@ import com.aldebaran.qi.helper.proxies.ALTextToSpeech;
 
 public class Speech {
 
+    // variables of instance
     private String Speechtext="null";
     private String Language = "Deutsch";
     private int Pitch = 100;
     private float Volume = 0.5f;
 
+    // variables of other objects
     private Connection Con;
     private ALTextToSpeech tts;
 

@@ -5,11 +5,12 @@ import com.aldebaran.qi.helper.proxies.ALLeds;
 
 public class Appereance {
 
-    //allowed colors: "white", "red", "green", "blue", "yellow", "magenta", "cyan"
+    // variables of instance
     private String Color = "white";
     private String Group = "AllLeds";
     private float dur = 2.0f;
 
+    // variables of other objects
     private ALLeds leds;
     private Connection Con;
 

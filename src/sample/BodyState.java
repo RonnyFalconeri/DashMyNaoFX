@@ -7,9 +7,11 @@ import java.util.ArrayList;
 
 public class BodyState {
 
+    // variables of instance
     private String Temperature;
     private int BatteryPercentage;
 
+    // variables of other objects
     private ALBattery battery;
     private ALBodyTemperature temp;
     private Object tempOb;
@@ -31,18 +33,18 @@ public class BodyState {
     public void checkTemperature() throws InterruptedException, CallError {
         System.out.println("checking Temperature...");
         tempOb = temp.getTemperatureDiagnosis();
-        int Temperatures=5;
+        int tempReturn=0;
 
         if (tempOb instanceof ArrayList) {
             ArrayList tempList = (ArrayList) tempOb;
-            Temperatures = (int) tempList.get(0);
+            tempReturn = (int) tempList.get(0);
         } else {
             System.out.println("no given return values");
         }
 
-        switch (Temperatures){
+        switch (tempReturn){
             case 0:
-                this.Temperature = " Green - Everything is fine.";
+                this.Temperature = "Green - Everything is fine.";
             break;
             case 1:
                 this.Temperature = "Yellow - Watch out.";
