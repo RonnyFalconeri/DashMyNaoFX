@@ -190,6 +190,7 @@ public class Controller {
                 connection.getMovement().stopMovement();
             }
         }
+
         public void changeMovementVel(MouseEvent mouseEvent) {
             connection.getMovement().setVelocity((float)MovementSliderVel.getValue());
         }
