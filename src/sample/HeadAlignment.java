@@ -51,6 +51,8 @@ public class HeadAlignment {
     }
 
 }
+
+
 // 1.0f nach unten -1.0f nach oben HeadPitch 0.0f
 //1.0f nach links -1.0 nach rechts für Center 0.0f
 // motion = new ALMotion(app.session());
