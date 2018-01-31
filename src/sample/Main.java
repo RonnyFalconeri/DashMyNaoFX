@@ -15,7 +15,7 @@ public class Main extends Application {
         primaryStage.setTitle("Dash My Nao FX");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
-        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream( "icon.png" )));
+        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream( "images/icon.png" )));
         primaryStage.show();
 
     }
