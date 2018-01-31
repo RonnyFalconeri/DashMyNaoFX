@@ -55,8 +55,7 @@ public class Connection {
 
     public void checkConnectionState(){
         System.out.println("checking the connection state...");
-        boolean state=false;
-        state = application.session().isConnected();
+        boolean state = application.session().isConnected();
         System.out.println("state: "+state);
         setConnected(state);
     }
