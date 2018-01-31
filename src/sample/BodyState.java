@@ -30,6 +30,7 @@ public class BodyState {
 
 
     // methods for NAO
+    // nochmals ausprobieren
     public void checkTemperature() throws InterruptedException, CallError {
         System.out.println("checking Temperature...");
         tempOb = temp.getTemperatureDiagnosis();

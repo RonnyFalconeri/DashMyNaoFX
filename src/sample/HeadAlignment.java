@@ -51,3 +51,11 @@ public class HeadAlignment {
     }
 
 }
+// 1.0f nach unten -1.0f nach oben HeadPitch 0.0f
+//1.0f nach links -1.0 nach rechts für Center 0.0f
+// motion = new ALMotion(app.session());
+//System.out.println(motion.getSummary());
+//motion.angleInterpolationWithSpeed("HeadPitch",1.0f, 0.50f);
+//motion.angleInterpolationWithSpeed("HeadPitch",0.0f, 0.50f);
+//motion.angleInterpolationWithSpeed("HeadYaw",0.0f, 0.50f);
+// motion.angleInterpolationWithSpeed("HeadYaw",1.0f, 0.5f);
