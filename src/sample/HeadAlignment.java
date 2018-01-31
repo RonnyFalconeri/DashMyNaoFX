@@ -51,3 +51,19 @@ public class HeadAlignment {
     }
 
 }
+
+/*
+
+    head touch sensors
+
+    "reacting to events"
+
+    frontTactilSubscriptionId = memory.subscribeToEvent...
+
+    "FrontTactilTouched"
+
+    ReactToEvents -> aldeberan seite
+    subscription, listener mechanism,
+
+
+ */
