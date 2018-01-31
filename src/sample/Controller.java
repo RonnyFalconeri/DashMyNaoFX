@@ -73,6 +73,10 @@ public class Controller {
             Labelname.setText(Text);
         }
 
+        private void changeTextfieldText(TextField TextFieldName, String Text){
+        TextFieldName.setText(Text);
+    }
+
         private void changeConnectionState(boolean state){
             // TODO: change the connection state of GUI
         }
@@ -87,6 +91,8 @@ public class Controller {
             if (amountClicked < 2) {
                 // connect for the first time
                 connection.buildNewConnection();
+
+                // GUI modification
                 changeConnectionState(true);
                 changeButtonText(ConnectionButton, "Disconnect");
             } else {
@@ -94,7 +100,10 @@ public class Controller {
                 if (connection.isConnected()) {
                     // kill connection
                     connection.killConnection();
+
+                    // GUI modification
                     changeConnectionState(false);
+                    changeTextfieldText(ConnectionIP," ");
                     changeButtonText(ConnectionButton, "Connect");
                 } else {
                     // build connection
@@ -102,6 +111,8 @@ public class Controller {
                     connection.setIP_Adress(ConnectionIP.getText());
                     connection.setPort(ConnectionPort.getText());
                     connection.buildNewConnection();
+
+                    // GUI modification
                     changeConnectionState(true);
                     changeButtonText(ConnectionButton, "Disconnect");
                 }
