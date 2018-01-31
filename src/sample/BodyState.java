@@ -51,7 +51,7 @@ public class BodyState {
                 this.Temperature = "Red - let the NAO cool down!";
             break;
             default:
-                System.out.println("temperature return error");
+                this.Temperature = "No value given.";
         }
     }
 
