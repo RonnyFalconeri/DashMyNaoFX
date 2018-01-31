@@ -34,7 +34,7 @@ public class BodyState {
     public void checkTemperature() throws InterruptedException, CallError {
         System.out.println("checking Temperature...");
         tempOb = temp.getTemperatureDiagnosis();
-        int tempReturn=0;
+        int tempReturn=5;
 
         if (tempOb instanceof ArrayList) {
             ArrayList tempList = (ArrayList) tempOb;

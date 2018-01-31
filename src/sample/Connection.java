@@ -56,9 +56,8 @@ public class Connection {
     public void checkConnectionState(){
         System.out.println("checking the connection state...");
         boolean state=false;
-
-        // TODO: check the current connection of NAO
-
+        state = application.session().isConnected();
+        System.out.println("state: "+state);
         setConnected(state);
     }
 
