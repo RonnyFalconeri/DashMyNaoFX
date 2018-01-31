@@ -3,10 +3,12 @@ import com.aldebaran.qi.Application;
 
 public class Connection {
 
+    // variables of instance
     private String IP_Adress = "192.168.1.133";
     private String Port = "9559";
     private boolean IsConnected=false;
 
+    // variables of other objects
     private Application application;
     private Speech speech;
     private Posture posture;
@@ -53,10 +55,8 @@ public class Connection {
 
     public void checkConnectionState(){
         System.out.println("checking the connection state...");
-        boolean state=false;
-
-        // TODO: check the current connection of NAO
-
+        boolean state = application.session().isConnected();
+        System.out.println("state: "+state);
         setConnected(state);
     }
 

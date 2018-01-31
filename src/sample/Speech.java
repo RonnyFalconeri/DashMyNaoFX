@@ -4,11 +4,13 @@ import com.aldebaran.qi.helper.proxies.ALTextToSpeech;
 
 public class Speech {
 
+    // variables of instance
     private String Speechtext="null";
     private String Language = "Deutsch";
     private int Pitch = 100;
     private float Volume = 0.5f;
 
+    // variables of other objects
     private Connection Con;
     private ALTextToSpeech tts;
 
@@ -31,12 +33,19 @@ public class Speech {
         tts.say("\\vct="+this.Pitch+"\\"+this.Speechtext, this.Language);
     }
 
-    // additional method for external use
+    // additional methods for external use
     public void sayText(String pSpeechtext, String pLanguage) throws Exception{
         System.out.println("sayText()...");
         System.out.println("to say: '"+pSpeechtext+"', language: "+pLanguage);
         ALTextToSpeech tts = new ALTextToSpeech(Con.getApplication().session());
         tts.say(pSpeechtext,pLanguage);
+    }
+
+    public void sayText(String pSpeechtext, String pLanguage, int pPitch) throws Exception{
+        System.out.println("sayText()...");
+        System.out.println("to say: '"+pSpeechtext+"', language: "+pLanguage);
+        ALTextToSpeech tts = new ALTextToSpeech(Con.getApplication().session());
+        tts.say("\\vct="+pPitch+"\\"+pSpeechtext,pLanguage);
     }
 
 

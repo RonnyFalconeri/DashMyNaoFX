@@ -5,8 +5,10 @@ import com.aldebaran.qi.helper.proxies.ALAudioPlayer;
 
 public class AudioPlayer {
 
+    // variables of instance
     private String Audiosample;
 
+    // variables of other objects
     private ALAudioPlayer audioplayer;
     private Connection Con;
 

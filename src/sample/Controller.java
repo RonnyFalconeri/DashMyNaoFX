@@ -80,8 +80,8 @@ public class Controller {
 
         // Connection
         public void clickConnectionButton(ActionEvent actionEvent) throws Exception {
-            connection.buildNewConnection();
-           /*
+            //connection.buildNewConnection();
+
             connection.checkConnectionState();
             if (connection.isConnected()){
                 // kill connection
@@ -94,7 +94,7 @@ public class Controller {
                 changeConnectionState(true);
                 changeButtonText(ConnectionButton,"Disconnect");
             }
-            */
+
         }
 
         public void changeIP_Adress(KeyEvent keyEvent) {
@@ -229,23 +229,23 @@ public class Controller {
 
 
         // HeadAlignment
-        public void clickHeadAlButtonUp(ActionEvent actionEvent) {
+        public void clickHeadAlButtonUp(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getHeadalignment().moveHeadUp();
         }
 
-        public void clickHeadAlButtonDown(ActionEvent actionEvent) {
+        public void clickHeadAlButtonDown(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getHeadalignment().moveHeadDown();
         }
 
-        public void clickHeadAlButtonCenter(ActionEvent actionEvent) {
+        public void clickHeadAlButtonCenter(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getHeadalignment().moveHeadCenter();
         }
 
-        public void clickHeadAlButtonLeft(ActionEvent actionEvent) {
+        public void clickHeadAlButtonLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getHeadalignment().moveHeadLeft();
         }
 
-        public void clickHeadAlButtonRight(ActionEvent actionEvent) {
+        public void clickHeadAlButtonRight(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getHeadalignment().moveHeadRight();
         }
 

@@ -5,9 +5,11 @@ import com.aldebaran.qi.helper.proxies.ALRobotPosture;
 
 public class Posture {
 
+    // variables of instance
     private String Posture="Stand";
     private float Speed=1.0f;
 
+    // variables of other objects
     private Connection Con;
     private ALRobotPosture pos;
 
