@@ -33,6 +33,7 @@ public class Connection {
         System.out.println("building new connection with IP:  "+ConnectionURL);
         application = new Application(new String[]{}, ConnectionURL);
         application.start();
+        this.setConnected(true);
 
         // instanciate new objects here
         posture = new Posture(this);
@@ -51,6 +52,8 @@ public class Connection {
     public void killConnection(){
         System.out.println("kill current connection...");
         application.session().close();
+        this.setConnected(false);
+        System.out.println("kill successfull.");
     }
 
     public void checkConnectionState(){
@@ -72,7 +75,7 @@ public class Connection {
         this.Port = Port;
     }
 
-    private void setConnected(boolean ConnectionState) {
+    public void setConnected(boolean ConnectionState) {
         this.IsConnected = ConnectionState;
     }
 
