@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="630.0" stylesheets="@standard.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" stylesheets="@standard.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <tabs>
    
        <!-- CONNECTION ____________________________-->
@@ -27,10 +27,10 @@
               <Pane>
                  <children>
                      <Label layoutX="15.0" layoutY="14.0" styleClass="titel" text="Connection" />
-                     <TextField id="ConnectionIP" fx:id="ConnectionIP" layoutX="60.0" layoutY="79.0" onKeyReleased="#changeIP_Adress" prefHeight="30.0" prefWidth="120.0" promptText="IP Adress" text="192.168.1.133" />
-                     <Button fx:id="ConnectionButton" layoutX="60.0" layoutY="127.0" mnemonicParsing="false" onAction="#clickConnectionButton" prefHeight="30.0" prefWidth="100.0" text="Connect" />
-                     <TextField fx:id="ConnectionPort" layoutX="197.0" layoutY="79.0" onKeyReleased="#changePort" prefHeight="30.0" prefWidth="45.0" promptText="Port" text="9559" />
-                     <Circle fx:id="ConnectionStatus" fill="#da0707" layoutX="220.0" layoutY="142.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                     <TextField id="ConnectionIP" fx:id="ConnectionIP" layoutX="40.0" layoutY="79.0" onKeyReleased="#changeIP_Adress" prefHeight="30.0" prefWidth="150.0" promptText="IP Adress" text="192.168.1.133" />
+                     <Button fx:id="ConnectionButton" layoutX="40.0" layoutY="127.0" mnemonicParsing="false" onAction="#clickConnectionButton" prefHeight="30.0" prefWidth="100.0" text="Connect" />
+                     <TextField fx:id="ConnectionPort" layoutX="220.0" layoutY="79.0" onKeyReleased="#changePort" prefHeight="30.0" prefWidth="60.0" promptText="Port" text="9559" />
+                     <Circle fx:id="ConnectionStatus" fill="#da0707" layoutX="235.0" layoutY="142.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                  </children>
               </Pane>
       </content>
@@ -42,13 +42,13 @@
               <Pane>
                  <children>
                      <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Movement" />
-                     <Button fx:id="MovementButtonW" layoutX="123.0" layoutY="59.0" mnemonicParsing="false" onAction="#clickMovementButtonW" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" text="W" />
-                     <Button fx:id="MovementButtonA" layoutX="75.0" layoutY="109.0" mnemonicParsing="false" onAction="#clickMovementButtonA" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" text="A" />
-                     <Button fx:id="MovementButtonS" layoutX="123.0" layoutY="109.0" mnemonicParsing="false" onAction="#clickMovementButtonS" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" text="S" />
-                     <Button fx:id="MovementButtonD" layoutX="173.0" layoutY="109.0" mnemonicParsing="false" onAction="#clickMovementButtonD" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" text="D" />
-                     <Slider fx:id="MovementSliderVel" layoutX="268.0" layoutY="59.0" max="1.0" onMouseReleased="#changeMovementVel" orientation="VERTICAL" />
-                     <Label layoutX="254.0" layoutY="206.0" text="Velocity" />
-                  <Button fx:id="MovementButtonStop" layoutX="118.0" layoutY="191.0" mnemonicParsing="false" onAction="#clickMovementButtonStop" onKeyPressed="#clickMovementKey" prefHeight="30.0" prefWidth="60.0" text="Stop" />
+                     <Button fx:id="MovementButtonW" layoutX="90.0" layoutY="54.0" mnemonicParsing="false" onAction="#clickMovementButtonW" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="W" />
+                     <Button fx:id="MovementButtonA" layoutX="40.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonA" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="A" />
+                     <Button fx:id="MovementButtonS" layoutX="90.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonS" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="S" />
+                     <Button fx:id="MovementButtonD" layoutX="140.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonD" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="D" />
+                     <Slider fx:id="MovementSliderVel" layoutX="229.0" layoutY="54.0" max="1.0" onMouseReleased="#changeMovementVel" orientation="VERTICAL" />
+                     <Label layoutX="208.0" layoutY="208.0" text="Velocity" />
+                  <Button fx:id="MovementButtonStop" layoutX="85.0" layoutY="193.0" mnemonicParsing="false" onAction="#clickMovementButtonStop" onKeyPressed="#clickMovementKey" prefHeight="30.0" prefWidth="60.0" text="Stop" />
                  </children>
               </Pane>
       </content>
@@ -60,7 +60,7 @@
               <Pane>
                  <children>
                      <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Posture" />
-                     <ComboBox fx:id="PostureComboBox" layoutX="44.0" layoutY="72.0" onAction="#changePosture" prefHeight="30.0" prefWidth="200.0" promptText="Posture">
+                     <ComboBox fx:id="PostureComboBox" layoutX="37.0" layoutY="72.0" onAction="#changePosture" prefHeight="30.0" prefWidth="200.0" promptText="Posture">
                          <items>
                              <FXCollections fx:factory="observableArrayList">
                                  <String fx:id="Crouch" fx:value="Crouch" />
@@ -75,9 +75,9 @@
                              </FXCollections>
                          </items>
                      </ComboBox>
-                     <Button fx:id="PostureButton" layoutX="269.0" layoutY="72.0" mnemonicParsing="false" onAction="#clickPostureButton" prefHeight="30.0" prefWidth="50.0" text="Pose" />
-                     <Slider fx:id="PostureSpeedSlider" layoutX="104.0" layoutY="137.0" max="1.0" onMouseReleased="#changePostureSpeed" value="0.5" />
-                     <Label layoutX="44.0" layoutY="135.0" text="Speed" />
+                     <Button fx:id="PostureButton" layoutX="269.0" layoutY="72.0" mnemonicParsing="false" onAction="#clickPostureButton" prefHeight="30.0" prefWidth="70.0" text="Pose" />
+                     <Slider fx:id="PostureSpeedSlider" layoutX="97.0" layoutY="138.0" max="1.0" onMouseReleased="#changePostureSpeed" value="0.5" />
+                     <Label layoutX="37.0" layoutY="136.0" text="Speed" />
                  </children>
               </Pane>
       </content>
@@ -90,10 +90,10 @@
                  <children>
                      <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Speech" />
                      <TextField fx:id="SpeechText" layoutX="38.0" layoutY="74.0" onKeyReleased="#changeSpeechText" prefHeight="30.0" prefWidth="300.0" promptText="Speech Text" />
-                     <Button fx:id="SpeechButton" layoutX="352.0" layoutY="74.0" mnemonicParsing="false" onAction="#clickSpeechButton" prefHeight="30.0" prefWidth="50.0" text="SAY" />
-                     <Slider fx:id="SpeechPitch" layoutX="88.0" layoutY="135.0" max="200.0" min="50.0" onMouseReleased="#changePitch" />
+                     <Button fx:id="SpeechButton" layoutX="189.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickSpeechButton" prefHeight="30.0" prefWidth="50.0" text="SAY" />
+                     <Slider fx:id="SpeechPitch" layoutX="99.0" layoutY="135.0" max="200.0" min="50.0" onMouseReleased="#changePitch" />
                      <Label fx:id="SpeechPitchLabel" layoutX="38.0" layoutY="127.0" prefHeight="30.0" prefWidth="50.0" text="Pitch" />
-                     <ComboBox fx:id="SpeechLanguage" layoutX="38.0" layoutY="207.0" onAction="#changeLanguage" prefHeight="30.0" prefWidth="100.0" promptText="Language">
+                     <ComboBox fx:id="SpeechLanguage" layoutX="38.0" layoutY="207.0" onAction="#changeLanguage" prefHeight="30.0" prefWidth="130.0" promptText="Language">
                          <items>
                              <FXCollections fx:factory="observableArrayList">
                                  <String fx:id="German" fx:value="German" />
@@ -102,7 +102,7 @@
                          </items>
                      </ComboBox>
                      <Label layoutX="38.0" layoutY="170.0" text="Volume" />
-                  <Slider fx:id="SpeechVolumeSlider" layoutX="88.0" layoutY="172.0" />
+                  <Slider fx:id="SpeechVolumeSlider" layoutX="99.0" layoutY="172.0" />
                  </children>
               </Pane>
       </content>
@@ -126,7 +126,7 @@
                              </FXCollections>
                          </items>
                      </ComboBox>
-                     <Button fx:id="AudioPlayerButton" layoutX="267.0" layoutY="64.0" mnemonicParsing="false" onAction="#clickAudioPlayerButton" prefHeight="30.0" prefWidth="50.0" text="Play" />
+                     <Button fx:id="AudioPlayerButton" layoutX="267.0" layoutY="64.0" mnemonicParsing="false" onAction="#clickAudioPlayerButton" prefHeight="30.0" prefWidth="70.0" text="Play" />
                  </children>
               </Pane>
       </content>
@@ -150,7 +150,7 @@
                              </FXCollections>
                          </items>
                      </ComboBox>
-                     <Button fx:id="AppereanceButtonSet" layoutX="35.0" layoutY="169.0" mnemonicParsing="false" onAction="#clickAppereanceButtonSet" prefHeight="30.0" prefWidth="60.0" text="set LED" />
+                     <Button fx:id="AppereanceButtonSet" layoutX="35.0" layoutY="169.0" mnemonicParsing="false" onAction="#clickAppereanceButtonSet" prefHeight="30.0" prefWidth="90.0" text="set LED" />
          
                      <!-- COLOR SELECTION -->
                      <ComboBox fx:id="AppereanceComboBoxColor" layoutX="35.0" layoutY="116.0" onAction="#changeAppereanceColor" prefHeight="30.0" prefWidth="200.0" promptText="Pick a color">
@@ -166,7 +166,7 @@
                              </FXCollections>
                          </items>
                      </ComboBox>
-                     <Button fx:id="AppereanceButtonReset" layoutX="105.0" layoutY="169.0" mnemonicParsing="false" onAction="#clickAppereanceButtonReset" prefHeight="30.0" prefWidth="60.0" text="reset" />
+                     <Button fx:id="AppereanceButtonReset" layoutX="155.0" layoutY="169.0" mnemonicParsing="false" onAction="#clickAppereanceButtonReset" prefHeight="30.0" prefWidth="80.0" text="reset" />
                  </children>
               </Pane>
       </content>
@@ -177,14 +177,19 @@
          <content>
             <Pane>
                <children>
-                  <Button fx:id="HeadAlButtonUp" layoutX="188.0" layoutY="68.0" mnemonicParsing="false" onAction="#clickHeadAlButtonUp" prefHeight="30.0" prefWidth="60.0" text="Up" />
-                  <Button fx:id="HeadAlButtonDown" layoutX="188.0" layoutY="156.0" mnemonicParsing="false" onAction="#clickHeadAlButtonDown" prefHeight="30.0" prefWidth="60.0" text="Down" />
-                  <Button fx:id="HeadAlButtonCenter" layoutX="188.0" layoutY="112.0" mnemonicParsing="false" onAction="#clickHeadAlButtonCenter" prefHeight="30.0" prefWidth="60.0" text="Center" />
-                  <Button fx:id="HeadAlButtonLeft" layoutX="113.0" layoutY="112.0" mnemonicParsing="false" onAction="#clickHeadAlButtonLeft" prefHeight="30.0" prefWidth="60.0" text="Left" />
-                  <Button fx:id="HeadAlButtonRight" layoutX="263.0" layoutY="112.0" mnemonicParsing="false" onAction="#clickHeadAlButtonRight" prefHeight="30.0" prefWidth="60.0" text="Right" />
+                  <Button fx:id="HeadAlButtonUp" layoutX="133.0" layoutY="65.0" mnemonicParsing="false" onAction="#clickHeadAlButtonUp" prefHeight="30.0" prefWidth="80.0" text="Up" />
+                  <Button fx:id="HeadAlButtonDown" layoutX="133.0" layoutY="154.0" mnemonicParsing="false" onAction="#clickHeadAlButtonDown" prefHeight="30.0" prefWidth="80.0" text="Down" />
+                  <Button fx:id="HeadAlButtonCenter" layoutX="133.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickHeadAlButtonCenter" prefHeight="30.0" prefWidth="80.0" text="Center" />
+                  <Button fx:id="HeadAlButtonLeft" layoutX="38.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickHeadAlButtonLeft" prefHeight="30.0" prefWidth="80.0" text="Left" />
+                  <Button fx:id="HeadAlButtonRight" layoutX="226.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickHeadAlButtonRight" prefHeight="30.0" prefWidth="80.0" text="Right" />
                   <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Head Alignment" />
                </children>
             </Pane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Camera">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
          </content>
       </Tab>
    
@@ -194,9 +199,9 @@
               <Pane>
                  <children>
                      <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Body State" />
-                     <Label layoutX="58.0" layoutY="78.0" text="Temperature:" />
-                     <Label layoutX="57.0" layoutY="119.0" text="Battery:" />
-                  <Button fx:id="BodyStateButton" layoutX="57.0" layoutY="153.0" mnemonicParsing="false" onAction="#clickBodyStateButton" prefHeight="30.0" prefWidth="60.0" text="update" />
+                     <Label layoutX="41.0" layoutY="78.0" text="Temperature:" />
+                     <Label layoutX="41.0" layoutY="119.0" text="Battery:" />
+                  <Button fx:id="BodyStateButton" layoutX="41.0" layoutY="153.0" mnemonicParsing="false" onAction="#clickBodyStateButton" prefHeight="30.0" prefWidth="80.0" text="update" />
                   <Label fx:id="BodyStateBatteryPerc" layoutX="157.0" layoutY="136.0" />
                   <Label fx:id="BodyStateLabelTemp" layoutX="197.0" layoutY="78.0" />
                  </children>
