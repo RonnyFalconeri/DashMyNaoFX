@@ -89,7 +89,6 @@ public class Controller {
                 connection.buildNewConnection();
             } else {
                 // was connected at least once
-                connection.checkConnectionState();
                 if (connection.isConnected()) {
                     // kill connection
                     connection.killConnection();
@@ -97,6 +96,9 @@ public class Controller {
                     changeButtonText(ConnectionButton, "Connect");
                 } else {
                     // build connection
+                    connection = new Connection();
+                    connection.setIP_Adress(ConnectionIP.getText());
+                    connection.setPort(ConnectionPort.getText());
                     connection.buildNewConnection();
                     changeConnectionState(true);
                     changeButtonText(ConnectionButton, "Disconnect");
