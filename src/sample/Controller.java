@@ -87,6 +87,8 @@ public class Controller {
             if (amountClicked < 2) {
                 // connect for the first time
                 connection.buildNewConnection();
+                changeConnectionState(true);
+                changeButtonText(ConnectionButton, "Disconnect");
             } else {
                 // was connected at least once
                 if (connection.isConnected()) {

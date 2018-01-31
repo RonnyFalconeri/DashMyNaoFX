@@ -53,6 +53,7 @@ public class Connection {
         System.out.println("kill current connection...");
         application.session().close();
         this.setConnected(false);
+        System.out.println("kill successfull.");
     }
 
     public void checkConnectionState(){
