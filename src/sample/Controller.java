@@ -103,7 +103,6 @@ public class Controller {
 
                     // GUI modification
                     changeConnectionState(false);
-                    changeTextfieldText(ConnectionIP," ");
                     changeButtonText(ConnectionButton, "Connect");
                 } else {
                     // build connection

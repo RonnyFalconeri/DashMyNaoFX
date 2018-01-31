@@ -31,8 +31,8 @@ public class Connection {
     public void buildNewConnection() throws Exception {
         String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
         System.out.println("building new connection with IP:  "+ConnectionURL);
+        System.out.println("application: "+this.application);
         application = new Application(new String[]{}, ConnectionURL);
-        System.out.println("before start");
         application.start();
         this.setConnected(true);
 
