@@ -79,20 +79,28 @@ public class Controller {
 
 
         // Connection
-        public void clickConnectionButton(ActionEvent actionEvent) throws Exception {
-            //connection.buildNewConnection();
+        int amountClicked=0;
 
-            connection.checkConnectionState();
-            if (connection.isConnected()){
-                // kill connection
-                connection.killConnection();
-                changeConnectionState(false);
-                changeButtonText(ConnectionButton, "Connect");
-            } else {
-                // build connection
+        public void clickConnectionButton(ActionEvent actionEvent) throws Exception {
+            amountClicked++;
+
+            if (amountClicked < 2) {
+                // connect for the first time
                 connection.buildNewConnection();
-                changeConnectionState(true);
-                changeButtonText(ConnectionButton,"Disconnect");
+            } else {
+                // was connected at least once
+                connection.checkConnectionState();
+                if (connection.isConnected()) {
+                    // kill connection
+                    connection.killConnection();
+                    changeConnectionState(false);
+                    changeButtonText(ConnectionButton, "Connect");
+                } else {
+                    // build connection
+                    connection.buildNewConnection();
+                    changeConnectionState(true);
+                    changeButtonText(ConnectionButton, "Disconnect");
+                }
             }
 
         }
