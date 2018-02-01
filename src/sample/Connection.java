@@ -36,7 +36,6 @@ public class Connection {
         System.out.println("building new connection with IP:  "+ConnectionURL);
         //application = new Application(new String[]{}, ConnectionURL);
         //application.start();
-        //application.start();
 
         session = new Session(ConnectionURL);
 
