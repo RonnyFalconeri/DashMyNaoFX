@@ -21,8 +21,9 @@ public class Connection {
 
 
         // Constructor
-        public Connection() throws Exception {
+        public Connection(Application application) throws Exception {
             System.out.println("new Connection()... ");
+            this.application = application;
         }
 
 
@@ -31,8 +32,7 @@ public class Connection {
     public void buildNewConnection() throws Exception {
         String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
         System.out.println("building new connection with IP:  "+ConnectionURL);
-        System.out.println("application: "+this.application);
-        application = new Application(new String[]{}, ConnectionURL);
+        //application = new Application(new String[]{}, ConnectionURL);
         application.start();
         this.setConnected(true);
 

@@ -1,4 +1,5 @@
 package sample;
+import com.aldebaran.qi.Application;
 import com.aldebaran.qi.CallError;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +12,8 @@ import javafx.scene.shape.Circle;
 
 public class Controller {
 
-    Connection connection = new Connection();
+    Application application = new Application(new String[]{}, "tcp://192.168.1.133:9559");
+    Connection connection = new Connection(application);
 
     // declaration of GUI objects here
 
@@ -106,7 +108,7 @@ public class Controller {
                     changeButtonText(ConnectionButton, "Connect");
                 } else {
                     // build connection
-                    connection = new Connection();
+                    connection = new Connection(this.application);
                     connection.setIP_Adress(ConnectionIP.getText());
                     connection.setPort(ConnectionPort.getText());
                     connection.buildNewConnection();
