@@ -1,5 +1,6 @@
 package sample;
 import com.aldebaran.qi.Application;
+import com.aldebaran.qi.Session;
 
 public class Connection {
 
@@ -17,6 +18,7 @@ public class Connection {
     private Movement movement;
     private BodyState bodystate;
     private HeadAlignment headalignment;
+    private Session session;
 
 
 
@@ -24,6 +26,7 @@ public class Connection {
         public Connection(Application application) throws Exception {
             System.out.println("new Connection()... ");
             this.application = application;
+            this.application.start();
         }
 
 
@@ -33,7 +36,10 @@ public class Connection {
         String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
         System.out.println("building new connection with IP:  "+ConnectionURL);
         //application = new Application(new String[]{}, ConnectionURL);
-        application.start();
+        //application.start();
+
+        session = new Session(ConnectionURL);
+
         this.setConnected(true);
 
         // instanciate new objects here
@@ -47,7 +53,7 @@ public class Connection {
 
         // giving feedback
         posture.posePosture("Stand");
-        speech.sayText("I am connected.", "English");
+        speech.sayText("Tatü Tata, der Nao ist da.", "Deutsch", 70);
     }
 
     public void killConnection(){
