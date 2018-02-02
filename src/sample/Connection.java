@@ -9,6 +9,7 @@ public class Connection {
     private String Port = "9559";
     private boolean IsConnected=false;
 
+
     // variables of other objects
     private Application application;
     private Speech speech;
