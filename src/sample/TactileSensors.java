@@ -1,14 +1,42 @@
 package sample;
+import com.aldebaran.qi.CallError;
+import com.aldebaran.qi.helper.EventCallback;
 import com.aldebaran.qi.helper.proxies.*;
+
 public class TactileSensors {
 
     private Connection Con;
+    private long frontTactilSubscriptionId;
 
-    public TactileSensors(Connection pCon){
+    private ALSensors sensors;
+    private ALMemory memory;
+
+    public TactileSensors(Connection pCon) throws Exception {
         System.out.println("new TactileSensors()...");
         this.Con = pCon;
+        memory = new ALMemory(Con.getSession());
+
+        frontTactilSubscriptionId = memory.subscribeToEvent(
+                        "FrontTactilTouched", new EventCallback<Float>() {
+                            @Override
+                            public void onEvent(Float para)   throws InterruptedException, CallError {
+                                touchedFront();
+
+                                // 1 means the sensor has been pressed
+                                if (para > 0) {
+                                   if (frontTactilSubscriptionId > 0) {
+                                       frontTactilSubscriptionId = 0;
+                                        System.out.println("vorne");
+                                    }
+                                }
+                            }
+
+                        });
     }
 
+    private void touchedFront(){
+        System.out.println("Frontal sensor touched...");
+    }
 
 }
 //          public static ALSensors sensors;
