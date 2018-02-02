@@ -23,9 +23,8 @@ public class Connection {
 
 
         // Constructor
-        public Connection(Application application) throws Exception {
+        public Connection() throws Exception {
             System.out.println("new Connection()... ");
-            //this.application = application;
         }
 
 
@@ -37,7 +36,6 @@ public class Connection {
         application = new Application(new String[]{}, ConnectionURL);
         application.start();
 
-        //session = new Session(ConnectionURL);
 
         this.setConnected(true);
 

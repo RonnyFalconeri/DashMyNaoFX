@@ -12,8 +12,8 @@ import javafx.scene.shape.Circle;
 
 public class Controller {
 
-    Application application = new Application(new String[]{}, "tcp://192.168.1.133:9559");
-    Connection connection = new Connection(application);
+    //Application application = new Application(new String[]{}, "tcp://192.168.1.133:9559");
+    Connection connection = new Connection();
 
     // declaration of GUI objects here
 
@@ -109,7 +109,7 @@ public class Controller {
                     changeButtonText(ConnectionButton, "Connect");
                 } else {
                     // build connection
-                    connection = new Connection(this.application);
+                    connection = new Connection();
                     connection.setIP_Adress(ConnectionIP.getText());
                     connection.setPort(ConnectionPort.getText());
                     connection.buildNewConnection();
