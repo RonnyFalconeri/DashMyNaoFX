@@ -92,7 +92,7 @@ public class Controller {
 
             if (amountClicked < 2) {
                 // connect for the first time
-                application.start();
+                //application.start();
                 connection.buildNewConnection();
 
                 // GUI modification
