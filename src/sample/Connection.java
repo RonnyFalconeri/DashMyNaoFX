@@ -25,7 +25,7 @@ public class Connection {
         // Constructor
         public Connection(Application application) throws Exception {
             System.out.println("new Connection()... ");
-            this.application = application;
+            //this.application = application;
         }
 
 
@@ -34,10 +34,10 @@ public class Connection {
     public void buildNewConnection() throws Exception {
         String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
         System.out.println("building new connection with IP:  "+ConnectionURL);
-        //application = new Application(new String[]{}, ConnectionURL);
+        application = new Application(new String[]{}, ConnectionURL);
         application.start();
 
-        session = new Session(ConnectionURL);
+        //session = new Session(ConnectionURL);
 
         this.setConnected(true);
 
