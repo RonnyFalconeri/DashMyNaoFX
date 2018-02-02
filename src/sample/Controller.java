@@ -11,6 +11,7 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
 import java.awt.*;
@@ -84,15 +85,11 @@ public class Controller {
     }
 
         private void changeConnectionState(boolean isConnected){
-            /*
-            Paint paint = new Paint();
             if (isConnected){
-                ConnectionStatus.setFill(Color.green);
-                //ConnectionStatus.setFill();
+                ConnectionStatus.setFill(Paint.valueOf("0x08d833ff"));
             } else {
-                ConnectionStatus.setFill(Color.red);
+                ConnectionStatus.setFill(Paint.valueOf("0xda0707ff"));
             }
-            */
         }
 
 
