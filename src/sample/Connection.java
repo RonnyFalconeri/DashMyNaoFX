@@ -37,7 +37,7 @@ public class Connection {
 
         if (application == null) {
             application = new Application(new String[]{}, ConnectionURL);
-            //application.start();
+            application.start();
         }
         session = new Session(ConnectionURL);
         session.connect(ConnectionURL);
