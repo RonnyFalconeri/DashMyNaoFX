@@ -50,7 +50,7 @@ public class Connection {
 
         // giving feedback
         posture.posePosture("Stand");
-        speech.sayText("Tatü Tata, der Nao ist da.", "Deutsch", 70);
+        speech.sayText("Tatü Tata, der Nao ist da.", "German", 70);
     }
 
     public void killConnection(){
