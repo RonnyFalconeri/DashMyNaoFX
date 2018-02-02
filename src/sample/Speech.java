@@ -10,7 +10,7 @@ public class Speech {
     private int Pitch = 100;
     private float Volume = 0.5f;
 
-    // variables of other objects
+    // variables of other objects5
     private Connection Con;
     private ALTextToSpeech tts;
 

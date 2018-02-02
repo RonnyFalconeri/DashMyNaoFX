@@ -33,9 +33,13 @@ public class Connection {
     public void buildNewConnection() throws Exception {
         String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
         System.out.println("building new connection with IP:  "+ConnectionURL);
-        application = new Application(new String[]{}, ConnectionURL);
-        application.start();
 
+        if (application == null) {
+            application = new Application(new String[]{}, ConnectionURL);
+            //application.start();
+        }
+        session = new Session(ConnectionURL);
+        session.connect(ConnectionURL);
 
         this.setConnected(true);
 
@@ -50,11 +54,12 @@ public class Connection {
 
         // giving feedback
         posture.posePosture("Stand");
-        speech.sayText("Tatü Tata, der Nao ist da.", "German", 70);
+        speech.sayText("I am connected", "English", 100);
     }
 
-    public void killConnection(){
+    public void killConnection() throws Exception {
         System.out.println("kill current connection...");
+        speech.sayText("I am getting disconnected", "English", 100);
         application.session().close();
         this.setConnected(false);
         System.out.println("kill successfull.");
@@ -105,4 +110,7 @@ public class Connection {
 
     public HeadAlignment getHeadalignment() {return this.headalignment;}
 
+    public Session getSession() {
+        return this.session;
+    }
 }

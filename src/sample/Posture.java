@@ -19,7 +19,7 @@ public class Posture {
         public Posture(Connection pCon) throws Exception {
             System.out.println("new Posture()...");
             this.Con = pCon;
-            pos = new ALRobotPosture(this.Con.getApplication().session());
+            pos = new ALRobotPosture(this.Con.getSession());
         }
 
 
