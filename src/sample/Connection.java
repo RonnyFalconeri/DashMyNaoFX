@@ -35,10 +35,6 @@ public class Connection {
         String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
         System.out.println("building new connection with IP:  "+ConnectionURL);
 
-        if (application == null) {
-            application = new Application(new String[]{}, ConnectionURL);
-            application.start();
-        }
         session = new Session(ConnectionURL);
         session.connect(ConnectionURL);
 
@@ -61,14 +57,14 @@ public class Connection {
     public void killConnection() throws Exception {
         System.out.println("kill current connection...");
         speech.sayText("I am getting disconnected", "English", 100);
-        application.session().close();
+        session.close();
         this.setConnected(false);
         System.out.println("kill successfull.");
     }
 
     public void checkConnectionState(){
         System.out.println("checking the connection state...");
-        boolean state = application.session().isConnected();
+        boolean state = session.isConnected();
         System.out.println("state: "+state);
         setConnected(state);
     }
@@ -85,11 +81,12 @@ public class Connection {
         this.Port = Port;
     }
 
-    public void setConnected(boolean ConnectionState) {
+    private void setConnected(boolean ConnectionState) {
         this.IsConnected = ConnectionState;
     }
 
     public boolean isConnected(){
+            checkConnectionState();
         return this.IsConnected;
     }
 

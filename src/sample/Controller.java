@@ -4,15 +4,19 @@ import com.aldebaran.qi.CallError;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 
+import java.awt.*;
+
 public class Controller {
 
-    //Application application = new Application(new String[]{}, "tcp://192.168.1.133:9559");
     Connection connection = new Connection();
 
     // declaration of GUI objects here
@@ -79,8 +83,16 @@ public class Controller {
         TextFieldName.setText(Text);
     }
 
-        private void changeConnectionState(boolean state){
-            // TODO: change the connection state of GUI
+        private void changeConnectionState(boolean isConnected){
+            /*
+            Paint paint = new Paint();
+            if (isConnected){
+                ConnectionStatus.setFill(Color.green);
+                //ConnectionStatus.setFill();
+            } else {
+                ConnectionStatus.setFill(Color.red);
+            }
+            */
         }
 
 
@@ -92,7 +104,6 @@ public class Controller {
 
             if (amountClicked < 2) {
                 // connect for the first time
-                //application.start();
                 connection.buildNewConnection();
 
                 // GUI modification

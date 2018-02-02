@@ -23,8 +23,8 @@ public class BodyState {
         public BodyState(Connection pCon) throws Exception {
             System.out.println("new BodyState()...");
             this.Con = pCon;
-            battery = new ALBattery(Con.getApplication().session());
-            temp = new ALBodyTemperature(Con.getApplication().session());
+            battery = new ALBattery(this.Con.getSession());
+            temp = new ALBodyTemperature(this.Con.getSession());
         }
 
 

@@ -28,7 +28,7 @@ public class Speech {
     public void sayText() throws Exception{
         System.out.println("sayText()...");
         System.out.println("to say: '"+this.Speechtext+"', language: "+this.Language);
-        tts = new ALTextToSpeech(Con.getApplication().session());
+        tts = new ALTextToSpeech(this.Con.getSession());
         tts.setVolume(this.Volume);
         tts.say("\\vct="+this.Pitch+"\\"+this.Speechtext, this.Language);
     }
@@ -37,14 +37,14 @@ public class Speech {
     public void sayText(String pSpeechtext, String pLanguage) throws Exception{
         System.out.println("sayText()...");
         System.out.println("to say: '"+pSpeechtext+"', language: "+pLanguage);
-        ALTextToSpeech tts = new ALTextToSpeech(Con.getApplication().session());
+        ALTextToSpeech tts = new ALTextToSpeech(this.Con.getSession());
         tts.say(pSpeechtext,pLanguage);
     }
 
     public void sayText(String pSpeechtext, String pLanguage, int pPitch) throws Exception{
         System.out.println("sayText()...");
         System.out.println("to say: '"+pSpeechtext+"', language: "+pLanguage);
-        ALTextToSpeech tts = new ALTextToSpeech(Con.getApplication().session());
+        ALTextToSpeech tts = new ALTextToSpeech(this.Con.getSession());
         tts.say("\\vct="+pPitch+"\\"+pSpeechtext,pLanguage);
     }
 

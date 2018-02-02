@@ -19,7 +19,7 @@ public class HeadAlignment {
         public HeadAlignment(Connection pCon) throws Exception {
             System.out.println("new HeadAlignment()...");
             this.Con = pCon;
-            motion = new ALMotion(Con.getApplication().session());
+            motion = new ALMotion(this.Con.getSession());
         }
 
 

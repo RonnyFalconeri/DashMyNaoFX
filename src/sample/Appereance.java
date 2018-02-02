@@ -20,7 +20,7 @@ public class Appereance {
         public Appereance(Connection pCon) throws Exception {
             System.out.println("new Appereance()...");
             this.Con = pCon;
-            leds = new ALLeds(Con.getApplication().session());
+            leds = new ALLeds(this.Con.getSession());
         }
 
 

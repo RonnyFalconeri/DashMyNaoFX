@@ -18,7 +18,7 @@ public class AudioPlayer {
         public AudioPlayer(Connection pCon) throws Exception {
             System.out.println("new AudioPlayer()...");
             this.Con = pCon;
-            audioplayer = new ALAudioPlayer(Con.getApplication().session());
+            audioplayer = new ALAudioPlayer(this.Con.getSession());
         }
 
 
