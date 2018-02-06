@@ -16,26 +16,26 @@ public class TactileSensors {
         this.Con = pCon;
         memory = new ALMemory(Con.getSession());
 
+        frontTactilSubscriptionId = 0;
+
+        // Subscribe to FrontTactilTouched event,
+        // create an EventCallback expecting a Float.
         frontTactilSubscriptionId = memory.subscribeToEvent(
-                        "FrontTactilTouched", new EventCallback<Float>() {
-                            @Override
-                            public void onEvent(Float para) throws InterruptedException, CallError {
-                                touchedFront();
-
-                                // 1 means the sensor has been pressed
-                                if (para > 0) {
-                                   if (frontTactilSubscriptionId > 0) {
-                                       frontTactilSubscriptionId = 0;
-                                        System.out.println("vorne");
-                                    }
-                                }
+                "FrontTactilTouched", new EventCallback<Float>() {
+                    @Override
+                    public void onEvent(Float arg0)
+                            throws InterruptedException, CallError {
+                        // 1 means the sensor has been pressed
+                        if (arg0 > 0) {
+                            try {
+                                Con.getSpeech().sayText("English motherfucker","English");
+                                Con.getSpeech().sayText("Do you speak it!","English", 60);
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
-
-                        });
-    }
-
-    private void touchedFront(){
-        System.out.println("Frontal sensor touched...");
+                        }
+                    }
+                });
     }
 
 }
