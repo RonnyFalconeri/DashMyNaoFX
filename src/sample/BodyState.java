@@ -21,7 +21,6 @@ public class BodyState {
 
         // Constructor
         public BodyState(Connection pCon) throws Exception {
-            System.out.println("new BodyState()...");
             this.Con = pCon;
             battery = new ALBattery(this.Con.getSession());
             temp = new ALBodyTemperature(this.Con.getSession());
@@ -30,9 +29,7 @@ public class BodyState {
 
 
     // methods for NAO
-    // nochmals ausprobieren
     public void checkTemperature() throws InterruptedException, CallError {
-        System.out.println("checking Temperature...");
         tempOb = temp.getTemperatureDiagnosis();
         int tempReturn=5;
 
@@ -40,7 +37,7 @@ public class BodyState {
             ArrayList tempList = (ArrayList) tempOb;
             tempReturn = (int) tempList.get(0);
         } else {
-            System.out.println("no given return values");
+            System.out.println("BodyState: no given return values");
         }
 
         switch (tempReturn){
@@ -59,7 +56,6 @@ public class BodyState {
     }
 
     public void checkBatteryPercentage() throws InterruptedException, CallError {
-        System.out.println("checking battery percentage...");
         this.BatteryPercentage = battery.getBatteryCharge();
     }
 

@@ -20,12 +20,13 @@ public class Connection {
     private BodyState bodystate;
     private HeadAlignment headalignment;
     private Session session;
+    private TactileSensors tactile;
 
 
 
         // Constructor
         public Connection() throws Exception {
-            System.out.println("new Connection()... ");
+            System.out.println("new connection... ");
         }
 
 
@@ -48,6 +49,7 @@ public class Connection {
         movement = new Movement(this);
         bodystate = new BodyState(this);
         headalignment = new HeadAlignment(this);
+        tactile = new TactileSensors(this);
 
         // giving feedback
         posture.posePosture("Stand");
@@ -55,29 +57,24 @@ public class Connection {
     }
 
     public void killConnection() throws Exception {
-        System.out.println("kill current connection...");
         speech.sayText("Getting disconnected", "English", 100);
         session.close();
         this.setConnected(false);
-        System.out.println("kill successfull.");
+        System.out.println("connection closed.");
     }
 
     public void checkConnectionState(){
-        System.out.println("checking the connection state...");
         boolean state = session.isConnected();
-        System.out.println("state: "+state);
         setConnected(state);
     }
 
 
     //set n' get
     public void setIP_Adress(String IP){
-        System.out.println("set IP_Adress to: "+IP);
         this.IP_Adress = IP;
     }
 
     public void setPort(String Port){
-        System.out.println("set Port to: "+Port);
         this.Port = Port;
     }
 
@@ -108,7 +105,5 @@ public class Connection {
 
     public HeadAlignment getHeadalignment() {return this.headalignment;}
 
-    public Session getSession() {
-        return this.session;
-    }
+    public Session getSession() {return this.session;}
 }

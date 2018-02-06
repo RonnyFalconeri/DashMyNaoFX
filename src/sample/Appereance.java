@@ -18,7 +18,6 @@ public class Appereance {
 
         // Constructor
         public Appereance(Connection pCon) throws Exception {
-            System.out.println("new Appereance()...");
             this.Con = pCon;
             leds = new ALLeds(this.Con.getSession());
         }
@@ -27,12 +26,10 @@ public class Appereance {
 
     // methods for NAO
     public void changeLEDColor() throws InterruptedException, CallError {
-        System.out.println("changing LED colors...");
         leds.fadeRGB(this.Group, this.Color, this.dur);
     }
 
     public void resetLEDs() throws InterruptedException, CallError {
-        System.out.println("reseting LED colors...");
         leds.reset("AllLeds");
     }
 
@@ -40,12 +37,10 @@ public class Appereance {
 
     //set n' get
     public void setGroup(String pGroup){
-        System.out.println("set Group to: "+pGroup);
         this.Group = pGroup;
     }
 
     public void setColor(String pColor){
-        System.out.println("set Color to: "+pColor);
         this.Color = pColor;
     }
 }

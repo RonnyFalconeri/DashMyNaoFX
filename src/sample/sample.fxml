@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" stylesheets="@standard.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" stylesheets="@standard.css" xmlns="http://javafx.com/javafx/8.0.151" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <tabs>
 
        <!-- CONNECTION ____________________________-->
@@ -31,9 +31,9 @@
        </Tab>
    
        <!-- MOVEMENT ____________________________-->
-       <Tab fx:id="MovementTab" closable="false" disable="true" onSelectionChanged="#clickMovementKey" text="Movement">
+       <Tab fx:id="MovementTab" closable="false" disable="true" text="Movement">
       <content>
-              <Pane>
+              <Pane fx:id="MovementPane">
                  <children>
                      <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Movement" />
                      <Button fx:id="MovementButtonW" layoutX="90.0" layoutY="54.0" mnemonicParsing="false" onAction="#clickMovementButtonW" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="W" />
@@ -85,7 +85,7 @@
                      <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Speech" />
                      <TextField fx:id="SpeechText" layoutX="38.0" layoutY="74.0" onKeyReleased="#changeSpeechText" prefHeight="30.0" prefWidth="300.0" promptText="Speech Text" />
                      <Button fx:id="SpeechButton" layoutX="189.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickSpeechButton" prefHeight="30.0" prefWidth="50.0" text="SAY" />
-                     <Slider fx:id="SpeechPitch" layoutX="99.0" layoutY="135.0" max="200.0" min="50.0" onMouseReleased="#changePitch" />
+                     <Slider fx:id="SpeechPitch" layoutX="99.0" layoutY="135.0" max="150.0" min="30.0" onMouseReleased="#changePitch" value="100.0" />
                      <Label fx:id="SpeechPitchLabel" layoutX="38.0" layoutY="127.0" prefHeight="30.0" prefWidth="50.0" text="Pitch" />
                      <ComboBox fx:id="SpeechLanguage" layoutX="38.0" layoutY="207.0" onAction="#changeLanguage" prefHeight="30.0" prefWidth="130.0" promptText="Language">
                          <items>
@@ -96,7 +96,7 @@
                          </items>
                      </ComboBox>
                      <Label layoutX="38.0" layoutY="170.0" text="Volume" />
-                  <Slider fx:id="SpeechVolumeSlider" layoutX="99.0" layoutY="172.0" />
+                  <Slider fx:id="SpeechVolumeSlider" layoutX="99.0" layoutY="172.0" max="1.0" onMouseReleased="#changeSpeechVolume" />
                  </children>
               </Pane>
       </content>

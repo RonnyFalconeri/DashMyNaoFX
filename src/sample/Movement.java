@@ -19,7 +19,6 @@ public class Movement {
 
         // Constructor
         public Movement(Connection pCon) throws Exception {
-            System.out.println("new Movement()...");
             this.Con = pCon;
             motion = new ALMotion(this.Con.getSession());
         }
@@ -28,7 +27,6 @@ public class Movement {
 
     // methods for NAO
     public void moveBodyForward() throws InterruptedException, CallError {
-        System.out.println("move forward...");
         this.X_Axis = 1.0f*this.Velocity;
         this.Y_Axis = 0.0f;
         this.Z_Axis = 0.0f;
@@ -37,7 +35,6 @@ public class Movement {
     }
 
     public void moveBodyBackwards() throws InterruptedException, CallError {
-        System.out.println("move backwards...");
         this.Y_Axis = 0.0f;
         this.X_Axis = -0.5f;
         this.Z_Axis = 0.0f;
@@ -46,7 +43,6 @@ public class Movement {
     }
 
     public void changeMovementDirectionLeft() throws InterruptedException, CallError {
-        System.out.println("rotate to left...");
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
         this.Z_Axis = 0.30f;
@@ -55,7 +51,6 @@ public class Movement {
     }
 
     public void changeMovementDirectionRight() throws InterruptedException, CallError {
-        System.out.println("rotate to right...");
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
         this.Z_Axis = -0.30f;
@@ -64,7 +59,6 @@ public class Movement {
     }
 
     public void stopMovement() throws InterruptedException, CallError {
-        System.out.println("stop movement...");
         motion.stopMove();
         motion.moveToward( 0.0f,0.0f,0.0f);
     }
@@ -72,7 +66,6 @@ public class Movement {
 
     // set n' get
     public void setVelocity(float pVel) {
-        System.out.println("set Velocity to: "+pVel);
         this.Velocity = pVel;
     }
 

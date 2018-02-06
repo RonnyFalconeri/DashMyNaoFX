@@ -11,6 +11,7 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
@@ -49,6 +50,7 @@ public class Controller {
 
         // Movement
         @FXML Tab MovementTab;
+        @FXML Pane MovementPane;
         @FXML Button MovementButtonW;
         @FXML Button MovementButtonA;
         @FXML Button MovementButtonS;
@@ -227,19 +229,14 @@ public class Controller {
         public void clickMovementKey(KeyEvent keyEvent) throws CallError, InterruptedException {
             System.out.print("key pressed: ");
             if(keyEvent.getText().equals("w")){
-                System.out.println("w pressed");
                 connection.getMovement().moveBodyForward();
             } else if(keyEvent.getText().equals("a")){
-                System.out.println("a pressed");
                 connection.getMovement().changeMovementDirectionLeft();
             } else if(keyEvent.getText().equals("s")){
-                System.out.println("s pressed");
                 connection.getMovement().moveBodyBackwards();
             } else if(keyEvent.getText().equals("d")){
-                System.out.println("d pressed");
                 connection.getMovement().changeMovementDirectionRight();
             } else if(keyEvent.getText().equals(" ")){
-                System.out.println("space pressed");
                 connection.getMovement().stopMovement();
             }
         }
@@ -301,6 +298,5 @@ public class Controller {
         public void clickHeadAlButtonRight(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getHeadalignment().moveHeadRight();
         }
-
 
 }
