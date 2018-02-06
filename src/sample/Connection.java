@@ -56,7 +56,7 @@ public class Connection {
 
     public void killConnection() throws Exception {
         System.out.println("kill current connection...");
-        speech.sayText("I am getting disconnected", "English", 100);
+        speech.sayText("Getting disconnected", "English", 100);
         session.close();
         this.setConnected(false);
         System.out.println("kill successfull.");

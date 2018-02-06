@@ -31,7 +31,7 @@
        </Tab>
    
        <!-- MOVEMENT ____________________________-->
-       <Tab closable="false" text="Movement">
+       <Tab fx:id="MovementTab" closable="false" disable="true" onSelectionChanged="#clickMovementKey" text="Movement">
       <content>
               <Pane>
                  <children>
@@ -49,7 +49,7 @@
        </Tab>
    
        <!-- POSTURE ____________________________-->
-       <Tab closable="false" text="Posture">
+       <Tab fx:id="PostureTab" closable="false" disable="true" text="Posture">
       <content>
               <Pane>
                  <children>
@@ -78,7 +78,7 @@
        </Tab>
    
        <!-- SPEECH ____________________________-->
-       <Tab closable="false" text="Speech">
+       <Tab fx:id="SpeechTab" closable="false" disable="true" text="Speech">
       <content>
               <Pane>
                  <children>
@@ -103,7 +103,7 @@
        </Tab>
    
        <!-- AUDIOPLAYER ____________________________-->
-       <Tab closable="false" text="Audio Sample">
+       <Tab fx:id="AudioSampleTab" closable="false" disable="true" text="Audio Sample">
       <content>
               <Pane>
                  <children>
@@ -127,7 +127,7 @@
        </Tab>
    
        <!-- APPEREANCE ____________________________-->
-       <Tab closable="false" text="LEDs">
+       <Tab fx:id="LedTab" closable="false" disable="true" text="LEDs">
       <content>
               <Pane>
                  <children>
@@ -167,7 +167,7 @@
        </Tab>
    
        <!-- HEADALIGNMENT ____________________________-->
-      <Tab closable="false" text="Head Alignment">
+      <Tab fx:id="HeadAlignmentTab" closable="false" disable="true" text="Head Alignment">
          <content>
             <Pane>
                <children>
@@ -181,14 +181,14 @@
             </Pane>
          </content>
       </Tab>
-      <Tab closable="false" text="Camera">
+      <Tab fx:id="CameraTab" closable="false" disable="true" text="Camera">
          <content>
             <Pane prefHeight="200.0" prefWidth="200.0" />
          </content>
       </Tab>
    
        <!-- BODYSTATE ____________________________-->
-       <Tab closable="false" text="Body State">
+       <Tab fx:id="BodyStateTab" closable="false" disable="true" text="Body State">
       <content>
               <Pane>
                  <children>

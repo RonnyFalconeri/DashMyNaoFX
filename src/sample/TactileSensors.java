@@ -19,7 +19,7 @@ public class TactileSensors {
         frontTactilSubscriptionId = memory.subscribeToEvent(
                         "FrontTactilTouched", new EventCallback<Float>() {
                             @Override
-                            public void onEvent(Float para)   throws InterruptedException, CallError {
+                            public void onEvent(Float para) throws InterruptedException, CallError {
                                 touchedFront();
 
                                 // 1 means the sensor has been pressed

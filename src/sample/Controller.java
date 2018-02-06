@@ -29,6 +29,7 @@ public class Controller {
         @FXML Circle ConnectionStatus;
 
         // Speech
+        @FXML Tab SpeechTab;
         @FXML Button SpeechButton;
         @FXML TextField SpeechText;
         @FXML ComboBox SpeechLanguage;
@@ -36,15 +37,18 @@ public class Controller {
         @FXML Slider SpeechVolumeSlider;
 
         // Posture
+        @FXML Tab PostureTab;
         @FXML Button PostureButton;
         @FXML ComboBox PostureComboBox;
         @FXML Slider PostureSpeedSlider;
 
         // AudioPlayer
+        @FXML Tab AudioSampleTab;
         @FXML Button AudioPlayerButton;
         @FXML ComboBox AudioPlayerComboBox;
 
         // Movement
+        @FXML Tab MovementTab;
         @FXML Button MovementButtonW;
         @FXML Button MovementButtonA;
         @FXML Button MovementButtonS;
@@ -53,23 +57,28 @@ public class Controller {
         @FXML Slider MovementSliderVel;
 
         // Appereance
+        @FXML Tab LedTab;
         @FXML Button AppereanceButtonSet;
         @FXML Button AppereanceButtonReset;
         @FXML ComboBox AppereanceComboBoxColor;
         @FXML ComboBox AppereanceComboBoxGroup;
 
         // BodyState
+        @FXML Tab BodyStateTab;
         @FXML Button BodyStateButton;
         @FXML Label BodyStateBatteryPerc;
         @FXML Label BodyStateLabelTemp;
 
         // HeadAlignment
+        @FXML Tab HeadAlignmentTab;
         @FXML Button HeadAlButtonUp;
         @FXML Button HeadAlButtonRight;
         @FXML Button HeadAlButtonDown;
         @FXML Button HeadAlButtonLeft;
         @FXML Button HeadAlButtonCenter;
 
+        // Camera
+        @FXML Tab CameraTab;
 
     // methods for GUI actions here
 
@@ -80,6 +89,17 @@ public class Controller {
             Labelname.setText(Text);
         }
 
+        private void disableTabs(boolean value){
+            this.MovementTab.setDisable(value);
+            this.SpeechTab.setDisable(value);
+            this.PostureTab.setDisable(value);
+            this.LedTab.setDisable(value);
+            this.AudioSampleTab.setDisable(value);
+            this.BodyStateTab.setDisable(value);
+            this.HeadAlignmentTab.setDisable(value);
+            this.CameraTab.setDisable(value);
+        }
+
         private void changeTextfieldText(TextField TextFieldName, String Text){
         TextFieldName.setText(Text);
     }
@@ -87,8 +107,10 @@ public class Controller {
         private void changeConnectionState(boolean isConnected){
             if (isConnected){
                 ConnectionStatus.setFill(Paint.valueOf("0x08d833ff"));
+                disableTabs(false);
             } else {
                 ConnectionStatus.setFill(Paint.valueOf("0xda0707ff"));
+                disableTabs(true);
             }
         }
 
