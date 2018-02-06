@@ -1,3 +1,12 @@
+/*
+        DASH MY NAO FX - A JAVA APPLICATION
+
+        Created by: Ronny Falconeri, Marcel Uthe, Niclas Meier
+        DHBW Lörrach, Feb 2018
+
+ */
+
+
 package sample;
 
 import javafx.application.Application;
@@ -17,7 +26,6 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream( "images/icon.png" )));
         primaryStage.show();
-
     }
 
     public static void main(String[] args) { launch(args); }

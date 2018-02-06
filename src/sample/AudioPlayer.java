@@ -10,14 +10,12 @@ public class AudioPlayer {
 
     // variables of other objects
     private ALAudioPlayer audioplayer;
-    private Connection Con;
 
 
 
         // Constructor
         public AudioPlayer(Connection pCon) throws Exception {
-            this.Con = pCon;
-            audioplayer = new ALAudioPlayer(this.Con.getSession());
+            audioplayer = new ALAudioPlayer(pCon.getSession());
         }
 
 
@@ -32,4 +30,5 @@ public class AudioPlayer {
     public void setAudiosample(String audiosample) {
         this.Audiosample = audiosample;
     }
+
 }

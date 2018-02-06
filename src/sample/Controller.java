@@ -1,5 +1,4 @@
 package sample;
-import com.aldebaran.qi.Application;
 import com.aldebaran.qi.CallError;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,15 +6,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
-
-import java.awt.*;
 
 public class Controller {
 
@@ -82,10 +77,14 @@ public class Controller {
         // Camera
         @FXML Tab CameraTab;
 
+    public Controller() throws Exception {}
+
     // methods for GUI actions here
 
         // GUI modification
-        private void changeButtonText(Button ButtonName, String Text){ ButtonName.setText(Text);}public Controller() throws Exception {}
+        private void changeButtonText(Button ButtonName, String Text){
+            ButtonName.setText(Text);
+        }
 
         private void changeLabelText(Label Labelname, String Text){
             Labelname.setText(Text);
@@ -102,15 +101,13 @@ public class Controller {
             this.CameraTab.setDisable(value);
         }
 
-        private void changeTextfieldText(TextField TextFieldName, String Text){
-        TextFieldName.setText(Text);
-    }
-
         private void changeConnectionState(boolean isConnected){
             if (isConnected){
+                // connection is true, enable tabs
                 ConnectionStatus.setFill(Paint.valueOf("0x08d833ff"));
                 disableTabs(false);
             } else {
+                // connection is false, disable tabs
                 ConnectionStatus.setFill(Paint.valueOf("0xda0707ff"));
                 disableTabs(true);
             }
@@ -125,31 +122,33 @@ public class Controller {
                 // connect for the first time
                 connection.buildNewConnection();
 
-                // GUI modification
-                changeConnectionState(true);
-                changeButtonText(ConnectionButton, "Disconnect");
+                    // GUI modification
+                    changeConnectionState(true);
+                    changeButtonText(ConnectionButton, "Disconnect");
             } else {
+
                 // was connected at least once
                 if (connection.isConnected()) {
+
                     // kill connection
                     connection.killConnection();
 
-                    // GUI modification
-                    changeConnectionState(false);
-                    changeButtonText(ConnectionButton, "Connect");
+                        // GUI modification
+                        changeConnectionState(false);
+                        changeButtonText(ConnectionButton, "Connect");
                 } else {
+
                     // build connection
                     connection = new Connection();
                     connection.setIP_Adress(ConnectionIP.getText());
                     connection.setPort(ConnectionPort.getText());
                     connection.buildNewConnection();
 
-                    // GUI modification
-                    changeConnectionState(true);
-                    changeButtonText(ConnectionButton, "Disconnect");
+                        // GUI modification
+                        changeConnectionState(true);
+                        changeButtonText(ConnectionButton, "Disconnect");
                 }
             }
-
         }
 
         public void changeIP_Adress(KeyEvent keyEvent) {
@@ -162,9 +161,13 @@ public class Controller {
 
 
         // Speech
-        public void clickSpeechButton(ActionEvent actionEvent) throws Exception {connection.getSpeech().sayText();}
+        public void clickSpeechButton(ActionEvent actionEvent) throws Exception {
+            connection.getSpeech().sayText();
+        }
 
-        public void changeSpeechText(KeyEvent keyEvent) {connection.getSpeech().setSpeechtext(SpeechText.getText());}
+        public void changeSpeechText(KeyEvent keyEvent) {
+            connection.getSpeech().setSpeechtext(SpeechText.getText());
+        }
 
         public void changeLanguage(ActionEvent actionEvent) {
             connection.getSpeech().setLanguage(SpeechLanguage.getSelectionModel().getSelectedItem().toString());

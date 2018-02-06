@@ -14,23 +14,20 @@ public class BodyState {
     // variables of other objects
     private ALBattery battery;
     private ALBodyTemperature temp;
-    private Object tempOb;
-    private Connection Con;
 
 
 
         // Constructor
         public BodyState(Connection pCon) throws Exception {
-            this.Con = pCon;
-            battery = new ALBattery(this.Con.getSession());
-            temp = new ALBodyTemperature(this.Con.getSession());
+            battery = new ALBattery(pCon.getSession());
+            temp = new ALBodyTemperature(pCon.getSession());
         }
 
 
 
     // methods for NAO
-    public void checkTemperature() throws InterruptedException, CallError {
-        tempOb = temp.getTemperatureDiagnosis();
+    private void checkTemperature() throws InterruptedException, CallError {
+        Object tempOb = temp.getTemperatureDiagnosis();
         int tempReturn=5;
 
         if (tempOb instanceof ArrayList) {
@@ -55,7 +52,7 @@ public class BodyState {
         }
     }
 
-    public void checkBatteryPercentage() throws InterruptedException, CallError {
+    private void checkBatteryPercentage() throws InterruptedException, CallError {
         this.BatteryPercentage = battery.getBatteryCharge();
     }
 
@@ -70,4 +67,5 @@ public class BodyState {
         checkBatteryPercentage();
         return this.BatteryPercentage;
     }
+
 }

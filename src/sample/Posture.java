@@ -10,15 +10,13 @@ public class Posture {
     private float Speed=1.0f;
 
     // variables of other objects
-    private Connection Con;
     private ALRobotPosture pos;
 
 
 
         // Constructor
         public Posture(Connection pCon) throws Exception {
-            this.Con = pCon;
-            pos = new ALRobotPosture(this.Con.getSession());
+            pos = new ALRobotPosture(pCon.getSession());
         }
 
 
@@ -29,10 +27,10 @@ public class Posture {
         pos.goToPosture(this.Posture, this.Speed);
     }
 
-    // additional method for external use
-    public void posePosture(String pPosture) throws InterruptedException, CallError {
-        pos.goToPosture(pPosture, 1.0f);
-    }
+        // additional method for external use
+        public void posePosture(String pPosture) throws InterruptedException, CallError {
+            pos.goToPosture(pPosture, 1.0f);
+        }
 
 
     // set n' get

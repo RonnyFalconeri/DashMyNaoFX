@@ -181,6 +181,8 @@
             </Pane>
          </content>
       </Tab>
+
+       <!-- Camera ____________________________-->
       <Tab fx:id="CameraTab" closable="false" disable="true" text="Camera">
          <content>
             <Pane prefHeight="200.0" prefWidth="200.0" />

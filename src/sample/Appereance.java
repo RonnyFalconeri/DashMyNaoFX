@@ -8,31 +8,27 @@ public class Appereance {
     // variables of instance
     private String Color = "white";
     private String Group = "AllLeds";
-    private float dur = 2.0f;
 
     // variables of other objects
     private ALLeds leds;
-    private Connection Con;
 
 
 
         // Constructor
         public Appereance(Connection pCon) throws Exception {
-            this.Con = pCon;
-            leds = new ALLeds(this.Con.getSession());
+            leds = new ALLeds(pCon.getSession());
         }
 
 
 
     // methods for NAO
     public void changeLEDColor() throws InterruptedException, CallError {
-        leds.fadeRGB(this.Group, this.Color, this.dur);
+        leds.fadeRGB(this.Group, this.Color, 2.0f);
     }
 
     public void resetLEDs() throws InterruptedException, CallError {
         leds.reset("AllLeds");
     }
-
 
 
     //set n' get

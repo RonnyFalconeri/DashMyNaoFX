@@ -10,15 +10,13 @@ public class HeadAlignment {
     private double Horizontal_Axis; //HeadYaw
 
     // variables of other objects
-    private Connection Con;
     private ALMotion motion;
 
 
 
         // Constructor
         public HeadAlignment(Connection pCon) throws Exception {
-            this.Con = pCon;
-            motion = new ALMotion(this.Con.getSession());
+            motion = new ALMotion(pCon.getSession());
         }
 
 

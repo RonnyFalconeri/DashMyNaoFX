@@ -1,5 +1,4 @@
 package sample;
-import com.aldebaran.qi.Application;
 import com.aldebaran.qi.Session;
 
 public class Connection {
@@ -9,9 +8,7 @@ public class Connection {
     private String Port = "9559";
     private boolean IsConnected=false;
 
-
     // variables of other objects
-    private Application application;
     private Speech speech;
     private Posture posture;
     private AudioPlayer audioplayer;
@@ -36,9 +33,9 @@ public class Connection {
         String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
         System.out.println("building new connection with IP:  "+ConnectionURL);
 
+        // build new session
         session = new Session(ConnectionURL);
         session.connect(ConnectionURL);
-
         this.setConnected(true);
 
         // instanciate new objects here
@@ -53,17 +50,18 @@ public class Connection {
 
         // giving feedback
         posture.posePosture("Stand");
-        speech.sayText("I am connected", "English", 100);
+        speech.sayText("I am connected.", "English", 100);
+        System.out.println("connection successful.");
     }
 
     public void killConnection() throws Exception {
-        speech.sayText("Getting disconnected", "English", 100);
+        speech.sayText("Getting disconnected.", "English", 100);
         session.close();
         this.setConnected(false);
         System.out.println("connection closed.");
     }
 
-    public void checkConnectionState(){
+    private void checkConnectionState(){
         boolean state = session.isConnected();
         setConnected(state);
     }
@@ -90,8 +88,6 @@ public class Connection {
 
     // get objects from outside
     public Speech getSpeech(){return this.speech;}
-
-    public Application getApplication(){return this.application;}
 
     public Posture getPosture() {return this.posture;}
 
