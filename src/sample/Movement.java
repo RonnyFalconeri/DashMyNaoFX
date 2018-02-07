@@ -63,8 +63,8 @@ public class Movement {
 
 
     // set n' get
-    public void setVelocity(float pVel) {
-        this.Velocity = pVel;
+    public void setVelocity(float pVelocity) {
+        this.Velocity = pVelocity;
     }
 
 }

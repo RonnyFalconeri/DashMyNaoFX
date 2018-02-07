@@ -15,7 +15,7 @@ public class HeadAlignment {
 
 
         // Constructor
-        public HeadAlignment(Connection pCon) throws Exception {
+        HeadAlignment(Connection pCon) throws Exception {
             motion = new ALMotion(pCon.getSession());
         }
 

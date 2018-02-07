@@ -4,25 +4,24 @@ import com.aldebaran.qi.Session;
 public class Connection {
 
     // variables of instance
-    private String IP_Adress = "192.168.1.133";
+    private String IP_Address = "192.168.1.133";
     private String Port = "9559";
-    private boolean IsConnected=false;
+    private boolean IsConnected = false;
 
     // variables of other objects
     private Speech speech;
     private Posture posture;
     private AudioPlayer audioplayer;
-    private Appereance appereance;
+    private Appearance appearance;
     private Movement movement;
     private BodyState bodystate;
     private HeadAlignment headalignment;
     private Session session;
-    private TactileSensors tactile;
 
 
 
         // Constructor
-        public Connection() throws Exception {
+        public Connection() {
             System.out.println("new connection... ");
         }
 
@@ -30,7 +29,7 @@ public class Connection {
 
     // methods for NAO
     public void buildNewConnection() throws Exception {
-        String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
+        String ConnectionURL = "tcp://"+ IP_Address +":"+Port;
         System.out.println("building new connection with IP:  "+ConnectionURL);
 
         // build new session
@@ -42,11 +41,11 @@ public class Connection {
         posture = new Posture(this);
         speech = new Speech(this);
         audioplayer = new AudioPlayer(this);
-        appereance = new Appereance(this);
+        appearance = new Appearance(this);
         movement = new Movement(this);
         bodystate = new BodyState(this);
         headalignment = new HeadAlignment(this);
-        tactile = new TactileSensors(this);
+        TactileSensors tactile = new TactileSensors(this);
 
         // giving feedback
         posture.posePosture("Stand");
@@ -68,16 +67,16 @@ public class Connection {
 
 
     //set n' get
-    public void setIP_Adress(String IP){
-        this.IP_Adress = IP;
+    public void setIP_Address(String pIP){
+        this.IP_Address = pIP;
     }
 
-    public void setPort(String Port){
-        this.Port = Port;
+    public void setPort(String pPort){
+        this.Port = pPort;
     }
 
-    private void setConnected(boolean ConnectionState) {
-        this.IsConnected = ConnectionState;
+    private void setConnected(boolean pConnectionState) {
+        this.IsConnected = pConnectionState;
     }
 
     public boolean isConnected(){
@@ -91,15 +90,15 @@ public class Connection {
 
     public Posture getPosture() {return this.posture;}
 
-    public AudioPlayer getAudioplayer(){return this.audioplayer;}
+    public AudioPlayer getAudioPlayer(){return this.audioplayer;}
 
-    public Appereance getAppereance() {return this.appereance;}
+    public Appearance getAppearance() {return this.appearance;}
 
     public Movement getMovement() {return this.movement;}
 
-    public BodyState getBodystate() {return this.bodystate;}
+    public BodyState getBodyState() {return this.bodystate;}
 
-    public HeadAlignment getHeadalignment() {return this.headalignment;}
+    public HeadAlignment getHeadAlignment() {return this.headalignment;}
 
     public Session getSession() {return this.session;}
 }

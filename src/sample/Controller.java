@@ -1,4 +1,5 @@
 package sample;
+
 import com.aldebaran.qi.CallError;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,17 +54,17 @@ public class Controller {
         @FXML Button MovementButtonStop;
         @FXML Slider MovementSliderVel;
 
-        // Appereance
+        // Appearance
         @FXML Tab LedTab;
-        @FXML Button AppereanceButtonSet;
-        @FXML Button AppereanceButtonReset;
-        @FXML ComboBox AppereanceComboBoxColor;
-        @FXML ComboBox AppereanceComboBoxGroup;
+        @FXML Button AppearanceButtonSet;
+        @FXML Button AppearanceButtonReset;
+        @FXML ComboBox AppearanceComboBoxColor;
+        @FXML ComboBox AppearanceComboBoxGroup;
 
         // BodyState
         @FXML Tab BodyStateTab;
         @FXML Button BodyStateButton;
-        @FXML Label BodyStateBatteryPerc;
+        @FXML Label BodyStateBatteryPercentage;
         @FXML Label BodyStateLabelTemp;
 
         // HeadAlignment
@@ -77,28 +78,28 @@ public class Controller {
         // Camera
         @FXML Tab CameraTab;
 
-    public Controller() throws Exception {}
+    public Controller() {}
 
     // methods for GUI actions here
 
         // GUI modification
-        private void changeButtonText(Button ButtonName, String Text){
-            ButtonName.setText(Text);
+        private void changeButtonText(Button pButtonName, String pText){
+            pButtonName.setText(pText);
         }
 
-        private void changeLabelText(Label Labelname, String Text){
-            Labelname.setText(Text);
+        private void changeLabelText(Label pLabelName, String pText){
+            pLabelName.setText(pText);
         }
 
-        private void disableTabs(boolean value){
-            this.MovementTab.setDisable(value);
-            this.SpeechTab.setDisable(value);
-            this.PostureTab.setDisable(value);
-            this.LedTab.setDisable(value);
-            this.AudioSampleTab.setDisable(value);
-            this.BodyStateTab.setDisable(value);
-            this.HeadAlignmentTab.setDisable(value);
-            this.CameraTab.setDisable(value);
+        private void disableTabs(boolean pValue){
+            this.MovementTab.setDisable(pValue);
+            this.SpeechTab.setDisable(pValue);
+            this.PostureTab.setDisable(pValue);
+            this.LedTab.setDisable(pValue);
+            this.AudioSampleTab.setDisable(pValue);
+            this.BodyStateTab.setDisable(pValue);
+            this.HeadAlignmentTab.setDisable(pValue);
+            this.CameraTab.setDisable(pValue);
         }
 
         private void changeConnectionState(boolean isConnected){
@@ -115,7 +116,7 @@ public class Controller {
 
 
         // Connection
-        int amountClicked=0;
+        private int amountClicked=0;
         public void clickConnectionButton(ActionEvent actionEvent) throws Exception {
             amountClicked++;
             if (amountClicked < 2) {
@@ -140,7 +141,7 @@ public class Controller {
 
                     // build connection
                     connection = new Connection();
-                    connection.setIP_Adress(ConnectionIP.getText());
+                    connection.setIP_Address(ConnectionIP.getText());
                     connection.setPort(ConnectionPort.getText());
                     connection.buildNewConnection();
 
@@ -151,8 +152,8 @@ public class Controller {
             }
         }
 
-        public void changeIP_Adress(KeyEvent keyEvent) {
-            connection.setIP_Adress(ConnectionIP.getText());
+        public void changeIP_Address(KeyEvent keyEvent) {
+            connection.setIP_Address(ConnectionIP.getText());
         }
 
         public void changePort(KeyEvent keyEvent) {
@@ -166,7 +167,7 @@ public class Controller {
         }
 
         public void changeSpeechText(KeyEvent keyEvent) {
-            connection.getSpeech().setSpeechtext(SpeechText.getText());
+            connection.getSpeech().setSpeechText(SpeechText.getText());
         }
 
         public void changeLanguage(ActionEvent actionEvent) {
@@ -200,11 +201,11 @@ public class Controller {
 
         // AudioPlayer
         public void clickAudioPlayerButton(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getAudioplayer().playAudiosample();
+            connection.getAudioPlayer().playAudioSample();
         }
 
-        public void changeAudioPlayerAudiosample(ActionEvent actionEvent) {
-            connection.getAudioplayer().setAudiosample(AudioPlayerComboBox.getSelectionModel().getSelectedItem().toString());
+        public void changeAudioPlayerAudioSample(ActionEvent actionEvent) {
+            connection.getAudioPlayer().setAudioSample(AudioPlayerComboBox.getSelectionModel().getSelectedItem().toString());
         }
 
 
@@ -249,57 +250,57 @@ public class Controller {
         }
 
 
-        // Appereance
-        public void clickAppereanceButtonReset(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getAppereance().resetLEDs();
+        // Appearance
+        public void clickAppearanceButtonReset(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getAppearance().resetLEDs();
         }
 
-        public void clickAppereanceButtonSet(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getAppereance().changeLEDColor();
+        public void clickAppearanceButtonSet(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getAppearance().changeLEDColor();
         }
 
-        public void changeAppereanceGroup(ActionEvent actionEvent) {
-            connection.getAppereance().setGroup(AppereanceComboBoxGroup.getSelectionModel().getSelectedItem().toString());
+        public void changeAppearanceGroup(ActionEvent actionEvent) {
+            connection.getAppearance().setGroup(AppearanceComboBoxGroup.getSelectionModel().getSelectedItem().toString());
         }
 
-        public void changeAppereanceColor(ActionEvent actionEvent) {
-            connection.getAppereance().setColor(AppereanceComboBoxColor.getSelectionModel().getSelectedItem().toString());
+        public void changeAppearanceColor(ActionEvent actionEvent) {
+            connection.getAppearance().setColor(AppearanceComboBoxColor.getSelectionModel().getSelectedItem().toString());
         }
 
 
         // BodyState
         public void clickBodyStateButton(ActionEvent actionEvent) throws InterruptedException, CallError {
             // get battery percentage
-            String BatteryPerc;
-            BatteryPerc = connection.getBodystate().getBatteryPercentage()+" %";
-            changeLabelText(BodyStateBatteryPerc, BatteryPerc);
+            String BatteryPercentage;
+            BatteryPercentage = connection.getBodyState().getBatteryPercentage()+" %";
+            changeLabelText(BodyStateBatteryPercentage, BatteryPercentage);
 
             // get temperature
             String Temp;
-            Temp = connection.getBodystate().getTemperature();
+            Temp = connection.getBodyState().getTemperature();
             changeLabelText(BodyStateLabelTemp,Temp);
         }
 
 
         // HeadAlignment
         public void clickHeadAlButtonUp(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getHeadalignment().moveHeadUp();
+            connection.getHeadAlignment().moveHeadUp();
         }
 
         public void clickHeadAlButtonDown(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getHeadalignment().moveHeadDown();
+            connection.getHeadAlignment().moveHeadDown();
         }
 
         public void clickHeadAlButtonCenter(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getHeadalignment().moveHeadCenter();
+            connection.getHeadAlignment().moveHeadCenter();
         }
 
         public void clickHeadAlButtonLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getHeadalignment().moveHeadLeft();
+            connection.getHeadAlignment().moveHeadLeft();
         }
 
         public void clickHeadAlButtonRight(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getHeadalignment().moveHeadRight();
+            connection.getHeadAlignment().moveHeadRight();
         }
 
 }

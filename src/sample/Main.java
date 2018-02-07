@@ -2,7 +2,7 @@
         DASH MY NAO FX - A JAVA APPLICATION
 
         Created by: Ronny Falconeri, Marcel Uthe, Niclas Meier
-        DHBW Lörrach, Feb 2018
+        DHBW Lörrach DE, Feb 2018
 
  */
 

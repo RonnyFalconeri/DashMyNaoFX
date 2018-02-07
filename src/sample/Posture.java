@@ -6,7 +6,7 @@ import com.aldebaran.qi.helper.proxies.ALRobotPosture;
 public class Posture {
 
     // variables of instance
-    private String Posture="Stand";
+    private String Posture = "Stand";
     private float Speed=1.0f;
 
     // variables of other objects
@@ -34,12 +34,12 @@ public class Posture {
 
 
     // set n' get
-    public void setPosture(String Posture){
-        this.Posture = Posture;
+    public void setPosture(String pPosture){
+        this.Posture = pPosture;
     }
 
-    public void setSpeed(float Speed){
-        this.Speed = Speed;
+    public void setSpeed(float pSpeed){
+        this.Speed = pSpeed;
     }
 
 }

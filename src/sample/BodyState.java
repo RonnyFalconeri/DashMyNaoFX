@@ -18,7 +18,7 @@ public class BodyState {
 
 
         // Constructor
-        public BodyState(Connection pCon) throws Exception {
+        BodyState(Connection pCon) throws Exception {
             battery = new ALBattery(pCon.getSession());
             temp = new ALBodyTemperature(pCon.getSession());
         }

@@ -4,7 +4,7 @@ import com.aldebaran.qi.CallError;
 import com.aldebaran.qi.helper.EventCallback;
 import com.aldebaran.qi.helper.proxies.*;
 
-public class TactileSensors {
+class TactileSensors {
 
     // variables of instance
     private long frontTactileSubscriptionId;
@@ -17,7 +17,7 @@ public class TactileSensors {
 
 
         // Constructor
-        public TactileSensors(Connection pCon) throws Exception {
+        TactileSensors(Connection pCon) throws Exception {
             this.Con = pCon;
             ALMemory memory = new ALMemory(this.Con.getSession());
 

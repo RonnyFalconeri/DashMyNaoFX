@@ -6,29 +6,29 @@ import com.aldebaran.qi.helper.proxies.ALAudioPlayer;
 public class AudioPlayer {
 
     // variables of instance
-    private String Audiosample;
+    private String AudioSample;
 
     // variables of other objects
-    private ALAudioPlayer audioplayer;
+    private ALAudioPlayer audioPlayer;
 
 
 
         // Constructor
-        public AudioPlayer(Connection pCon) throws Exception {
-            audioplayer = new ALAudioPlayer(pCon.getSession());
+        AudioPlayer(Connection pCon) throws Exception {
+            audioPlayer = new ALAudioPlayer(pCon.getSession());
         }
 
 
 
     // methods for NAO
-    public void playAudiosample() throws InterruptedException, CallError {
-        audioplayer.playSoundSetFile("Aldebaran",this.Audiosample);
+    public void playAudioSample() throws InterruptedException, CallError {
+        audioPlayer.playSoundSetFile("Aldebaran",this.AudioSample);
     }
 
 
     // set n' get
-    public void setAudiosample(String audiosample) {
-        this.Audiosample = audiosample;
+    public void setAudioSample(String pAudioSample) {
+        this.AudioSample = pAudioSample;
     }
 
 }

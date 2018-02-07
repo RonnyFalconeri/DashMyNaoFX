@@ -3,31 +3,31 @@ package sample;
 import com.aldebaran.qi.CallError;
 import com.aldebaran.qi.helper.proxies.ALLeds;
 
-public class Appereance {
+public class Appearance {
 
     // variables of instance
     private String Color = "white";
     private String Group = "AllLeds";
 
     // variables of other objects
-    private ALLeds leds;
+    private ALLeds LED;
 
 
 
         // Constructor
-        public Appereance(Connection pCon) throws Exception {
-            leds = new ALLeds(pCon.getSession());
+        Appearance(Connection pCon) throws Exception {
+            LED = new ALLeds(pCon.getSession());
         }
 
 
 
     // methods for NAO
     public void changeLEDColor() throws InterruptedException, CallError {
-        leds.fadeRGB(this.Group, this.Color, 2.0f);
+        LED.fadeRGB(this.Group, this.Color, 2.0f);
     }
 
     public void resetLEDs() throws InterruptedException, CallError {
-        leds.reset("AllLeds");
+        LED.reset("AllLeds");
     }
 
 
