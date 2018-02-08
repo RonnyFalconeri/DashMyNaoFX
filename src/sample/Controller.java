@@ -75,6 +75,12 @@ public class Controller {
         @FXML Button HeadAlButtonLeft;
         @FXML Button HeadAlButtonCenter;
 
+        // Behavior
+        @FXML Tab BehaviorTab;
+        @FXML Button BehaviorButtonStart;
+        @FXML Button BehaviorButtonStop;
+        @FXML ComboBox BehaviorComboBox;
+
         // Camera
         @FXML Tab CameraTab;
 
@@ -100,6 +106,7 @@ public class Controller {
             this.BodyStateTab.setDisable(pValue);
             this.HeadAlignmentTab.setDisable(pValue);
             this.CameraTab.setDisable(pValue);
+            this.BehaviorTab.setDisable(pValue);
         }
 
         private void changeConnectionState(boolean isConnected){
@@ -210,44 +217,85 @@ public class Controller {
 
 
         // Movement
-        public void clickMovementButtonW(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getMovement().moveBodyForward();
-        }
 
-        public void clickMovementButtonA(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getMovement().changeMovementDirectionLeft();
-        }
-
-        public void clickMovementButtonS(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getMovement().moveBodyBackwards();
-        }
-
-        public void clickMovementButtonD(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getMovement().changeMovementDirectionRight();
-        }
-
-        public void clickMovementButtonStop(ActionEvent actionEvent) throws CallError, InterruptedException {
-            connection.getMovement().stopMovement();
-        }
-
-        public void clickMovementKey(KeyEvent keyEvent) throws CallError, InterruptedException {
-            System.out.print("key pressed: ");
-            if(keyEvent.getText().equals("w")){
+            // walking
+            public void clickMovementButtonW(ActionEvent actionEvent) throws CallError, InterruptedException {
                 connection.getMovement().moveBodyForward();
-            } else if(keyEvent.getText().equals("a")){
+            }
+
+            public void clickMovementButtonA(ActionEvent actionEvent) throws CallError, InterruptedException {
                 connection.getMovement().changeMovementDirectionLeft();
-            } else if(keyEvent.getText().equals("s")){
+            }
+
+            public void clickMovementButtonS(ActionEvent actionEvent) throws CallError, InterruptedException {
                 connection.getMovement().moveBodyBackwards();
-            } else if(keyEvent.getText().equals("d")){
+            }
+
+            public void clickMovementButtonD(ActionEvent actionEvent) throws CallError, InterruptedException {
                 connection.getMovement().changeMovementDirectionRight();
-            } else if(keyEvent.getText().equals(" ")){
+            }
+
+            public void clickMovementButtonStop(ActionEvent actionEvent) throws CallError, InterruptedException {
                 connection.getMovement().stopMovement();
             }
-        }
 
-        public void changeMovementVel(MouseEvent mouseEvent) {
-            connection.getMovement().setVelocity((float)MovementSliderVel.getValue());
-        }
+            public void clickMovementKey(KeyEvent keyEvent) throws CallError, InterruptedException {
+                System.out.print("key pressed: ");
+                if(keyEvent.getText().equals("w")){
+                    connection.getMovement().moveBodyForward();
+                } else if(keyEvent.getText().equals("a")){
+                    connection.getMovement().changeMovementDirectionLeft();
+                } else if(keyEvent.getText().equals("s")){
+                    connection.getMovement().moveBodyBackwards();
+                } else if(keyEvent.getText().equals("d")){
+                    connection.getMovement().changeMovementDirectionRight();
+                } else if(keyEvent.getText().equals(" ")){
+                    connection.getMovement().stopMovement();
+                }
+            }
+
+            public void changeMovementVel(MouseEvent mouseEvent) {
+                connection.getMovement().setVelocity((float)MovementSliderVel.getValue());
+            }
+
+            // arm motion
+            public void clickMovementResetArms(ActionEvent actionEvent) throws CallError, InterruptedException {
+                connection.getMovement().resetArms();
+            }
+
+                // left arm
+                public void clickMovementLeftArmUp(ActionEvent actionEvent) throws CallError, InterruptedException {
+                    connection.getMovement().moveArmUp(true,1.0f);
+                }
+
+                public void clickMovementLeftArmDown(ActionEvent actionEvent) throws CallError, InterruptedException {
+                    connection.getMovement().moveArmUp(true,-1.0f);
+                }
+
+                public void clickMovementLeftArmLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
+                    connection.getMovement().moveArmRight(true,-1.0f);
+                }
+
+                public void clickMovementLeftArmRight(ActionEvent actionEvent) throws CallError, InterruptedException {
+                    connection.getMovement().moveArmRight(true,1.0f);
+                }
+
+                // right arm
+                public void clickMovementRightArmUp(ActionEvent actionEvent) throws CallError, InterruptedException {
+                    connection.getMovement().moveArmUp(false,1.0f);
+                }
+
+                public void clickMovementRightArmDown(ActionEvent actionEvent) throws CallError, InterruptedException {
+                    connection.getMovement().moveArmUp(false,-1.0f);
+                }
+
+                public void clickMovementRightArmLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
+                    connection.getMovement().moveArmRight(false,-1.0f);
+                }
+
+                public void clickMovementRightArmRight(ActionEvent actionEvent) throws CallError, InterruptedException {
+                    connection.getMovement().moveArmRight(false,1.0f);
+                }
 
 
         // Appearance
@@ -302,5 +350,20 @@ public class Controller {
         public void clickHeadAlButtonRight(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getHeadAlignment().moveHeadRight();
         }
+
+
+        // Behavior
+        public void clickBehaviorButtonStart(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getBehavior().startBehavior();
+        }
+
+        public void clickBehaviorButtonStop(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getBehavior().stopBehavior();
+        }
+
+        public void changeBehaviorName(ActionEvent actionEvent) {
+            connection.getBehavior().setBehaviorName(BehaviorComboBox.getSelectionModel().getSelectedItem().toString());
+        }
+
 
 }

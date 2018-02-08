@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" stylesheets="@standard.css" xmlns="http://javafx.com/javafx/8.0.151" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" stylesheets="@standard.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <tabs>
 
        <!-- CONNECTION ____________________________-->
@@ -43,6 +43,17 @@
                      <Slider fx:id="MovementSliderVel" layoutX="229.0" layoutY="54.0" max="1.0" onMouseReleased="#changeMovementVel" orientation="VERTICAL" />
                      <Label layoutX="208.0" layoutY="208.0" text="Velocity" />
                   <Button fx:id="MovementButtonStop" layoutX="85.0" layoutY="193.0" mnemonicParsing="false" onAction="#clickMovementButtonStop" onKeyPressed="#clickMovementKey" prefHeight="30.0" prefWidth="60.0" text="Stop" />
+                  <Button fx:id="MovementLeftArmUp" layoutX="307.0" layoutY="61.0" mnemonicParsing="false" onAction="#clickMovementLeftArmUp" prefHeight="36.0" prefWidth="31.0" text="Up" />
+                  <Button fx:id="MovementLeftArmDown" layoutX="295.0" layoutY="137.0" mnemonicParsing="false" onAction="#clickMovementLeftArmDown" prefHeight="35.0" prefWidth="60.0" text="Down" />
+                  <Button fx:id="MovementLeftArmLeft" layoutX="259.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementLeftArmLeft" text="Left" />
+                  <Button fx:id="MovementLeftArmRight" layoutX="340.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementLeftArmRight" prefHeight="27.0" prefWidth="69.0" text="Right" />
+                  <Label layoutX="291.0" layoutY="30.0" text="Left Arm" />
+                  <Button fx:id="MovementRightArmUp" layoutX="490.0" layoutY="70.0" mnemonicParsing="false" onAction="#clickMovementRightArmUp" text="Up" />
+                  <Button fx:id="MovementRightArmDown" layoutX="482.0" layoutY="154.0" mnemonicParsing="false" onAction="#clickMovementRightArmDown" text="Down" />
+                  <Button fx:id="MovementRightArmLeft" layoutX="439.0" layoutY="105.0" mnemonicParsing="false" onAction="#clickMovementRightArmLeft" text="Left" />
+                  <Button fx:id="MovementRightArmRight" layoutX="509.0" layoutY="105.0" mnemonicParsing="false" onAction="#clickMovementRightArmRight" text="Right" />
+                  <Label layoutX="470.0" layoutY="30.0" text="Right Arm" />
+                  <Button fx:id="MovementResetArms" layoutX="400.0" layoutY="182.0" mnemonicParsing="false" onAction="#clickMovementResetArms" text="reset" />
                  </children>
               </Pane>
       </content>
@@ -57,15 +68,15 @@
                      <ComboBox fx:id="PostureComboBox" layoutX="37.0" layoutY="72.0" onAction="#changePosture" prefHeight="30.0" prefWidth="200.0" promptText="Posture">
                          <items>
                              <FXCollections fx:factory="observableArrayList">
-                                 <String  fx:value="Crouch" />
-                                 <String  fx:value="LyingBack" />
-                                 <String  fx:value="LyingBelly" />
-                                 <String  fx:value="Sit" />
-                                 <String  fx:value="SitOnChair" />
-                                 <String  fx:value="SitRelax" />
-                                 <String  fx:value="Stand" />
-                                 <String  fx:value="StandInit" />
-                                 <String  fx:value="StandZero" />
+                                 <String fx:value="Crouch" />
+                                 <String fx:value="LyingBack" />
+                                 <String fx:value="LyingBelly" />
+                                 <String fx:value="Sit" />
+                                 <String fx:value="SitOnChair" />
+                                 <String fx:value="SitRelax" />
+                                 <String fx:value="Stand" />
+                                 <String fx:value="StandInit" />
+                                 <String fx:value="StandZero" />
                              </FXCollections>
                          </items>
                      </ComboBox>
@@ -90,8 +101,8 @@
                      <ComboBox fx:id="SpeechLanguage" layoutX="38.0" layoutY="207.0" onAction="#changeLanguage" prefHeight="30.0" prefWidth="130.0" promptText="Language">
                          <items>
                              <FXCollections fx:factory="observableArrayList">
-                                 <String  fx:value="German" />
-                                 <String  fx:value="English" />
+                                 <String fx:value="German" />
+                                 <String fx:value="English" />
                              </FXCollections>
                          </items>
                      </ComboBox>
@@ -132,10 +143,10 @@
                      <ComboBox fx:id="AppearanceComboBoxGroup" layoutX="35.0" layoutY="66.0" onAction="#changeAppearanceGroup" prefHeight="30.0" prefWidth="200.0" promptText="Select Body Group">
                          <items>
                              <FXCollections fx:factory="observableArrayList">
-                                 <String  fx:value="AllLeds" />
-                                 <String  fx:value="LeftFaceLeds" />
-                                 <String  fx:value="RightFaceLeds" />
-                                 <String  fx:value="FaceLeds" />
+                                 <String fx:value="AllLeds" />
+                                 <String fx:value="LeftFaceLeds" />
+                                 <String fx:value="RightFaceLeds" />
+                                 <String fx:value="FaceLeds" />
                              </FXCollections>
                          </items>
                      </ComboBox>
@@ -145,13 +156,13 @@
                      <ComboBox fx:id="AppearanceComboBoxColor" layoutX="35.0" layoutY="116.0" onAction="#changeAppearanceColor" prefHeight="30.0" prefWidth="200.0" promptText="Pick a color">
                          <items>
                              <FXCollections fx:factory="observableArrayList">
-                                 <String  fx:value="white" />
-                                 <String  fx:value="red" />
-                                 <String  fx:value="green" />
-                                 <String  fx:value="blue" />
-                                 <String  fx:value="yellow" />
-                                 <String  fx:value="magenta" />
-                                 <String  fx:value="cyan" />
+                                 <String fx:value="white" />
+                                 <String fx:value="red" />
+                                 <String fx:value="green" />
+                                 <String fx:value="blue" />
+                                 <String fx:value="yellow" />
+                                 <String fx:value="magenta" />
+                                 <String fx:value="cyan" />
                              </FXCollections>
                          </items>
                      </ComboBox>
@@ -199,6 +210,27 @@
               </Pane>
       </content>
        </Tab>
+
+
+      <Tab fx:id="BehaviorTab" closable="false" disable="true" text="Behavior">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                   <ComboBox fx:id="BehaviorComboBox" layoutX="63.0" layoutY="119.0" onAction="#changeBehaviorName" prefHeight="27.0" prefWidth="232.0" promptText="Choose a behavior">
+                       <items>
+                           <FXCollections fx:factory="observableArrayList">
+                               <String fx:value="behavior1" />
+                               <String fx:value="behavior2" />
+                               <String fx:value="behavior3" />
+                           </FXCollections>
+                       </items>
+                   </ComboBox>
+                  <Button fx:id="BehaviorButtonStart" layoutX="342.0" layoutY="119.0" mnemonicParsing="false" onAction="#clickBehaviorButtonStart" text="Start Behavior" />
+                  <Button fx:id="BehaviorButtonStop" layoutX="342.0" layoutY="158.0" mnemonicParsing="false" onAction="#clickBehaviorButtonStop" text="Stop Behavior" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
    </tabs>
 
 </TabPane>

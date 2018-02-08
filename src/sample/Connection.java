@@ -17,6 +17,7 @@ public class Connection {
     private BodyState bodystate;
     private HeadAlignment headalignment;
     private Session session;
+    private Behavior behavior;
 
 
 
@@ -45,6 +46,7 @@ public class Connection {
         movement = new Movement(this);
         bodystate = new BodyState(this);
         headalignment = new HeadAlignment(this);
+        behavior = new Behavior(this);
         TactileSensors tactile = new TactileSensors(this);
 
         // giving feedback
@@ -101,4 +103,6 @@ public class Connection {
     public HeadAlignment getHeadAlignment() {return this.headalignment;}
 
     public Session getSession() {return this.session;}
+
+    public Behavior getBehavior() {return this.behavior;}
 }
