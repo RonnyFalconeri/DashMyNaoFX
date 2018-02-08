@@ -263,39 +263,39 @@ public class Controller {
                 connection.getMovement().resetArms();
             }
 
-                // left arm
-                public void clickMovementLeftArmUp(ActionEvent actionEvent) throws CallError, InterruptedException {
-                    connection.getMovement().moveArmUp(true,1.0f);
-                }
+            // left arm
+            public void clickMovementLeftArmUp(ActionEvent actionEvent) throws CallError, InterruptedException {
+                connection.getMovement().moveArmUp(true,1.0f);
+            }
 
-                public void clickMovementLeftArmDown(ActionEvent actionEvent) throws CallError, InterruptedException {
-                    connection.getMovement().moveArmUp(true,-1.0f);
-                }
+            public void clickMovementLeftArmDown(ActionEvent actionEvent) throws CallError, InterruptedException {
+                connection.getMovement().moveArmUp(true,-1.0f);
+            }
 
-                public void clickMovementLeftArmLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
-                    connection.getMovement().moveArmRight(true,-1.0f);
-                }
+            public void clickMovementLeftArmLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
+                connection.getMovement().moveArmRight(true,-1.0f);
+            }
 
-                public void clickMovementLeftArmRight(ActionEvent actionEvent) throws CallError, InterruptedException {
-                    connection.getMovement().moveArmRight(true,1.0f);
-                }
+            public void clickMovementLeftArmRight(ActionEvent actionEvent) throws CallError, InterruptedException {
+                connection.getMovement().moveArmRight(true,1.0f);
+            }
 
-                // right arm
-                public void clickMovementRightArmUp(ActionEvent actionEvent) throws CallError, InterruptedException {
-                    connection.getMovement().moveArmUp(false,1.0f);
-                }
+            // right arm
+            public void clickMovementRightArmUp(ActionEvent actionEvent) throws CallError, InterruptedException {
+                connection.getMovement().moveArmUp(false,1.0f);
+            }
 
-                public void clickMovementRightArmDown(ActionEvent actionEvent) throws CallError, InterruptedException {
-                    connection.getMovement().moveArmUp(false,-1.0f);
-                }
+            public void clickMovementRightArmDown(ActionEvent actionEvent) throws CallError, InterruptedException {
+                connection.getMovement().moveArmUp(false,-1.0f);
+            }
 
-                public void clickMovementRightArmLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
-                    connection.getMovement().moveArmRight(false,-1.0f);
-                }
+            public void clickMovementRightArmLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
+                connection.getMovement().moveArmRight(false,-1.0f);
+            }
 
-                public void clickMovementRightArmRight(ActionEvent actionEvent) throws CallError, InterruptedException {
-                    connection.getMovement().moveArmRight(false,1.0f);
-                }
+            public void clickMovementRightArmRight(ActionEvent actionEvent) throws CallError, InterruptedException {
+                connection.getMovement().moveArmRight(false,1.0f);
+            }
 
 
         // Appearance
