@@ -114,3 +114,10 @@ public class Movement {
     }
 
 }
+
+//motion = new ALMotion(app.session());
+//System.out.println(motion.getSummary());
+//motion.angleInterpolationWithSpeed("LShoulderRoll",0.0f, 0.5f); // 1 nach aussen schultermuskel
+//motion.angleInterpolationWithSpeed("RShoulderRoll",0.0f, 0.5f); // 1 nach aussen schultermuskel
+//motion.angleInterpolationWithSpeed("LShoulderPitch",-1.0f, 0.5f); //arm hoch bei -1.0f brustmuskel
+//motion.angleInterpolationWithSpeed("RShoulderPitch",-1.0f, 0.5f); //arm hoch bei -1.0f brustmuskel
