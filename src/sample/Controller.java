@@ -52,6 +52,7 @@ public class Controller {
         @FXML Button MovementButtonS;
         @FXML Button MovementButtonD;
         @FXML Button MovementButtonStop;
+        @FXML ToggleButton MovementSwitch;
         @FXML Slider MovementSliderVel;
 
         // Appearance
@@ -81,9 +82,6 @@ public class Controller {
         @FXML Button BehaviorButtonStop;
         @FXML ComboBox BehaviorComboBox;
 
-        // Camera
-        @FXML Tab CameraTab;
-
     public Controller() {}
 
     // methods for GUI actions here
@@ -105,7 +103,6 @@ public class Controller {
             this.AudioSampleTab.setDisable(pValue);
             this.BodyStateTab.setDisable(pValue);
             this.HeadAlignmentTab.setDisable(pValue);
-            this.CameraTab.setDisable(pValue);
             this.BehaviorTab.setDisable(pValue);
         }
 
@@ -217,7 +214,9 @@ public class Controller {
 
 
         // Movement
-
+        public void clickMovementSwitch(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().changeMode(MovementSwitch.isSelected());
+        }
             // walking
             public void clickMovementButtonW(ActionEvent actionEvent) throws CallError, InterruptedException {
                 connection.getMovement().moveBodyForward();
@@ -364,6 +363,5 @@ public class Controller {
         public void changeBehaviorName(ActionEvent actionEvent) {
             connection.getBehavior().setBehaviorName(BehaviorComboBox.getSelectionModel().getSelectedItem().toString());
         }
-
 
 }

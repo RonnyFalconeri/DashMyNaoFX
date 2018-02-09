@@ -9,6 +9,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
@@ -48,12 +49,13 @@
                   <Button fx:id="MovementLeftArmLeft" layoutX="259.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementLeftArmLeft" text="Left" />
                   <Button fx:id="MovementLeftArmRight" layoutX="340.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementLeftArmRight" prefHeight="27.0" prefWidth="69.0" text="Right" />
                   <Label layoutX="291.0" layoutY="30.0" text="Left Arm" />
-                  <Button fx:id="MovementRightArmUp" layoutX="490.0" layoutY="70.0" mnemonicParsing="false" onAction="#clickMovementRightArmUp" text="Up" />
-                  <Button fx:id="MovementRightArmDown" layoutX="482.0" layoutY="154.0" mnemonicParsing="false" onAction="#clickMovementRightArmDown" text="Down" />
+                  <Button fx:id="MovementRightArmUp" layoutX="491.0" layoutY="61.0" mnemonicParsing="false" onAction="#clickMovementRightArmUp" text="Up" />
+                  <Button fx:id="MovementRightArmDown" layoutX="491.0" layoutY="145.0" mnemonicParsing="false" onAction="#clickMovementRightArmDown" text="Down" />
                   <Button fx:id="MovementRightArmLeft" layoutX="439.0" layoutY="105.0" mnemonicParsing="false" onAction="#clickMovementRightArmLeft" text="Left" />
                   <Button fx:id="MovementRightArmRight" layoutX="509.0" layoutY="105.0" mnemonicParsing="false" onAction="#clickMovementRightArmRight" text="Right" />
                   <Label layoutX="470.0" layoutY="30.0" text="Right Arm" />
-                  <Button fx:id="MovementResetArms" layoutX="400.0" layoutY="182.0" mnemonicParsing="false" onAction="#clickMovementResetArms" text="reset" />
+                  <Button fx:id="MovementResetArms" layoutX="392.0" layoutY="145.0" mnemonicParsing="false" onAction="#clickMovementResetArms" text="reset" />
+                  <ToggleButton fx:id="MovementSwitch" layoutX="392.0" layoutY="203.0" mnemonicParsing="false" onAction="#clickMovementSwitch" text="Rest" />
                  </children>
               </Pane>
       </content>
@@ -187,13 +189,6 @@
             </Pane>
          </content>
       </Tab>
-
-       <!-- Camera ____________________________-->
-      <Tab fx:id="CameraTab" closable="false" disable="true" text="Camera">
-         <content>
-            <Pane prefHeight="200.0" prefWidth="200.0" />
-         </content>
-      </Tab>
    
        <!-- BODYSTATE ____________________________-->
        <Tab fx:id="BodyStateTab" closable="false" disable="true" text="Body State">
@@ -211,7 +206,7 @@
       </content>
        </Tab>
 
-
+       <!-- BEHAVIOR     ____________________________-->
       <Tab fx:id="BehaviorTab" closable="false" disable="true" text="Behavior">
          <content>
             <Pane prefHeight="200.0" prefWidth="200.0">
@@ -219,9 +214,8 @@
                    <ComboBox fx:id="BehaviorComboBox" layoutX="63.0" layoutY="119.0" onAction="#changeBehaviorName" prefHeight="27.0" prefWidth="232.0" promptText="Choose a behavior">
                        <items>
                            <FXCollections fx:factory="observableArrayList">
-                               <String fx:value="behavior1" />
-                               <String fx:value="behavior2" />
-                               <String fx:value="behavior3" />
+                               <String fx:value="User/pushups-310730/pushups" />
+                               <String fx:value="System/animations/Stand/Emotions/Negative/Bored_1" />
                            </FXCollections>
                        </items>
                    </ComboBox>

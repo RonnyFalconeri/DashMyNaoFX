@@ -10,9 +10,11 @@ class TactileSensors {
     private long frontTactileSubscriptionId;
     private long middleTactileSubscriptionId;
     private long rearTactileSubscriptionId;
+    private boolean TrackerIsActive=false;
 
     // variables of other objects
     private Connection Con;
+    private ALTracker tracker;
 
 
 
@@ -20,24 +22,48 @@ class TactileSensors {
         TactileSensors(Connection pCon) throws Exception {
             this.Con = pCon;
             ALMemory memory = new ALMemory(this.Con.getSession());
+            tracker = new ALTracker(this.Con.getSession());
 
             // subscribe to event listener - front
             frontTactileSubscriptionId = memory.subscribeToEvent("FrontTactilTouched", new EventCallback<Float>() {
-                @Override
-                public void onEvent(Float arg0)
-                        throws InterruptedException, CallError {
-                    if (arg0 > 0) {
-                        if (frontTactileSubscriptionId > 0) {
-                            System.out.println("pressed");
-                            try {
-                                Con.getSpeech().sayText("front","English");
-                            } catch (Exception e) {
-                                e.printStackTrace();
+                @Override public void onEvent(Float arg0) throws InterruptedException, CallError {
+                    if (arg0 > 0) { if (frontTactileSubscriptionId > 0) { try {
+
+                        if (TrackerIsActive){
+                            // disable tracker
+                            TrackerIsActive = false;
+                            Con.getSpeech().sayText("Tracker disabled.","English");
+
+                        } else{
+                            // enable tracker
+                            TrackerIsActive = true;
+                            Con.getSpeech().sayText("Tracker enabled. Searching for Faces.","English");
+
+                            boolean search = true;
+                            boolean detected;
+
+                            tracker.stopTracker();
+                            tracker.registerTarget("Face", 0.1F);
+                            tracker.track("Face"); //PTargets: [RedBall, Face, LandMark, LandMarks, People, Sound]
+                            tracker.toggleSearch(true);
+
+                            System.out.println(tracker.isActive());
+
+                            while (search) {
+                                detected = tracker.isNewTargetDetected();
+
+                                if (detected) {
+                                    tracker.toggleSearch(false);
+                                    Con.getSpeech().sayText("Ha! found ya!","English");
+                                    tracker.removeAllTargets();
+                                    search = false;
+                                }
                             }
                         }
-                    }
-                }
-            });
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }}}}});
 
             // subscribe to event listener - middle
             middleTactileSubscriptionId = memory.subscribeToEvent("MiddleTactilTouched", new EventCallback<Float>() {
