@@ -217,84 +217,83 @@ public class Controller {
         public void clickMovementSwitch(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getMovement().changeMode(MovementSwitch.isSelected());
         }
-            // walking
-            public void clickMovementButtonW(ActionEvent actionEvent) throws CallError, InterruptedException {
+
+
+        public void clickMovementButtonW(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().moveBodyForward();
+        }
+
+        public void clickMovementButtonA(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().changeMovementDirectionLeft();
+        }
+
+        public void clickMovementButtonS(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().moveBodyBackwards();
+        }
+
+        public void clickMovementButtonD(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().changeMovementDirectionRight();
+        }
+
+        public void clickMovementButtonStop(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().stopMovement();
+        }
+
+        public void clickMovementKey(KeyEvent keyEvent) throws CallError, InterruptedException {
+            System.out.print("key pressed: ");
+            if(keyEvent.getText().equals("w")){
                 connection.getMovement().moveBodyForward();
-            }
-
-            public void clickMovementButtonA(ActionEvent actionEvent) throws CallError, InterruptedException {
+            } else if(keyEvent.getText().equals("a")){
                 connection.getMovement().changeMovementDirectionLeft();
-            }
-
-            public void clickMovementButtonS(ActionEvent actionEvent) throws CallError, InterruptedException {
+            } else if(keyEvent.getText().equals("s")){
                 connection.getMovement().moveBodyBackwards();
-            }
-
-            public void clickMovementButtonD(ActionEvent actionEvent) throws CallError, InterruptedException {
+            } else if(keyEvent.getText().equals("d")){
                 connection.getMovement().changeMovementDirectionRight();
-            }
-
-            public void clickMovementButtonStop(ActionEvent actionEvent) throws CallError, InterruptedException {
+            } else if(keyEvent.getText().equals(" ")){
                 connection.getMovement().stopMovement();
             }
+        }
 
-            public void clickMovementKey(KeyEvent keyEvent) throws CallError, InterruptedException {
-                System.out.print("key pressed: ");
-                if(keyEvent.getText().equals("w")){
-                    connection.getMovement().moveBodyForward();
-                } else if(keyEvent.getText().equals("a")){
-                    connection.getMovement().changeMovementDirectionLeft();
-                } else if(keyEvent.getText().equals("s")){
-                    connection.getMovement().moveBodyBackwards();
-                } else if(keyEvent.getText().equals("d")){
-                    connection.getMovement().changeMovementDirectionRight();
-                } else if(keyEvent.getText().equals(" ")){
-                    connection.getMovement().stopMovement();
-                }
-            }
+        public void changeMovementVel(MouseEvent mouseEvent) {
+            connection.getMovement().setVelocity((float)MovementSliderVel.getValue());
+        }
 
-            public void changeMovementVel(MouseEvent mouseEvent) {
-                connection.getMovement().setVelocity((float)MovementSliderVel.getValue());
-            }
 
-            // arm motion
-            public void clickMovementResetArms(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().resetArms();
-            }
+        public void clickMovementResetArms(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().resetArms();
+        }
 
-            // left arm
-            public void clickMovementLeftArmUp(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmUp(true,-0.4f);
-            }
+        public void clickMovementLeftArmUp(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().moveArmUp(true,-0.4f);
+        }
 
-            public void clickMovementLeftArmDown(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmUp(true,0.4f);
-            }
+        public void clickMovementLeftArmDown(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().moveArmUp(true,0.4f);
+        }
 
-            public void clickMovementLeftArmLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmRight(true,0.4f);
-            }
+        public void clickMovementLeftArmLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().moveArmRight(true,0.4f);
+        }
 
-            public void clickMovementLeftArmRight(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmRight(true,-0.4f);
-            }
+        public void clickMovementLeftArmRight(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().moveArmRight(true,-0.4f);
+        }
 
-            // right arm
-            public void clickMovementRightArmUp(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmUp(false,-0.4f);
-            }
+        public void clickMovementRightArmUp(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().moveArmUp(false,-0.4f);
+        }
 
-            public void clickMovementRightArmDown(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmUp(false,0.4f);
-            }
+        public void clickMovementRightArmDown(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().moveArmUp(false,0.4f);
+        }
 
-            public void clickMovementRightArmLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmRight(false,0.4f);
-            }
+        public void clickMovementRightArmLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().moveArmRight(false,0.4f);
+        }
 
-            public void clickMovementRightArmRight(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmRight(false,-0.4f);
-            }
+        public void clickMovementRightArmRight(ActionEvent actionEvent) throws CallError, InterruptedException {
+            connection.getMovement().moveArmRight(false,-0.4f);
+        }
 
 
         // Appearance

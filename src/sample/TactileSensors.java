@@ -10,7 +10,7 @@ class TactileSensors {
     private long frontTactileSubscriptionId;
     private long middleTactileSubscriptionId;
     private long rearTactileSubscriptionId;
-    private boolean TrackerIsActive=false;
+    private boolean TrackerIsActive = false;
 
     // variables of other objects
     private Connection Con;
@@ -20,6 +20,7 @@ class TactileSensors {
 
         // Constructor
         TactileSensors(Connection pCon) throws Exception {
+
             this.Con = pCon;
             ALMemory memory = new ALMemory(this.Con.getSession());
             tracker = new ALTracker(this.Con.getSession());
@@ -51,7 +52,6 @@ class TactileSensors {
 
                             while (search) {
                                 detected = tracker.isNewTargetDetected();
-
                                 if (detected) {
                                     tracker.toggleSearch(false);
                                     Con.getSpeech().sayText("Ha! found ya!","English");
@@ -61,9 +61,7 @@ class TactileSensors {
                             }
                         }
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }}}}});
+                    } catch (Exception e) { e.printStackTrace();}}}}});
 
             // subscribe to event listener - middle
             middleTactileSubscriptionId = memory.subscribeToEvent("MiddleTactilTouched", new EventCallback<Float>() {
@@ -72,7 +70,6 @@ class TactileSensors {
                         throws InterruptedException, CallError {
                     if (arg0 > 0) {
                         if (middleTactileSubscriptionId > 0) {
-                            System.out.println("pressed");
                             try {
                                 Con.getSpeech().sayText("middle","English");
                             } catch (Exception e) {
@@ -90,7 +87,6 @@ class TactileSensors {
                         throws InterruptedException, CallError {
                     if (arg0 > 0) {
                         if (rearTactileSubscriptionId > 0) {
-                            System.out.println("pressed");
                             try {
                                 Con.getSpeech().sayText("back","English");
                             } catch (Exception e) {

@@ -29,7 +29,6 @@ public class Behavior {
     }
 
     public void stopBehavior() throws InterruptedException, CallError {
-        System.out.println("stop all behaviors.");
         behavior.stopAllBehaviors();
     }
 
