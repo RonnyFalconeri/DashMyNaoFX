@@ -14,9 +14,12 @@ public class Movement {
         private float Velocity = 1.0f;
 
         // arm motion
-        private float MoveUp; // -MoveUp for down
-        private float MoveRight; // -MoveRight for left
-        //private boolean LeftArm;
+        private float LMoveUp = 1.4f;
+        private float RMoveUp = 1.4f;
+        private float MoveUp;
+        private float LMoveRight = 0.0f;
+        private float RMoveRight = 0.0f;
+        private float MoveRight;
 
 
     // variables of other objects
@@ -73,38 +76,70 @@ public class Movement {
 
         // arm motion
         public void moveArmUp(boolean pLeftArm, float pMoveUp) throws InterruptedException, CallError {
-            System.out.println("moving left arm?: "+pLeftArm);
-            System.out.println("Up: "+pMoveUp);
             String Name;
             if (pLeftArm){
-                Name = "LeftArmVertikal"; // TODO: change to right name
+                increaseUp(true, pMoveUp);
+                this.MoveUp = this.LMoveUp;
+                Name = "LShoulderPitch";
             } else {
-                Name = "RightArmVertikal"; // TODO: change to right name
+                increaseUp(false, pMoveUp);
+                this.MoveUp = this.RMoveUp;
+                Name = "RShoulderPitch";
             }
-            motion.angleInterpolationWithSpeed(Name, pMoveUp, 0.20f);
-            //TODO: let the arm move at given parameters
+
+            System.out.println("MoveUp: "+this.MoveUp);
+            motion.angleInterpolationWithSpeed(Name, this.MoveUp, 0.20f);
+        }
+
+        private void increaseUp(boolean left, float pValue){
+            if (left) {
+                if (this.LMoveUp+pValue < 2.0f && this.LMoveUp+pValue > -2.3f) {
+                    System.out.println(this.LMoveUp + " + " + pValue);
+                    this.LMoveUp = this.LMoveUp + pValue;
+                }
+            } else {
+                if (this.RMoveUp+pValue < 2.0f && this.RMoveUp+pValue > -2.3f) {
+                    System.out.println(this.RMoveUp + " + " + pValue);
+                    this.RMoveUp = this.RMoveUp + pValue;
+                }
+            }
         }
 
         public void moveArmRight(boolean pLeftArm, float pMoveRight) throws InterruptedException, CallError {
-            System.out.println("moving left arm?: "+pLeftArm);
-            System.out.println("Right: "+pMoveRight);
             String Name;
             if (pLeftArm){
-                Name = "LeftArmHorizontal"; // TODO: change to right name
+                increaseRight(true, pMoveRight);
+                this.MoveRight = this.LMoveRight;
+                Name = "LShoulderRoll";
             } else {
-                Name = "RightArmHorizontal"; // TODO: change to right name
+                increaseRight(false, pMoveRight);
+                this.MoveRight = this.RMoveRight;
+                Name = "RShoulderRoll";
             }
-            motion.angleInterpolationWithSpeed(Name, pMoveRight, 0.20f);
-            //TODO: let the arm move at given parameters
+            System.out.println("MoveRight: "+this.MoveRight);
+            motion.angleInterpolationWithSpeed(Name, this.MoveRight, 0.20f);
+        }
+
+        private void increaseRight(boolean left, float pValue){
+            if (left) {
+                if (this.LMoveRight+pValue < 1.6f && this.LMoveRight+pValue > -0.8f) {
+                    System.out.println(this.LMoveRight + " + " + pValue);
+                    this.LMoveRight = this.LMoveRight + pValue;
+                }
+            } else {
+                if (this.RMoveRight+pValue < 0.8f && this.RMoveRight+pValue > -1.6f) {
+                    System.out.println(this.RMoveRight + " + " + pValue);
+                    this.RMoveRight = this.RMoveRight + pValue;
+                }
+            }
         }
 
         public void resetArms() throws InterruptedException, CallError {
             System.out.println("reset arm position");
-            // TODO: reset arms
-            motion.angleInterpolationWithSpeed("LeftArmHorizontal", 0.0f, 0.2f);
-            motion.angleInterpolationWithSpeed("RightArmHorizontal", 0.0f, 0.2f);
-            motion.angleInterpolationWithSpeed("LeftArmVertikal", 0.0f, 0.2f);
-            motion.angleInterpolationWithSpeed("RightArmHorizontal", 0.0f, 0.2f);
+            motion.angleInterpolationWithSpeed("LShoulderRoll", 0.0f, 0.2f);
+            motion.angleInterpolationWithSpeed("RShoulderRoll", 0.0f, 0.2f);
+            motion.angleInterpolationWithSpeed("LShoulderPitch", 1.5f, 0.2f);
+            motion.angleInterpolationWithSpeed("RShoulderPitch", 1.5f, 0.2f);
         }
 
 
@@ -114,10 +149,3 @@ public class Movement {
     }
 
 }
-
-//motion = new ALMotion(app.session());
-//System.out.println(motion.getSummary());
-//motion.angleInterpolationWithSpeed("LShoulderRoll",0.0f, 0.5f); // 1 nach aussen schultermuskel
-//motion.angleInterpolationWithSpeed("RShoulderRoll",0.0f, 0.5f); // 1 nach aussen schultermuskel
-//motion.angleInterpolationWithSpeed("LShoulderPitch",-1.0f, 0.5f); //arm hoch bei -1.0f brustmuskel
-//motion.angleInterpolationWithSpeed("RShoulderPitch",-1.0f, 0.5f); //arm hoch bei -1.0f brustmuskel

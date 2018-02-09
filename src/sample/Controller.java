@@ -265,36 +265,36 @@ public class Controller {
 
             // left arm
             public void clickMovementLeftArmUp(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmUp(true,1.0f);
+                connection.getMovement().moveArmUp(true,-0.4f);
             }
 
             public void clickMovementLeftArmDown(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmUp(true,-1.0f);
+                connection.getMovement().moveArmUp(true,0.4f);
             }
 
             public void clickMovementLeftArmLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmRight(true,-1.0f);
+                connection.getMovement().moveArmRight(true,0.4f);
             }
 
             public void clickMovementLeftArmRight(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmRight(true,1.0f);
+                connection.getMovement().moveArmRight(true,-0.4f);
             }
 
             // right arm
             public void clickMovementRightArmUp(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmUp(false,1.0f);
+                connection.getMovement().moveArmUp(false,-0.4f);
             }
 
             public void clickMovementRightArmDown(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmUp(false,-1.0f);
+                connection.getMovement().moveArmUp(false,0.4f);
             }
 
             public void clickMovementRightArmLeft(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmRight(false,-1.0f);
+                connection.getMovement().moveArmRight(false,0.4f);
             }
 
             public void clickMovementRightArmRight(ActionEvent actionEvent) throws CallError, InterruptedException {
-                connection.getMovement().moveArmRight(false,1.0f);
+                connection.getMovement().moveArmRight(false,-0.4f);
             }
 
 
