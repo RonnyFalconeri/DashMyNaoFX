@@ -13,76 +13,86 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
+import java.io.IOException;
+
 public class Controller {
 
     Connection connection = new Connection();
 
     // declaration of GUI objects here
 
-        // Connection
-        @FXML Button ConnectionButton;
-        @FXML TextField ConnectionIP;
-        @FXML TextField ConnectionPort;
-        @FXML Circle ConnectionStatus;
+    // Connection
+    @FXML Button ConnectionButton;
+    @FXML TextField ConnectionIP;
+    @FXML TextField ConnectionPort;
+    @FXML Circle ConnectionStatus;
 
-        // Speech
-        @FXML Tab SpeechTab;
-        @FXML Button SpeechButton;
-        @FXML TextField SpeechText;
-        @FXML ComboBox SpeechLanguage;
-        @FXML Slider SpeechPitch;
-        @FXML Slider SpeechVolumeSlider;
+    // Speech
+    @FXML Tab SpeechTab;
+    @FXML Button SpeechButton;
+    @FXML TextField SpeechText;
+    @FXML ComboBox SpeechLanguage;
+    @FXML Slider SpeechPitch;
+    @FXML Slider SpeechVolumeSlider;
 
-        // Posture
-        @FXML Tab PostureTab;
-        @FXML Button PostureButton;
-        @FXML ComboBox PostureComboBox;
-        @FXML Slider PostureSpeedSlider;
+    // Posture
+    @FXML Tab PostureTab;
+    @FXML Button PostureButton;
+    @FXML ComboBox PostureComboBox;
+    @FXML Slider PostureSpeedSlider;
 
-        // AudioPlayer
-        @FXML Tab AudioSampleTab;
-        @FXML Button AudioPlayerButton;
-        @FXML ComboBox AudioPlayerComboBox;
+    // AudioPlayer
+    @FXML Tab AudioSampleTab;
+    @FXML Button AudioPlayerButton;
+    @FXML ComboBox AudioPlayerComboBox;
 
-        // Movement
-        @FXML Tab MovementTab;
-        @FXML Pane MovementPane;
-        @FXML Button MovementButtonW;
-        @FXML Button MovementButtonA;
-        @FXML Button MovementButtonS;
-        @FXML Button MovementButtonD;
-        @FXML Button MovementButtonStop;
-        @FXML ToggleButton MovementSwitch;
-        @FXML Slider MovementSliderVel;
+    // Movement
+    @FXML Tab MovementTab;
+    @FXML Pane MovementPane;
+    @FXML Button MovementButtonW;
+    @FXML Button MovementButtonA;
+    @FXML Button MovementButtonS;
+    @FXML Button MovementButtonD;
+    @FXML Button MovementButtonStop;
+    @FXML ToggleButton MovementSwitch;
+    @FXML Slider MovementSliderVel;
 
-        // Appearance
-        @FXML Tab LedTab;
-        @FXML Button AppearanceButtonSet;
-        @FXML Button AppearanceButtonReset;
-        @FXML ComboBox AppearanceComboBoxColor;
-        @FXML ComboBox AppearanceComboBoxGroup;
+    // Appearance
+    @FXML Tab LedTab;
+    @FXML Button AppearanceButtonSet;
+    @FXML Button AppearanceButtonReset;
+    @FXML ComboBox AppearanceComboBoxColor;
+    @FXML ComboBox AppearanceComboBoxGroup;
 
-        // BodyState
-        @FXML Tab BodyStateTab;
-        @FXML Button BodyStateButton;
-        @FXML Label BodyStateBatteryPercentage;
-        @FXML Label BodyStateLabelTemp;
+    // BodyState
+    @FXML Tab BodyStateTab;
+    @FXML Button BodyStateButton;
+    @FXML Label BodyStateBatteryPercentage;
+    @FXML Label BodyStateLabelTemp;
 
-        // HeadAlignment
-        @FXML Tab HeadAlignmentTab;
-        @FXML Button HeadAlButtonUp;
-        @FXML Button HeadAlButtonRight;
-        @FXML Button HeadAlButtonDown;
-        @FXML Button HeadAlButtonLeft;
-        @FXML Button HeadAlButtonCenter;
+    // HeadAlignment
+    @FXML Tab HeadAlignmentTab;
+    @FXML Button HeadAlButtonUp;
+    @FXML Button HeadAlButtonRight;
+    @FXML Button HeadAlButtonDown;
+    @FXML Button HeadAlButtonLeft;
+    @FXML Button HeadAlButtonCenter;
 
-        // Behavior
-        @FXML Tab BehaviorTab;
-        @FXML Button BehaviorButtonStart;
-        @FXML Button BehaviorButtonStop;
-        @FXML ComboBox BehaviorComboBox;
+    // Behavior
+    @FXML Tab BehaviorTab;
+    @FXML Button BehaviorButtonStart;
+    @FXML Button BehaviorButtonStop;
+    @FXML ComboBox BehaviorComboBox;
 
-    public Controller() {}
+
+
+        // Constructor
+        public Controller() throws IOException {
+            System.out.println("Controller starts here!");
+            setLatestConnectionIP();
+        }
+
+
 
     // methods for GUI actions here
 
@@ -93,6 +103,10 @@ public class Controller {
 
         private void changeLabelText(Label pLabelName, String pText){
             pLabelName.setText(pText);
+        }
+
+        private void changeTextFieldText(TextField pTextFieldName, String pText){
+            pTextFieldName.setText(pText);
         }
 
         private void disableTabs(boolean pValue){
@@ -116,6 +130,12 @@ public class Controller {
                 ConnectionStatus.setFill(Paint.valueOf("0xda0707ff"));
                 disableTabs(true);
             }
+        }
+
+        private void setLatestConnectionIP() throws IOException {
+            System.out.println("setting latest connection...");
+            String LatestConnection = FileManager.readInFile();
+            changeTextFieldText(ConnectionIP, LatestConnection);
         }
 
 

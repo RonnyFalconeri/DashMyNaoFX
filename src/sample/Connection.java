@@ -38,7 +38,10 @@ public class Connection {
         session.connect(ConnectionURL);
         this.setConnected(true);
 
-        // instanciate new objects here
+        // save latest IP
+        FileManager.writeInFile(this.IP_Address);
+
+        // instantiate new objects here
         posture = new Posture(this);
         speech = new Speech(this);
         audioplayer = new AudioPlayer(this);
