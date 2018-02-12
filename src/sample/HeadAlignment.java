@@ -6,8 +6,8 @@ import com.aldebaran.qi.helper.proxies.ALMotion;
 public class HeadAlignment {
 
     // variables of instance
-    private double Vertical_Axis; //HeadPitch
-    private double Horizontal_Axis; //HeadYaw
+    private double Vertical_Axis;
+    private double Horizontal_Axis;
 
     // variables of other objects
     private ALMotion motion;

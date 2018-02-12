@@ -5,7 +5,7 @@ import java.io.*;
 public class FileManager{
 
     public static void writeInFile(String pLatestConnection){
-        System.out.println("writing in file: "+pLatestConnection);
+        System.out.println("writing string in file: "+pLatestConnection);
         PrintWriter pWriter = null;
         try {
             pWriter = new PrintWriter(new BufferedWriter(new FileWriter("latest connection.txt")));
@@ -22,7 +22,7 @@ public class FileManager{
 
     public static String readInFile() throws IOException {
         System.out.println("reading in file.");
-        String         line = null;
+        String line;
         StringBuilder  stringBuilder = new StringBuilder();
         String         ls = System.getProperty("line.separator");
         try (BufferedReader reader = new BufferedReader(new FileReader("latest connection.txt"))) {
@@ -33,4 +33,5 @@ public class FileManager{
             return stringBuilder.toString();
         }
     }
+
 }

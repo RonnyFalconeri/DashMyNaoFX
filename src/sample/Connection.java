@@ -38,7 +38,7 @@ public class Connection {
         session.connect(ConnectionURL);
         this.setConnected(true);
 
-        // save latest IP
+        // save latest IP in "latest connection.txt"
         FileManager.writeInFile(this.IP_Address);
 
         // instantiate new objects here

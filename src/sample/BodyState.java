@@ -28,7 +28,7 @@ public class BodyState {
     // methods for NAO
     private void checkTemperature() throws InterruptedException, CallError {
         Object tempOb = temp.getTemperatureDiagnosis();
-        int tempReturn=5;
+        int tempReturn=0;
 
         if (tempOb instanceof ArrayList) {
             ArrayList tempList = (ArrayList) tempOb;

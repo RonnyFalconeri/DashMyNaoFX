@@ -5,8 +5,8 @@ import com.aldebaran.qi.helper.proxies.ALTextToSpeech;
 public class Speech {
 
     // variables of instance
-    private String SpeechText = "null";
-    private String Language = "German";
+    private String SpeechText = "No string registered.";
+    private String Language = "English";
     private int Pitch = 100;
     private float Volume = 0.5f;
 
