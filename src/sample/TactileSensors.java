@@ -47,6 +47,7 @@ class TactileSensors {
                         tracker.track("Face"); //PTargets: [RedBall, Face, LandMark, LandMarks, People, Sound]
                         tracker.toggleSearch(true);
 
+
                         while (search) {
                             detected = tracker.isNewTargetDetected();
                             if (detected) {
