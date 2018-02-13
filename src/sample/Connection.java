@@ -1,5 +1,6 @@
 package sample;
 import com.aldebaran.qi.Session;
+import com.aldebaran.qi.helper.proxies.ALAudioDevice;
 
 public class Connection {
 
@@ -21,7 +22,7 @@ public class Connection {
 
 
 
-        // Constructor
+    // Constructor
         public Connection() {
             System.out.println("new connection... ");
         }
@@ -51,8 +52,11 @@ public class Connection {
         headalignment = new HeadAlignment(this);
         behavior = new Behavior(this);
         TactileSensors tactile = new TactileSensors(this);
+        ALAudioDevice audioDevice = new ALAudioDevice(this.session);
 
         // giving feedback
+        audioDevice.setOutputVolume(90);
+        appearance.resetLEDs();
         posture.posePosture("Stand");
         speech.sayText("I am connected.", "English", 100);
         System.out.println("connection successful.");

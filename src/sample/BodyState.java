@@ -34,7 +34,7 @@ public class BodyState {
             ArrayList tempList = (ArrayList) tempOb;
             tempReturn = (int) tempList.get(0);
         } else {
-            System.out.println("BodyState: no given return values");
+            System.out.println("");
         }
 
         switch (tempReturn){

@@ -47,8 +47,6 @@ class TactileSensors {
                         tracker.track("Face"); //PTargets: [RedBall, Face, LandMark, LandMarks, People, Sound]
                         tracker.toggleSearch(true);
 
-                        System.out.println(tracker.isActive());
-
                         while (search) {
                             detected = tracker.isNewTargetDetected();
                             if (detected) {
@@ -64,29 +62,20 @@ class TactileSensors {
 
             // subscribe to event listener - middle
             middleTactileSubscriptionId = memory.subscribeToEvent("MiddleTactilTouched", (EventCallback<Float>) arg0 -> {
-                if (arg0 > 0) {
-                    if (middleTactileSubscriptionId > 0) {
-                        try {
-                            Con.getSpeech().sayText("middle","English");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            });
+                if (arg0 > 0) { if (middleTactileSubscriptionId > 0) { try {
+
+                    Con.getBehavior().startBehavior("animations/Stand/Waiting/ShowMuscles_5");
+                    Con.getSpeech().sayText("Huuulk is aaangry!","English", 50);
+
+                } catch (Exception e) { e.printStackTrace(); }}}});
 
             // subscribe to event listener - rear
             rearTactileSubscriptionId = memory.subscribeToEvent("RearTactilTouched", (EventCallback<Float>) arg0 -> {
-                if (arg0 > 0) {
-                    if (rearTactileSubscriptionId > 0) {
-                        try {
-                            Con.getSpeech().sayText("back","English");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            });
+                if (arg0 > 0) { if (rearTactileSubscriptionId > 0) { try {
+
+                    Con.getSpeech().sayText("back","English");
+
+                } catch (Exception e) { e.printStackTrace(); }}}});
 
         }
 

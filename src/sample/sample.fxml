@@ -37,13 +37,13 @@
               <Pane fx:id="MovementPane">
                  <children>
                      <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Movement" />
-                     <Button fx:id="MovementButtonW" layoutX="90.0" layoutY="54.0" mnemonicParsing="false" onAction="#clickMovementButtonW" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="W" />
-                     <Button fx:id="MovementButtonA" layoutX="40.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonA" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="A" />
-                     <Button fx:id="MovementButtonS" layoutX="90.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonS" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="S" />
-                     <Button fx:id="MovementButtonD" layoutX="140.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonD" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="D" />
+                     <Button fx:id="MovementButtonW" layoutX="90.0" layoutY="54.0" mnemonicParsing="false" onAction="#clickMovementButtonW"  prefHeight="50.0" prefWidth="50.0" styleClass="W" />
+                     <Button fx:id="MovementButtonA" layoutX="40.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonA"  prefHeight="50.0" prefWidth="50.0" styleClass="A" />
+                     <Button fx:id="MovementButtonS" layoutX="90.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonS"  prefHeight="50.0" prefWidth="50.0" styleClass="S" />
+                     <Button fx:id="MovementButtonD" layoutX="140.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonD"  prefHeight="50.0" prefWidth="50.0" styleClass="D" />
                      <Slider fx:id="MovementSliderVel" layoutX="229.0" layoutY="54.0" max="1.0" onMouseReleased="#changeMovementVel" orientation="VERTICAL" />
                      <Label layoutX="208.0" layoutY="208.0" text="Velocity" />
-                  <Button fx:id="MovementButtonStop" layoutX="85.0" layoutY="193.0" mnemonicParsing="false" onAction="#clickMovementButtonStop" onKeyPressed="#clickMovementKey" prefHeight="30.0" prefWidth="60.0" text="Stop" />
+                  <Button fx:id="MovementButtonStop" layoutX="85.0" layoutY="193.0" mnemonicParsing="false" onAction="#clickMovementButtonStop"  prefHeight="30.0" prefWidth="60.0" text="Stop" />
                   <Button fx:id="MovementLeftArmUp" layoutX="307.0" layoutY="61.0" mnemonicParsing="false" onAction="#clickMovementLeftArmUp" prefHeight="36.0" prefWidth="31.0" text="Up" />
                   <Button fx:id="MovementLeftArmDown" layoutX="295.0" layoutY="137.0" mnemonicParsing="false" onAction="#clickMovementLeftArmDown" prefHeight="35.0" prefWidth="60.0" text="Down" />
                   <Button fx:id="MovementLeftArmLeft" layoutX="259.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementLeftArmLeft" text="Left" />
@@ -83,8 +83,6 @@
                          </items>
                      </ComboBox>
                      <Button fx:id="PostureButton" layoutX="269.0" layoutY="72.0" mnemonicParsing="false" onAction="#clickPostureButton" prefHeight="30.0" prefWidth="70.0" text="Pose" />
-                     <Slider fx:id="PostureSpeedSlider" layoutX="97.0" layoutY="138.0" max="1.0" onMouseReleased="#changePostureSpeed" value="0.5" />
-                     <Label layoutX="37.0" layoutY="136.0" text="Speed" />
                  </children>
               </Pane>
       </content>

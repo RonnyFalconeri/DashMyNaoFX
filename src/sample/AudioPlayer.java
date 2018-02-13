@@ -1,6 +1,7 @@
 package sample;
 
 import com.aldebaran.qi.CallError;
+import com.aldebaran.qi.helper.proxies.ALAudioDevice;
 import com.aldebaran.qi.helper.proxies.ALAudioPlayer;
 
 public class AudioPlayer {

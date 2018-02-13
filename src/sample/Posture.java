@@ -7,7 +7,6 @@ public class Posture {
 
     // variables of instance
     private String Posture = "Stand";
-    private float Speed=1.0f;
 
     // variables of other objects
     private ALRobotPosture pos;
@@ -23,8 +22,8 @@ public class Posture {
 
     // methods for NAO
     public void posePosture() throws InterruptedException, CallError {
-        pos.goToPosture("StandInit", this.Speed);
-        pos.goToPosture(this.Posture, this.Speed);
+        pos.goToPosture("StandInit", 1.0f);
+        pos.goToPosture(this.Posture, 1.0f);
     }
 
         // additional method for external use
@@ -36,10 +35,6 @@ public class Posture {
     // set n' get
     public void setPosture(String pPosture){
         this.Posture = pPosture;
-    }
-
-    public void setSpeed(float pSpeed){
-        this.Speed = pSpeed;
     }
 
 }

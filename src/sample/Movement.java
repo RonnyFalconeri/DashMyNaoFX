@@ -2,6 +2,7 @@ package sample;
 
 import com.aldebaran.qi.CallError;
 import com.aldebaran.qi.helper.proxies.ALMotion;
+import com.aldebaran.qi.helper.proxies.ALRobotPosture;
 
 public class Movement {
 
@@ -22,12 +23,14 @@ public class Movement {
 
     // variables of other objects
     private ALMotion motion;
+    private ALRobotPosture posture;
 
 
 
         // Constructor
         public Movement(Connection pCon) throws Exception {
             motion = new ALMotion(pCon.getSession());
+            posture = new ALRobotPosture(pCon.getSession());
         }
 
 
@@ -43,6 +46,7 @@ public class Movement {
 
     // walking
     public void moveBodyForward() throws InterruptedException, CallError {
+        posture.goToPosture("StandInit", 1.0f);
         this.X_Axis = 1.0f*this.Velocity;
         this.Y_Axis = 0.0f;
         this.Z_Axis = 0.0f;
@@ -51,6 +55,7 @@ public class Movement {
     }
 
     public void moveBodyBackwards() throws InterruptedException, CallError {
+        posture.goToPosture("StandInit", 1.0f);
         this.Y_Axis = 0.0f;
         this.X_Axis = -0.5f;
         this.Z_Axis = 0.0f;
@@ -59,6 +64,7 @@ public class Movement {
     }
 
     public void changeMovementDirectionLeft() throws InterruptedException, CallError {
+        posture.goToPosture("StandInit", 1.0f);
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
         this.Z_Axis = 0.30f;
@@ -67,6 +73,7 @@ public class Movement {
     }
 
     public void changeMovementDirectionRight() throws InterruptedException, CallError {
+        posture.goToPosture("StandInit", 1.0f);
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
         this.Z_Axis = -0.30f;

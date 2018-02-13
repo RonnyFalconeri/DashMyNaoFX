@@ -86,11 +86,11 @@ public class Controller {
 
 
         // Constructor
-        public Controller() { }
+        public Controller() {}
 
-    public void initialize() throws IOException {
-        setLatestConnectionIP();
-    }
+        public void initialize() throws IOException {
+            setLatestConnectionIP();
+        }
 
 
 
@@ -218,11 +218,6 @@ public class Controller {
             connection.getPosture().setPosture(PostureComboBox.getSelectionModel().getSelectedItem().toString());
         }
 
-        public void changePostureSpeed(MouseEvent mouseEvent) {
-            float speed = (float) PostureSpeedSlider.getValue();
-            connection.getPosture().setSpeed(speed);
-        }
-
 
         // AudioPlayer
         public void clickAudioPlayerButton(ActionEvent actionEvent) throws CallError, InterruptedException {
@@ -258,21 +253,6 @@ public class Controller {
 
         public void clickMovementButtonStop(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getMovement().stopMovement();
-        }
-
-        public void clickMovementKey(KeyEvent keyEvent) throws CallError, InterruptedException {
-            System.out.print("key pressed: ");
-            if(keyEvent.getText().equals("w")){
-                connection.getMovement().moveBodyForward();
-            } else if(keyEvent.getText().equals("a")){
-                connection.getMovement().changeMovementDirectionLeft();
-            } else if(keyEvent.getText().equals("s")){
-                connection.getMovement().moveBodyBackwards();
-            } else if(keyEvent.getText().equals("d")){
-                connection.getMovement().changeMovementDirectionRight();
-            } else if(keyEvent.getText().equals(" ")){
-                connection.getMovement().stopMovement();
-            }
         }
 
         public void changeMovementVel(MouseEvent mouseEvent) {
