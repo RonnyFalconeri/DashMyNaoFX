@@ -216,6 +216,13 @@
                        <items>
                            <FXCollections fx:factory="observableArrayList">
                                <String fx:value="User/pushups-310730/pushups" />
+                               <String fx:value="animations/Stand/Emotions/Negative/Fear_2" />
+                               <String fx:value="animations/Stand/Emotions/Positive/Proud_2" />
+                               <String fx:value="animations/Stand/Emotions/Positive/Excited_2" />
+                               <String fx:value="animations/Stand/Emotions/Neutral/AskForAttention_2" />
+                               <String fx:value="animations/Stand/Waiting/ShowMuscles_5" />
+                               <String fx:value="animations/Stand/Gestures/Wings_3" />
+                               <String fx:value="animations/Stand/Emotions/Positive/Hysterical_1" />
                                <String fx:value="System/animations/Stand/Emotions/Negative/Bored_1" />
                            </FXCollections>
                        </items>
