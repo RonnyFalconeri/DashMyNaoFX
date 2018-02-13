@@ -222,7 +222,9 @@
                                <String fx:value="animations/Stand/Emotions/Neutral/AskForAttention_2" />
                                <String fx:value="animations/Stand/Waiting/ShowMuscles_5" />
                                <String fx:value="animations/Stand/Gestures/Wings_3" />
+                               <String fx:value="animations/Stand/Waiting/FunnyDancer_1" />
                                <String fx:value="animations/Stand/Emotions/Positive/Hysterical_1" />
+                               <String fx:value="animations/Stand/Emotions/Negative/Humiliated_1" />
                                <String fx:value="System/animations/Stand/Emotions/Negative/Bored_1" />
                            </FXCollections>
                        </items>
