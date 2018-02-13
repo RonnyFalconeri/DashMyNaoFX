@@ -74,7 +74,8 @@ class TactileSensors {
             rearTactileSubscriptionId = memory.subscribeToEvent("RearTactilTouched", (EventCallback<Float>) arg0 -> {
                 if (arg0 > 0) { if (rearTactileSubscriptionId > 0) { try {
 
-                    Con.getSpeech().sayText("back","English");
+                    Con.getSpeech().sayText("English motherfucker!","English");
+                    Con.getSpeech().sayText("Do you speak it?!","English",30);
 
                 } catch (Exception e) { e.printStackTrace(); }}}});
 
