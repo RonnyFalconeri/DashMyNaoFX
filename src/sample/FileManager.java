@@ -5,7 +5,6 @@ import java.io.*;
 public class FileManager{
 
     public static void writeInFile(String pLatestConnection){
-        System.out.println("writing string in file: "+pLatestConnection);
         PrintWriter pWriter = null;
         try {
             pWriter = new PrintWriter(new BufferedWriter(new FileWriter("latest connection.txt")));
@@ -21,7 +20,6 @@ public class FileManager{
     }
 
     public static String readInFile() throws IOException {
-        System.out.println("reading in file.");
         String line;
         StringBuilder  stringBuilder = new StringBuilder();
         String         ls = System.getProperty("line.separator");

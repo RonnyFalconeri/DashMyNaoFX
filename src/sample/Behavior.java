@@ -15,7 +15,6 @@ public class Behavior {
 
         // Constructor
         public Behavior(Connection pCon) throws Exception {
-            System.out.println("new Behavior()...");
             behavior = new ALBehaviorManager(pCon.getSession());
         }
 
@@ -23,7 +22,6 @@ public class Behavior {
 
     // methods for NAO
     public void startBehavior() throws InterruptedException, CallError {
-        System.out.println("start behavior: "+this.BehaviorName);
         behavior.stopAllBehaviors();
         behavior.startBehavior(this.BehaviorName);
     }

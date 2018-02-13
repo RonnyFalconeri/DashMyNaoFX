@@ -35,11 +35,9 @@ public class Movement {
     // methods for NAO
     public void changeMode(boolean isActive) throws InterruptedException, CallError {
         if (isActive){
-            System.out.println("wake up nao");
-            motion.wakeUp();
-        } else {
-            System.out.println("let nao sleep");
             motion.rest();
+        } else {
+            motion.wakeUp();
         }
     }
 

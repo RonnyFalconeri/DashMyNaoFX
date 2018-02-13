@@ -13,13 +13,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" stylesheets="@standard.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" stylesheets="@standard.css" xmlns="http://javafx.com/javafx/8.0.151" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <tabs>
 
        <!-- CONNECTION ____________________________-->
        <Tab closable="false" text="Connection">
       <content>
-              <Pane>
+              <Pane onContextMenuRequested="#setLatestConnectionIP">
                  <children>
                      <Label layoutX="15.0" layoutY="14.0" styleClass="titel" text="Connection" />
                      <TextField id="ConnectionIP" fx:id="ConnectionIP" layoutX="40.0" layoutY="79.0" onKeyReleased="#changeIP_Address" prefHeight="30.0" prefWidth="150.0" promptText="IP Adress" text="192.168.1.133" />
@@ -129,6 +129,7 @@
                          </items>
                      </ComboBox>
                      <Button fx:id="AudioPlayerButton" layoutX="267.0" layoutY="64.0" mnemonicParsing="false" onAction="#clickAudioPlayerButton" prefHeight="30.0" prefWidth="70.0" text="Play" />
+                  <Label layoutX="200.0" layoutY="136.0" text="Works only on new NAOs!!" />
                  </children>
               </Pane>
       </content>

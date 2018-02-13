@@ -86,10 +86,11 @@ public class Controller {
 
 
         // Constructor
-        public Controller() throws IOException {
-            System.out.println("Controller starts here!");
-            setLatestConnectionIP();
-        }
+        public Controller() { }
+
+    public void initialize() throws IOException {
+        setLatestConnectionIP();
+    }
 
 
 
@@ -131,8 +132,7 @@ public class Controller {
             }
         }
 
-        private void setLatestConnectionIP() throws IOException {
-            System.out.println("setting latest connection...");
+        public void setLatestConnectionIP() throws IOException {
             String LatestConnection = FileManager.readInFile();
             changeTextFieldText(ConnectionIP, LatestConnection);
         }
@@ -144,6 +144,8 @@ public class Controller {
             amountClicked++;
             if (amountClicked < 2) {
                 // connect for the first time
+                connection.setIP_Address(ConnectionIP.getText());
+                connection.setPort(ConnectionPort.getText());
                 connection.buildNewConnection();
 
                     // GUI modification
