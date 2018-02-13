@@ -125,6 +125,12 @@
                          <items>
                              <FXCollections fx:factory="observableArrayList">
                                  <String fx:value="amb_angry_crowd" />
+                                 <String fx:value="amb_horse_racing1" />
+                                 <String fx:value="amb_moneymoney" />
+                                 <String fx:value="amb_cat_meow" />
+                                 <String fx:value="amb_fencing" />
+                                 <String fx:value="sfx_whistlesexy" />
+                                 <String fx:value="amb_tennis" />
                              </FXCollections>
                          </items>
                      </ComboBox>
