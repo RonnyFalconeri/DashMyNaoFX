@@ -30,12 +30,12 @@ public class Behavior {
         behavior.startBehavior(this.BehaviorName);
     }
 
-        // additional methods for external use
-        public void startBehavior(String pBehaviorName) throws InterruptedException, CallError {
-            posture.goToPosture("StandInit", 1.0f);
-            behavior.stopAllBehaviors();
-            behavior.startBehavior(pBehaviorName);
-        }
+    // additional methods for external use
+    public void startBehavior(String pBehaviorName) throws InterruptedException, CallError {
+        posture.goToPosture("StandInit", 1.0f);
+        behavior.stopAllBehaviors();
+        behavior.startBehavior(pBehaviorName);
+    }
 
     public void stopBehavior() throws InterruptedException, CallError {
         behavior.stopAllBehaviors();

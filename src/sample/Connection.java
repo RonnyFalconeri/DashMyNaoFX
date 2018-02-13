@@ -51,11 +51,11 @@ public class Connection {
         bodystate = new BodyState(this);
         headalignment = new HeadAlignment(this);
         behavior = new Behavior(this);
-        TactileSensors tactile = new TactileSensors(this);
+        TactileSensors tactileSensors = new TactileSensors(this);
         ALAudioDevice audioDevice = new ALAudioDevice(this.session);
 
-        // giving feedback
-        audioDevice.setOutputVolume(90);
+        // resetting and giving feedback
+        audioDevice.setOutputVolume(100);
         appearance.resetLEDs();
         posture.posePosture("Stand");
         speech.sayText("I am connected.", "English", 100);
@@ -89,7 +89,7 @@ public class Connection {
     }
 
     public boolean isConnected(){
-            checkConnectionState();
+        checkConnectionState();
         return this.IsConnected;
     }
 

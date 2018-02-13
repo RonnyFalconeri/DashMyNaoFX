@@ -1,6 +1,5 @@
 package sample;
 
-import com.aldebaran.qi.CallError;
 import com.aldebaran.qi.helper.EventCallback;
 import com.aldebaran.qi.helper.proxies.*;
 
@@ -17,16 +16,15 @@ class TactileSensors {
     private ALTracker tracker;
 
 
-
-        // Constructor
+    // Constructor
         TactileSensors(Connection pCon) throws Exception {
 
             this.Con = pCon;
-            ALMemory memory = new ALMemory(this.Con.getSession());
-            tracker = new ALTracker(this.Con.getSession());
+            tracker = new ALTracker(pCon.getSession());
+            ALMemory memory = new ALMemory(pCon.getSession());
 
             // subscribe to event listener - front
-            frontTactileSubscriptionId = memory.subscribeToEvent("FrontTactilTouched", (EventCallback<Float>) arg0 -> {
+            frontTactileSubscriptionId = memory.subscribeToEvent("FrontTactilTouched", (EventCallback<Float>) arg0 -> { // Face Detection
                 if (arg0 > 0) { if (frontTactileSubscriptionId > 0) { try {
 
                     if (TrackerIsActive){
@@ -44,7 +42,7 @@ class TactileSensors {
 
                         tracker.stopTracker();
                         tracker.registerTarget("Face", 0.1F);
-                        tracker.track("Face"); //PTargets: [RedBall, Face, LandMark, LandMarks, People, Sound]
+                        tracker.track("Face");
                         tracker.toggleSearch(true);
 
 
@@ -61,8 +59,9 @@ class TactileSensors {
 
                 } catch (Exception e) { e.printStackTrace();}}}});
 
+
             // subscribe to event listener - middle
-            middleTactileSubscriptionId = memory.subscribeToEvent("MiddleTactilTouched", (EventCallback<Float>) arg0 -> {
+            middleTactileSubscriptionId = memory.subscribeToEvent("MiddleTactilTouched", (EventCallback<Float>) arg0 -> { // Show Muscles Animation
                 if (arg0 > 0) { if (middleTactileSubscriptionId > 0) { try {
 
                     Con.getBehavior().startBehavior("animations/Stand/Waiting/ShowMuscles_5");
@@ -70,8 +69,9 @@ class TactileSensors {
 
                 } catch (Exception e) { e.printStackTrace(); }}}});
 
+
             // subscribe to event listener - rear
-            rearTactileSubscriptionId = memory.subscribeToEvent("RearTactilTouched", (EventCallback<Float>) arg0 -> {
+            rearTactileSubscriptionId = memory.subscribeToEvent("RearTactilTouched", (EventCallback<Float>) arg0 -> { // Pulp Fiction reference
                 if (arg0 > 0) { if (rearTactileSubscriptionId > 0) { try {
 
                     Con.getSpeech().sayText("English motherfucker!","English");

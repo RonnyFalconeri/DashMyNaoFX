@@ -38,7 +38,6 @@ public class Controller {
     @FXML Tab PostureTab;
     @FXML Button PostureButton;
     @FXML ComboBox PostureComboBox;
-    @FXML Slider PostureSpeedSlider;
 
     // AudioPlayer
     @FXML Tab AudioSampleTab;
@@ -84,19 +83,13 @@ public class Controller {
     @FXML ComboBox BehaviorComboBox;
 
 
-
-        // Constructor
-        public Controller() {}
-
-        public void initialize() throws IOException {
-            setLatestConnectionIP();
-        }
-
-
-
     // methods for GUI actions here
 
         // GUI modification
+        public void initialize() throws IOException {
+        setLatestConnectionIP();
+    }
+
         private void changeButtonText(Button pButtonName, String pText){
             pButtonName.setText(pText);
         }
@@ -142,37 +135,38 @@ public class Controller {
         private int amountClicked=0;
         public void clickConnectionButton(ActionEvent actionEvent) throws Exception {
             amountClicked++;
-            if (amountClicked < 2) {
-                // connect for the first time
+
+            if (amountClicked < 2) { // connect for the first time
                 connection.setIP_Address(ConnectionIP.getText());
                 connection.setPort(ConnectionPort.getText());
                 connection.buildNewConnection();
 
-                    // GUI modification
-                    changeConnectionState(true);
-                    changeButtonText(ConnectionButton, "Disconnect");
-            } else {
+                // GUI modification
+                changeConnectionState(true);
+                changeButtonText(ConnectionButton, "Disconnect");
 
-                // was connected at least once
+            } else { // was connected at least once
+
                 if (connection.isConnected()) {
 
-                    // kill connection
+                    // Is already connected -> kill connection
                     connection.killConnection();
 
-                        // GUI modification
-                        changeConnectionState(false);
-                        changeButtonText(ConnectionButton, "Connect");
+                    // GUI modification
+                    changeConnectionState(false);
+                    changeButtonText(ConnectionButton, "Connect");
+
                 } else {
 
-                    // build connection
+                    // Isn't connected yet -> build connection
                     connection = new Connection();
                     connection.setIP_Address(ConnectionIP.getText());
                     connection.setPort(ConnectionPort.getText());
                     connection.buildNewConnection();
 
-                        // GUI modification
-                        changeConnectionState(true);
-                        changeButtonText(ConnectionButton, "Disconnect");
+                    // GUI modification
+                    changeConnectionState(true);
+                    changeButtonText(ConnectionButton, "Disconnect");
                 }
             }
         }
@@ -234,7 +228,6 @@ public class Controller {
             connection.getMovement().changeMode(MovementSwitch.isSelected());
         }
 
-
         public void clickMovementButtonW(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getMovement().moveBodyForward();
         }
@@ -258,8 +251,7 @@ public class Controller {
         public void changeMovementVel(MouseEvent mouseEvent) {
             connection.getMovement().setVelocity((float)MovementSliderVel.getValue());
         }
-
-
+        
         public void clickMovementResetArms(ActionEvent actionEvent) throws CallError, InterruptedException {
             connection.getMovement().resetArms();
         }

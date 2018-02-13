@@ -33,8 +33,6 @@ public class BodyState {
         if (tempOb instanceof ArrayList) {
             ArrayList tempList = (ArrayList) tempOb;
             tempReturn = (int) tempList.get(0);
-        } else {
-            System.out.println("");
         }
 
         switch (tempReturn){

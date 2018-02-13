@@ -46,38 +46,38 @@ public class Movement {
 
     // walking
     public void moveBodyForward() throws InterruptedException, CallError {
+        motion.stopMove();
         posture.goToPosture("StandInit", 1.0f);
         this.X_Axis = 1.0f*this.Velocity;
         this.Y_Axis = 0.0f;
         this.Z_Axis = 0.0f;
-        motion.stopMove();
         motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
     }
 
     public void moveBodyBackwards() throws InterruptedException, CallError {
+        motion.stopMove();
         posture.goToPosture("StandInit", 1.0f);
         this.Y_Axis = 0.0f;
         this.X_Axis = -0.5f;
         this.Z_Axis = 0.0f;
-        motion.stopMove();
         motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
     }
 
     public void changeMovementDirectionLeft() throws InterruptedException, CallError {
+        motion.stopMove();
         posture.goToPosture("StandInit", 1.0f);
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
         this.Z_Axis = 0.30f;
-        motion.stopMove();
         motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
     }
 
     public void changeMovementDirectionRight() throws InterruptedException, CallError {
+        motion.stopMove();
         posture.goToPosture("StandInit", 1.0f);
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
         this.Z_Axis = -0.30f;
-        motion.stopMove();
         motion.moveToward( this.X_Axis, this.Y_Axis, this.Z_Axis);
     }
 
@@ -88,20 +88,42 @@ public class Movement {
 
     // arm motion
     public void moveArmUp(boolean pLeftArm, float pMoveUp) throws InterruptedException, CallError {
+        // vertical motion
         String Name;
         float moveUp;
-        if (pLeftArm){
-            // move left arm
+        if (pLeftArm){ // move left arm
             increaseUp(true, pMoveUp);
             moveUp = this.LMoveUp;
             Name = "LShoulderPitch";
-        } else {
-            // move right arm
+        } else { // move right arm
             increaseUp(false, pMoveUp);
             moveUp = this.RMoveUp;
             Name = "RShoulderPitch";
         }
         motion.angleInterpolationWithSpeed(Name, moveUp, 0.20f);
+    }
+
+    public void moveArmRight(boolean pLeftArm, float pMoveRight) throws InterruptedException, CallError {
+        // horizontal motion
+        String Name;
+        float moveRight;
+        if (pLeftArm){ // move left arm
+            increaseRight(true, pMoveRight);
+            moveRight = this.LMoveRight;
+            Name = "LShoulderRoll";
+        } else { // move right arm
+            increaseRight(false, pMoveRight);
+            moveRight = this.RMoveRight;
+            Name = "RShoulderRoll";
+        }
+        motion.angleInterpolationWithSpeed(Name, moveRight, 0.20f);
+    }
+
+    public void resetArms() throws InterruptedException, CallError {
+        motion.angleInterpolationWithSpeed("LShoulderRoll", 0.0f, 0.2f);
+        motion.angleInterpolationWithSpeed("RShoulderRoll", 0.0f, 0.2f);
+        motion.angleInterpolationWithSpeed("LShoulderPitch", 1.5f, 0.2f);
+        motion.angleInterpolationWithSpeed("RShoulderPitch", 1.5f, 0.2f);
     }
 
     private void increaseUp(boolean left, float pValue){
@@ -118,23 +140,6 @@ public class Movement {
         }
     }
 
-    public void moveArmRight(boolean pLeftArm, float pMoveRight) throws InterruptedException, CallError {
-        String Name;
-        float moveRight;
-        if (pLeftArm){
-            // move left arm
-            increaseRight(true, pMoveRight);
-            moveRight = this.LMoveRight;
-            Name = "LShoulderRoll";
-        } else {
-            // move right arm
-            increaseRight(false, pMoveRight);
-            moveRight = this.RMoveRight;
-            Name = "RShoulderRoll";
-        }
-        motion.angleInterpolationWithSpeed(Name, moveRight, 0.20f);
-    }
-
     private void increaseRight(boolean left, float pValue){
         if (left) {
             // move left arm
@@ -147,13 +152,6 @@ public class Movement {
                 this.RMoveRight = this.RMoveRight + pValue;
             }
         }
-    }
-
-    public void resetArms() throws InterruptedException, CallError {
-        motion.angleInterpolationWithSpeed("LShoulderRoll", 0.0f, 0.2f);
-        motion.angleInterpolationWithSpeed("RShoulderRoll", 0.0f, 0.2f);
-        motion.angleInterpolationWithSpeed("LShoulderPitch", 1.5f, 0.2f);
-        motion.angleInterpolationWithSpeed("RShoulderPitch", 1.5f, 0.2f);
     }
 
 

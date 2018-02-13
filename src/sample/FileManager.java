@@ -21,8 +21,9 @@ public class FileManager{
 
     public static String readInFile() throws IOException {
         String line;
-        StringBuilder  stringBuilder = new StringBuilder();
-        String         ls = System.getProperty("line.separator");
+        StringBuilder stringBuilder = new StringBuilder();
+        String ls = System.getProperty("line.separator");
+
         try (BufferedReader reader = new BufferedReader(new FileReader("latest connection.txt"))) {
             while ((line = reader.readLine()) != null) {
                 stringBuilder.append(line);

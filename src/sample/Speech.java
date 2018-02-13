@@ -11,34 +11,31 @@ public class Speech {
     private float Volume = 0.5f;
 
     // variables of other objects
-    private Connection Con;
+    private ALTextToSpeech tts;
 
 
 
         // Constructor
-        public Speech(Connection pCon){
-            this.Con = pCon;
+        public Speech(Connection pCon) throws Exception {
+            tts = new ALTextToSpeech(pCon.getSession());
         }
 
 
 
     // methods for NAO
     public void sayText() throws Exception{
-        ALTextToSpeech tts = new ALTextToSpeech(this.Con.getSession());
         tts.setVolume(this.Volume);
         tts.say("\\vct="+this.Pitch+"\\"+this.SpeechText, this.Language);
     }
 
-        // additional methods for external use
-        public void sayText(String pSpeechText, String pLanguage) throws Exception{
-            ALTextToSpeech tts = new ALTextToSpeech(this.Con.getSession());
-            tts.say(pSpeechText,pLanguage);
-        }
+    // additional methods for external use
+    public void sayText(String pSpeechText, String pLanguage) throws Exception{
+        tts.say(pSpeechText,pLanguage);
+    }
 
-        public void sayText(String pSpeechText, String pLanguage, int pPitch) throws Exception{
-            ALTextToSpeech tts = new ALTextToSpeech(this.Con.getSession());
-            tts.say("\\vct="+pPitch+"\\"+pSpeechText,pLanguage);
-        }
+    public void sayText(String pSpeechText, String pLanguage, int pPitch) throws Exception{
+        tts.say("\\vct="+pPitch+"\\"+pSpeechText,pLanguage);
+    }
 
 
     // set n' get

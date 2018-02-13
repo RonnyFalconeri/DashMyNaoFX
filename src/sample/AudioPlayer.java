@@ -23,7 +23,11 @@ public class AudioPlayer {
 
     // methods for NAO
     public void playAudioSample() throws InterruptedException, CallError {
-        audioPlayer.playSoundSetFile("Aldebaran",this.AudioSample);
+        try {
+            audioPlayer.playSoundSetFile("Aldebaran",this.AudioSample);
+        } catch (Exception e){
+            System.out.println("This NAO isn't able to play audio samples.");
+        }
     }
 
 
