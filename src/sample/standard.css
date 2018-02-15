@@ -1,10 +1,14 @@
-.root{
+.tabs{
     -fx-background-color: #DDD;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-font-family: monospace;
     -fx-border-width: 0px;
     -fx-background-image: url('images/background.png');
+}
+
+.bottombar{
+    -fx-background-color: #F00;
 }
 
 .label{
