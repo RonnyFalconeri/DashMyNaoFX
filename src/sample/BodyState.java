@@ -14,33 +14,25 @@ public class BodyState {
     // variables of other objects
     private ALBattery battery;
     private ALBodyTemperature temp;
-    private Object tempOb;
-    private Connection Con;
 
 
 
         // Constructor
-        public BodyState(Connection pCon) throws Exception {
-            System.out.println("new BodyState()...");
-            this.Con = pCon;
-            battery = new ALBattery(Con.getApplication().session());
-            temp = new ALBodyTemperature(Con.getApplication().session());
+        BodyState(Connection pCon) throws Exception {
+            battery = new ALBattery(pCon.getSession());
+            temp = new ALBodyTemperature(pCon.getSession());
         }
 
 
 
     // methods for NAO
-    // nochmals ausprobieren
-    public void checkTemperature() throws InterruptedException, CallError {
-        System.out.println("checking Temperature...");
-        tempOb = temp.getTemperatureDiagnosis();
-        int tempReturn=5;
+    private void checkTemperature() throws InterruptedException, CallError {
+        Object tempOb = temp.getTemperatureDiagnosis();
+        int tempReturn=0;
 
         if (tempOb instanceof ArrayList) {
             ArrayList tempList = (ArrayList) tempOb;
             tempReturn = (int) tempList.get(0);
-        } else {
-            System.out.println("no given return values");
         }
 
         switch (tempReturn){
@@ -58,8 +50,7 @@ public class BodyState {
         }
     }
 
-    public void checkBatteryPercentage() throws InterruptedException, CallError {
-        System.out.println("checking battery percentage...");
+    private void checkBatteryPercentage() throws InterruptedException, CallError {
         this.BatteryPercentage = battery.getBatteryCharge();
     }
 
@@ -74,4 +65,5 @@ public class BodyState {
         checkBatteryPercentage();
         return this.BatteryPercentage;
     }
+
 }

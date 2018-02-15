@@ -1,85 +1,95 @@
 package sample;
-import com.aldebaran.qi.Application;
+import com.aldebaran.qi.Session;
+import com.aldebaran.qi.helper.proxies.ALAudioDevice;
 
 public class Connection {
 
     // variables of instance
-    private String IP_Adress = "192.168.1.133";
+    private String IP_Address = "192.168.1.133";
     private String Port = "9559";
-    private boolean IsConnected=false;
+    private boolean IsConnected = false;
 
     // variables of other objects
-    private Application application;
     private Speech speech;
     private Posture posture;
     private AudioPlayer audioplayer;
-    private Appereance appereance;
+    private Appearance appearance;
     private Movement movement;
     private BodyState bodystate;
     private HeadAlignment headalignment;
+    private Session session;
+    private Behavior behavior;
 
 
 
-        // Constructor
-        public Connection() throws Exception {
-            System.out.println("new Connection()... ");
+    // Constructor
+        public Connection() {
+            System.out.println("new connection... ");
         }
 
 
 
     // methods for NAO
     public void buildNewConnection() throws Exception {
-        String ConnectionURL = "tcp://"+IP_Adress+":"+Port;
+        String ConnectionURL = "tcp://"+ IP_Address +":"+Port;
         System.out.println("building new connection with IP:  "+ConnectionURL);
-        application = new Application(new String[]{}, ConnectionURL);
-        application.start();
+
+        // build new session
+        session = new Session(ConnectionURL);
+        session.connect(ConnectionURL);
         this.setConnected(true);
 
-        // instanciate new objects here
+        // save latest IP in "latest connection.txt"
+        FileManager.writeInFile(this.IP_Address);
+
+        // instantiate new objects here
         posture = new Posture(this);
         speech = new Speech(this);
         audioplayer = new AudioPlayer(this);
-        appereance = new Appereance(this);
+        appearance = new Appearance(this);
         movement = new Movement(this);
         bodystate = new BodyState(this);
         headalignment = new HeadAlignment(this);
+        behavior = new Behavior(this);
+        TactileSensors tactileSensors = new TactileSensors(this);
+        ALAudioDevice audioDevice = new ALAudioDevice(this.session);
 
-        // giving feedback
+        // resetting and giving feedback
+        audioDevice.setOutputVolume(100);
+        appearance.resetLEDs();
         posture.posePosture("Stand");
-        speech.sayText("I am connected.", "English");
+        speech.sayText("I am connected.", "English", 100);
+        System.out.println("connection successful.");
     }
 
-    public void killConnection(){
-        System.out.println("kill current connection...");
-        application.session().close();
+    public void killConnection() throws Exception {
+        speech.sayText("Getting disconnected.", "English", 100);
+        session.close();
         this.setConnected(false);
-        System.out.println("kill successfull.");
+        System.out.println("connection closed.");
     }
 
-    public void checkConnectionState(){
-        System.out.println("checking the connection state...");
-        boolean state = application.session().isConnected();
-        System.out.println("state: "+state);
+    private void checkConnectionState(){
+        boolean state = session.isConnected();
         setConnected(state);
     }
 
 
     //set n' get
-    public void setIP_Adress(String IP){
-        System.out.println("set IP_Adress to: "+IP);
-        this.IP_Adress = IP;
+    public void setIP_Address(String pIP){
+        this.IP_Address = pIP;
     }
 
-    public void setPort(String Port){
-        System.out.println("set Port to: "+Port);
-        this.Port = Port;
+    public void setPort(String pPort){
+        this.Port = pPort;
     }
 
-    public void setConnected(boolean ConnectionState) {
-        this.IsConnected = ConnectionState;
+    private void setConnected(boolean pConnectionState) {
+        this.IsConnected = pConnectionState;
     }
 
     public boolean isConnected(){
+        checkConnectionState();
         return this.IsConnected;
     }
 
@@ -87,18 +97,19 @@ public class Connection {
     // get objects from outside
     public Speech getSpeech(){return this.speech;}
 
-    public Application getApplication(){return this.application;}
-
     public Posture getPosture() {return this.posture;}
 
-    public AudioPlayer getAudioplayer(){return this.audioplayer;}
+    public AudioPlayer getAudioPlayer(){return this.audioplayer;}
 
-    public Appereance getAppereance() {return this.appereance;}
+    public Appearance getAppearance() {return this.appearance;}
 
     public Movement getMovement() {return this.movement;}
 
-    public BodyState getBodystate() {return this.bodystate;}
+    public BodyState getBodyState() {return this.bodystate;}
 
-    public HeadAlignment getHeadalignment() {return this.headalignment;}
+    public HeadAlignment getHeadAlignment() {return this.headalignment;}
 
+    public Session getSession() {return this.session;}
+
+    public Behavior getBehavior() {return this.behavior;}
 }

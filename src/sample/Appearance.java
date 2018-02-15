@@ -3,49 +3,40 @@ package sample;
 import com.aldebaran.qi.CallError;
 import com.aldebaran.qi.helper.proxies.ALLeds;
 
-public class Appereance {
+public class Appearance {
 
     // variables of instance
     private String Color = "white";
     private String Group = "AllLeds";
-    private float dur = 2.0f;
 
     // variables of other objects
-    private ALLeds leds;
-    private Connection Con;
+    private ALLeds LED;
 
 
 
         // Constructor
-        public Appereance(Connection pCon) throws Exception {
-            System.out.println("new Appereance()...");
-            this.Con = pCon;
-            leds = new ALLeds(Con.getApplication().session());
+        Appearance(Connection pCon) throws Exception {
+            LED = new ALLeds(pCon.getSession());
         }
 
 
 
     // methods for NAO
     public void changeLEDColor() throws InterruptedException, CallError {
-        System.out.println("changing LED colors...");
-        leds.fadeRGB(this.Group, this.Color, this.dur);
+        LED.fadeRGB(this.Group, this.Color, 2.0f);
     }
 
     public void resetLEDs() throws InterruptedException, CallError {
-        System.out.println("reseting LED colors...");
-        leds.reset("AllLeds");
+        LED.reset("AllLeds");
     }
-
 
 
     //set n' get
     public void setGroup(String pGroup){
-        System.out.println("set Group to: "+pGroup);
         this.Group = pGroup;
     }
 
     public void setColor(String pColor){
-        System.out.println("set Color to: "+pColor);
         this.Color = pColor;
     }
 }

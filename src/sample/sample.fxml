@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import java.lang.*?>
-<?import javafx.collections.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
@@ -15,211 +9,236 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <children>
-      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="800.0" styleClass="tabs" stylesheets="@standard.css">
-         <tabs>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" stylesheets="@standard.css" xmlns="http://javafx.com/javafx/8.0.151" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <tabs>
+
+       <!-- CONNECTION ____________________________-->
+       <Tab closable="false" text="Connection">
+      <content>
+              <Pane onContextMenuRequested="#setLatestConnectionIP">
+                 <children>
+                     <Label layoutX="15.0" layoutY="14.0" styleClass="titel" text="Connection" />
+                     <TextField id="ConnectionIP" fx:id="ConnectionIP" layoutX="40.0" layoutY="79.0" onKeyReleased="#changeIP_Address" prefHeight="30.0" prefWidth="150.0" promptText="IP Adress" text="192.168.1.133" />
+                     <Button fx:id="ConnectionButton" layoutX="40.0" layoutY="127.0" mnemonicParsing="false" onAction="#clickConnectionButton" prefHeight="31.0" prefWidth="130.0" text="Connect" />
+                     <TextField fx:id="ConnectionPort" layoutX="220.0" layoutY="79.0" onKeyReleased="#changePort" prefHeight="30.0" prefWidth="60.0" promptText="Port" text="9559" />
+                     <Circle fx:id="ConnectionStatus" fill="#da0707" layoutX="235.0" layoutY="142.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                 </children>
+              </Pane>
+      </content>
+       </Tab>
+   
+       <!-- MOVEMENT ____________________________-->
+       <Tab fx:id="MovementTab" closable="false" disable="true" text="Movement">
+      <content>
+              <Pane fx:id="MovementPane">
+                 <children>
+                     <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Movement" />
+                     <Button fx:id="MovementButtonW" layoutX="90.0" layoutY="54.0" mnemonicParsing="false" onAction="#clickMovementButtonW"  prefHeight="50.0" prefWidth="50.0" styleClass="W" />
+                     <Button fx:id="MovementButtonA" layoutX="40.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonA"  prefHeight="50.0" prefWidth="50.0" styleClass="A" />
+                     <Button fx:id="MovementButtonS" layoutX="90.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonS"  prefHeight="50.0" prefWidth="50.0" styleClass="S" />
+                     <Button fx:id="MovementButtonD" layoutX="140.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonD"  prefHeight="50.0" prefWidth="50.0" styleClass="D" />
+                     <Slider fx:id="MovementSliderVel" layoutX="229.0" layoutY="54.0" max="1.0" onMouseReleased="#changeMovementVel" orientation="VERTICAL" />
+                     <Label layoutX="208.0" layoutY="208.0" text="Velocity" />
+                  <Button fx:id="MovementButtonStop" layoutX="85.0" layoutY="193.0" mnemonicParsing="false" onAction="#clickMovementButtonStop"  prefHeight="30.0" prefWidth="60.0" text="Stop" />
+                  <Button fx:id="MovementLeftArmUp" layoutX="307.0" layoutY="61.0" mnemonicParsing="false" onAction="#clickMovementLeftArmUp" prefHeight="36.0" prefWidth="31.0" text="Up" />
+                  <Button fx:id="MovementLeftArmDown" layoutX="295.0" layoutY="137.0" mnemonicParsing="false" onAction="#clickMovementLeftArmDown" prefHeight="35.0" prefWidth="60.0" text="Down" />
+                  <Button fx:id="MovementLeftArmLeft" layoutX="259.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementLeftArmLeft" text="Left" />
+                  <Button fx:id="MovementLeftArmRight" layoutX="340.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementLeftArmRight" prefHeight="27.0" prefWidth="69.0" text="Right" />
+                  <Label layoutX="291.0" layoutY="30.0" text="Left Arm" />
+                  <Button fx:id="MovementRightArmUp" layoutX="491.0" layoutY="61.0" mnemonicParsing="false" onAction="#clickMovementRightArmUp" text="Up" />
+                  <Button fx:id="MovementRightArmDown" layoutX="491.0" layoutY="145.0" mnemonicParsing="false" onAction="#clickMovementRightArmDown" text="Down" />
+                  <Button fx:id="MovementRightArmLeft" layoutX="439.0" layoutY="105.0" mnemonicParsing="false" onAction="#clickMovementRightArmLeft" text="Left" />
+                  <Button fx:id="MovementRightArmRight" layoutX="509.0" layoutY="105.0" mnemonicParsing="false" onAction="#clickMovementRightArmRight" text="Right" />
+                  <Label layoutX="470.0" layoutY="30.0" text="Right Arm" />
+                  <Button fx:id="MovementResetArms" layoutX="392.0" layoutY="145.0" mnemonicParsing="false" onAction="#clickMovementResetArms" text="reset" />
+                  <ToggleButton fx:id="MovementSwitch" layoutX="392.0" layoutY="203.0" mnemonicParsing="false" onAction="#clickMovementSwitch" text="Rest" />
+                 </children>
+              </Pane>
+      </content>
+       </Tab>
+   
+       <!-- POSTURE ____________________________-->
+       <Tab fx:id="PostureTab" closable="false" disable="true" text="Posture">
+      <content>
+              <Pane>
+                 <children>
+                     <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Posture" />
+                     <ComboBox fx:id="PostureComboBox" layoutX="37.0" layoutY="72.0" onAction="#changePosture" prefHeight="30.0" prefWidth="200.0" promptText="Posture">
+                         <items>
+                             <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Crouch" />
+                                 <String fx:value="LyingBack" />
+                                 <String fx:value="LyingBelly" />
+                                 <String fx:value="Sit" />
+                                 <String fx:value="SitOnChair" />
+                                 <String fx:value="SitRelax" />
+                                 <String fx:value="Stand" />
+                                 <String fx:value="StandInit" />
+                                 <String fx:value="StandZero" />
+                             </FXCollections>
+                         </items>
+                     </ComboBox>
+                     <Button fx:id="PostureButton" layoutX="269.0" layoutY="72.0" mnemonicParsing="false" onAction="#clickPostureButton" prefHeight="30.0" prefWidth="70.0" text="Pose" />
+                 </children>
+              </Pane>
+      </content>
+       </Tab>
+   
+       <!-- SPEECH ____________________________-->
+       <Tab fx:id="SpeechTab" closable="false" disable="true" text="Speech">
+      <content>
+              <Pane>
+                 <children>
+                     <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Speech" />
+                     <TextField fx:id="SpeechText" layoutX="38.0" layoutY="74.0" onKeyReleased="#changeSpeechText" prefHeight="30.0" prefWidth="300.0" promptText="Speech Text" />
+                     <Button fx:id="SpeechButton" layoutX="189.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickSpeechButton" prefHeight="30.0" prefWidth="50.0" text="SAY" />
+                     <Slider fx:id="SpeechPitch" layoutX="99.0" layoutY="135.0" max="150.0" min="30.0" onMouseReleased="#changePitch" value="100.0" />
+                     <Label fx:id="SpeechPitchLabel" layoutX="38.0" layoutY="127.0" prefHeight="30.0" prefWidth="50.0" text="Pitch" />
+                     <ComboBox fx:id="SpeechLanguage" layoutX="38.0" layoutY="207.0" onAction="#changeLanguage" prefHeight="30.0" prefWidth="130.0" promptText="Language">
+                         <items>
+                             <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="German" />
+                                 <String fx:value="English" />
+                             </FXCollections>
+                         </items>
+                     </ComboBox>
+                     <Label layoutX="38.0" layoutY="170.0" text="Volume" />
+                  <Slider fx:id="SpeechVolumeSlider" layoutX="99.0" layoutY="172.0" max="1.0" onMouseReleased="#changeSpeechVolume" />
+                 </children>
+              </Pane>
+      </content>
+       </Tab>
+   
+       <!-- AUDIOPLAYER ____________________________-->
+       <Tab fx:id="AudioSampleTab" closable="false" disable="true" text="Audio Sample">
+      <content>
+              <Pane>
+                 <children>
+                     <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Audio Sample" />
+                     <ComboBox fx:id="AudioPlayerComboBox" layoutX="42.0" layoutY="64.0" onAction="#changeAudioPlayerAudioSample" prefHeight="30.0" prefWidth="200.0" promptText="Audio Sample">
+                         <items>
+                             <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="amb_angry_crowd" />
+                                 <String fx:value="amb_horse_racing1" />
+                                 <String fx:value="amb_moneymoney" />
+                                 <String fx:value="amb_cat_meow" />
+                                 <String fx:value="amb_fencing" />
+                                 <String fx:value="sfx_whistlesexy" />
+                                 <String fx:value="amb_tennis" />
+                             </FXCollections>
+                         </items>
+                     </ComboBox>
+                     <Button fx:id="AudioPlayerButton" layoutX="267.0" layoutY="64.0" mnemonicParsing="false" onAction="#clickAudioPlayerButton" prefHeight="30.0" prefWidth="70.0" text="Play" />
+                  <Label layoutX="200.0" layoutY="136.0" text="Works only on new NAOs!!" />
+                 </children>
+              </Pane>
+      </content>
+       </Tab>
+   
+       <!-- APPEREANCE ____________________________-->
+       <Tab fx:id="LedTab" closable="false" disable="true" text="LEDs">
+      <content>
+              <Pane>
+                 <children>
+                     <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="LEDs" />
          
-             <!-- CONNECTION ____________________________-->
-             <Tab closable="false" text="Connection">
-            <content>
-                    <Pane>
-                       <children>
-                           <Label layoutX="15.0" layoutY="14.0" styleClass="titel" text="Connection" />
-                           <TextField id="ConnectionIP" fx:id="ConnectionIP" layoutX="40.0" layoutY="79.0" onKeyReleased="#changeIP_Adress" prefHeight="30.0" prefWidth="150.0" promptText="IP Adress" text="192.168.1.133" />
-                           <Button fx:id="ConnectionButton" layoutX="40.0" layoutY="127.0" mnemonicParsing="false" onAction="#clickConnectionButton" prefHeight="30.0" prefWidth="100.0" text="Connect" />
-                           <TextField fx:id="ConnectionPort" layoutX="220.0" layoutY="79.0" onKeyReleased="#changePort" prefHeight="30.0" prefWidth="60.0" promptText="Port" text="9559" />
-                           <Circle fx:id="ConnectionStatus" fill="#da0707" layoutX="235.0" layoutY="142.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                       </children>
-                    </Pane>
-            </content>
-             </Tab>
+                     <!-- GROUP SELECTION -->
+                     <ComboBox fx:id="AppearanceComboBoxGroup" layoutX="35.0" layoutY="66.0" onAction="#changeAppearanceGroup" prefHeight="30.0" prefWidth="200.0" promptText="Select Body Group">
+                         <items>
+                             <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="AllLeds" />
+                                 <String fx:value="LeftFaceLeds" />
+                                 <String fx:value="RightFaceLeds" />
+                                 <String fx:value="FaceLeds" />
+                             </FXCollections>
+                         </items>
+                     </ComboBox>
+                     <Button fx:id="AppearanceButtonSet" layoutX="35.0" layoutY="169.0" mnemonicParsing="false" onAction="#clickAppearanceButtonSet" prefHeight="30.0" prefWidth="90.0" text="set LED" />
          
-             <!-- MOVEMENT ____________________________-->
-             <Tab closable="false" text="Movement">
-            <content>
-                    <Pane>
-                       <children>
-                           <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Movement" />
-                           <Button fx:id="MovementButtonW" layoutX="90.0" layoutY="54.0" mnemonicParsing="false" onAction="#clickMovementButtonW" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="W" />
-                           <Button fx:id="MovementButtonA" layoutX="40.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonA" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="A" />
-                           <Button fx:id="MovementButtonS" layoutX="90.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonS" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="S" />
-                           <Button fx:id="MovementButtonD" layoutX="140.0" layoutY="104.0" mnemonicParsing="false" onAction="#clickMovementButtonD" onKeyPressed="#clickMovementKey" prefHeight="50.0" prefWidth="50.0" styleClass="D" />
-                           <Slider fx:id="MovementSliderVel" layoutX="229.0" layoutY="54.0" max="1.0" onMouseReleased="#changeMovementVel" orientation="VERTICAL" />
-                           <Label layoutX="208.0" layoutY="208.0" text="Velocity" />
-                        <Button fx:id="MovementButtonStop" layoutX="85.0" layoutY="193.0" mnemonicParsing="false" onAction="#clickMovementButtonStop" onKeyPressed="#clickMovementKey" prefHeight="30.0" prefWidth="60.0" text="Stop" />
-                       </children>
-                    </Pane>
-            </content>
-             </Tab>
-         
-             <!-- POSTURE ____________________________-->
-             <Tab closable="false" text="Posture">
-            <content>
-                    <Pane>
-                       <children>
-                           <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Posture" />
-                           <ComboBox fx:id="PostureComboBox" layoutX="37.0" layoutY="72.0" onAction="#changePosture" prefHeight="30.0" prefWidth="200.0" promptText="Posture">
-                               <items>
-                                   <FXCollections fx:factory="observableArrayList">
-                                       <String fx:id="Crouch" fx:value="Crouch" />
-                                       <String fx:id="LyingBack" fx:value="LyingBack" />
-                                       <String fx:id="LyingBelly" fx:value="LyingBelly" />
-                                       <String fx:id="Sit" fx:value="Sit" />
-                                       <String fx:id="SitOnChair" fx:value="SitOnChair" />
-                                       <String fx:id="SitRelax" fx:value="SitRelax" />
-                                       <String fx:id="Stand" fx:value="Stand" />
-                                       <String fx:id="StandInit" fx:value="StandInit" />
-                                       <String fx:id="StandZero" fx:value="StandZero" />
-                                   </FXCollections>
-                               </items>
-                           </ComboBox>
-                           <Button fx:id="PostureButton" layoutX="269.0" layoutY="72.0" mnemonicParsing="false" onAction="#clickPostureButton" prefHeight="30.0" prefWidth="70.0" text="Pose" />
-                           <Slider fx:id="PostureSpeedSlider" layoutX="97.0" layoutY="138.0" max="1.0" onMouseReleased="#changePostureSpeed" value="0.5" />
-                           <Label layoutX="37.0" layoutY="136.0" text="Speed" />
-                       </children>
-                    </Pane>
-            </content>
-             </Tab>
-         
-             <!-- SPEECH ____________________________-->
-             <Tab closable="false" text="Speech">
-            <content>
-                    <Pane>
-                       <children>
-                           <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Speech" />
-                           <TextField fx:id="SpeechText" layoutX="38.0" layoutY="74.0" onKeyReleased="#changeSpeechText" prefHeight="30.0" prefWidth="300.0" promptText="Speech Text" />
-                           <Button fx:id="SpeechButton" layoutX="189.0" layoutY="207.0" mnemonicParsing="false" onAction="#clickSpeechButton" prefHeight="30.0" prefWidth="50.0" text="SAY" />
-                           <Slider fx:id="SpeechPitch" layoutX="99.0" layoutY="135.0" max="200.0" min="50.0" onMouseReleased="#changePitch" />
-                           <Label fx:id="SpeechPitchLabel" layoutX="38.0" layoutY="127.0" prefHeight="30.0" prefWidth="50.0" text="Pitch" />
-                           <ComboBox fx:id="SpeechLanguage" layoutX="38.0" layoutY="207.0" onAction="#changeLanguage" prefHeight="30.0" prefWidth="130.0" promptText="Language">
-                               <items>
-                                   <FXCollections fx:factory="observableArrayList">
-                                       <String fx:id="German" fx:value="German" />
-                                       <String fx:id="English" fx:value="English" />
-                                   </FXCollections>
-                               </items>
-                           </ComboBox>
-                           <Label layoutX="38.0" layoutY="170.0" text="Volume" />
-                        <Slider fx:id="SpeechVolumeSlider" layoutX="99.0" layoutY="172.0" />
-                       </children>
-                    </Pane>
-            </content>
-             </Tab>
-         
-             <!-- AUDIOPLAYER ____________________________-->
-             <Tab closable="false" text="Audio Sample">
-            <content>
-                    <Pane>
-                       <children>
-                           <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Audio Sample" />
-                           <ComboBox fx:id="AudioPlayerComboBox" layoutX="42.0" layoutY="64.0" onAction="#changeAudioPlayerAudiosample" prefHeight="30.0" prefWidth="200.0" promptText="Audio Sample">
-                               <items>
-                                   <FXCollections fx:factory="observableArrayList">
-                                       <String fx:value="amb_angry_crowd" />
-                                       <String fx:value="amb_angry_crowd" />
-                                       <String fx:value="amb_angry_crowd" />
-                                       <String fx:value="amb_angry_crowd" />
-                                       <String fx:value="amb_angry_crowd" />
-                                       <String fx:value="amb_angry_crowd" />
-                                   </FXCollections>
-                               </items>
-                           </ComboBox>
-                           <Button fx:id="AudioPlayerButton" layoutX="267.0" layoutY="64.0" mnemonicParsing="false" onAction="#clickAudioPlayerButton" prefHeight="30.0" prefWidth="70.0" text="Play" />
-                       </children>
-                    </Pane>
-            </content>
-             </Tab>
-         
-             <!-- APPEREANCE ____________________________-->
-             <Tab closable="false" text="LEDs">
-            <content>
-                    <Pane>
-                       <children>
-                           <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="LEDs" />
-               
-                           <!-- GROUP SELECTION -->
-                           <ComboBox fx:id="AppereanceComboBoxGroup" layoutX="35.0" layoutY="66.0" onAction="#changeAppereanceGroup" prefHeight="30.0" prefWidth="200.0" promptText="Select Body Group">
-                               <items>
-                                   <FXCollections fx:factory="observableArrayList">
-                                       <String fx:id="AllLeds" fx:value="AllLeds" />
-                                       <String fx:id="LeftFaceLeds" fx:value="LeftFaceLeds" />
-                                       <String fx:id="RightFaceLeds" fx:value="RightFaceLeds" />
-                                       <String fx:id="FaceLeds" fx:value="FaceLeds" />
-                                   </FXCollections>
-                               </items>
-                           </ComboBox>
-                           <Button fx:id="AppereanceButtonSet" layoutX="35.0" layoutY="169.0" mnemonicParsing="false" onAction="#clickAppereanceButtonSet" prefHeight="30.0" prefWidth="90.0" text="set LED" />
-               
-                           <!-- COLOR SELECTION -->
-                           <ComboBox fx:id="AppereanceComboBoxColor" layoutX="35.0" layoutY="116.0" onAction="#changeAppereanceColor" prefHeight="30.0" prefWidth="200.0" promptText="Pick a color">
-                               <items>
-                                   <FXCollections fx:factory="observableArrayList">
-                                       <String fx:id="white" fx:value="white" />
-                                       <String fx:id="red" fx:value="red" />
-                                       <String fx:id="green" fx:value="green" />
-                                       <String fx:id="blue" fx:value="blue" />
-                                       <String fx:id="yellow" fx:value="yellow" />
-                                       <String fx:id="magenta" fx:value="magenta" />
-                                       <String fx:id="cyan" fx:value="cyan" />
-                                   </FXCollections>
-                               </items>
-                           </ComboBox>
-                           <Button fx:id="AppereanceButtonReset" layoutX="155.0" layoutY="169.0" mnemonicParsing="false" onAction="#clickAppereanceButtonReset" prefHeight="30.0" prefWidth="80.0" text="reset" />
-                       </children>
-                    </Pane>
-            </content>
-             </Tab>
-         
-             <!-- HEADALIGNMENT ____________________________-->
-            <Tab closable="false" text="Head Alignment">
-               <content>
-                  <Pane>
-                     <children>
-                        <Button fx:id="HeadAlButtonUp" layoutX="133.0" layoutY="65.0" mnemonicParsing="false" onAction="#clickHeadAlButtonUp" prefHeight="30.0" prefWidth="80.0" text="Up" />
-                        <Button fx:id="HeadAlButtonDown" layoutX="133.0" layoutY="154.0" mnemonicParsing="false" onAction="#clickHeadAlButtonDown" prefHeight="30.0" prefWidth="80.0" text="Down" />
-                        <Button fx:id="HeadAlButtonCenter" layoutX="133.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickHeadAlButtonCenter" prefHeight="30.0" prefWidth="80.0" text="Center" />
-                        <Button fx:id="HeadAlButtonLeft" layoutX="38.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickHeadAlButtonLeft" prefHeight="30.0" prefWidth="80.0" text="Left" />
-                        <Button fx:id="HeadAlButtonRight" layoutX="226.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickHeadAlButtonRight" prefHeight="30.0" prefWidth="80.0" text="Right" />
-                        <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Head Alignment" />
-                     </children>
-                  </Pane>
-               </content>
-            </Tab>
-            <Tab closable="false" text="Camera">
-               <content>
-                  <Pane prefHeight="200.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-         
-             <!-- BODYSTATE ____________________________-->
-             <Tab closable="false" text="Body State">
-            <content>
-                    <Pane>
-                       <children>
-                           <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Body State" />
-                           <Label layoutX="41.0" layoutY="78.0" text="Temperature:" />
-                           <Label layoutX="41.0" layoutY="119.0" text="Battery:" />
-                        <Button fx:id="BodyStateButton" layoutX="41.0" layoutY="153.0" mnemonicParsing="false" onAction="#clickBodyStateButton" prefHeight="30.0" prefWidth="80.0" text="update" />
-                        <Label fx:id="BodyStateBatteryPerc" layoutX="157.0" layoutY="136.0" />
-                        <Label fx:id="BodyStateLabelTemp" layoutX="197.0" layoutY="78.0" />
-                       </children>
-                    </Pane>
-            </content>
-             </Tab>
-         </tabs>
-      
-      </TabPane>
-      <AnchorPane prefHeight="20.0" styleClass="bottombar" AnchorPane.topAnchor="310.0">
-         <children>
-            <ProgressBar layoutX="228.0" layoutY="5.0" prefWidth="100.0" progress="0.0" />
-            <ProgressBar layoutX="60.0" layoutY="6.0" prefWidth="100.0" progress="0.0" />
-            <Label layoutX="10.0" layoutY="4.0" prefHeight="20.0" prefWidth="50.0" text="Batterie" />
-            <Label layoutX="178.0" layoutY="4.0" prefHeight="20.0" prefWidth="50.0" text="Heat" />
-         </children>
-      </AnchorPane>
-   </children>
-</AnchorPane>
+                     <!-- COLOR SELECTION -->
+                     <ComboBox fx:id="AppearanceComboBoxColor" layoutX="35.0" layoutY="116.0" onAction="#changeAppearanceColor" prefHeight="30.0" prefWidth="200.0" promptText="Pick a color">
+                         <items>
+                             <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="white" />
+                                 <String fx:value="red" />
+                                 <String fx:value="green" />
+                                 <String fx:value="blue" />
+                                 <String fx:value="yellow" />
+                                 <String fx:value="magenta" />
+                                 <String fx:value="cyan" />
+                             </FXCollections>
+                         </items>
+                     </ComboBox>
+                     <Button fx:id="AppearanceButtonReset" layoutX="155.0" layoutY="169.0" mnemonicParsing="false" onAction="#clickAppearanceButtonReset" prefHeight="30.0" prefWidth="80.0" text="reset" />
+                 </children>
+              </Pane>
+      </content>
+       </Tab>
+   
+       <!-- HEADALIGNMENT ____________________________-->
+      <Tab fx:id="HeadAlignmentTab" closable="false" disable="true" text="Head Alignment">
+         <content>
+            <Pane>
+               <children>
+                  <Button fx:id="HeadAlButtonUp" layoutX="133.0" layoutY="65.0" mnemonicParsing="false" onAction="#clickHeadAlButtonUp" prefHeight="30.0" prefWidth="80.0" text="Up" />
+                  <Button fx:id="HeadAlButtonDown" layoutX="133.0" layoutY="154.0" mnemonicParsing="false" onAction="#clickHeadAlButtonDown" prefHeight="30.0" prefWidth="80.0" text="Down" />
+                  <Button fx:id="HeadAlButtonCenter" layoutX="133.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickHeadAlButtonCenter" prefHeight="30.0" prefWidth="80.0" text="Center" />
+                  <Button fx:id="HeadAlButtonLeft" layoutX="38.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickHeadAlButtonLeft" prefHeight="30.0" prefWidth="80.0" text="Left" />
+                  <Button fx:id="HeadAlButtonRight" layoutX="226.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickHeadAlButtonRight" prefHeight="30.0" prefWidth="80.0" text="Right" />
+                  <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Head Alignment" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+   
+       <!-- BODYSTATE ____________________________-->
+       <Tab fx:id="BodyStateTab" closable="false" disable="true" text="Body State">
+      <content>
+              <Pane>
+                 <children>
+                     <Label layoutX="14.0" layoutY="14.0" styleClass="titel" text="Body State" />
+                     <Label layoutX="41.0" layoutY="78.0" text="Temperature:" />
+                     <Label layoutX="41.0" layoutY="119.0" text="Battery:" />
+                  <Button fx:id="BodyStateButton" layoutX="41.0" layoutY="153.0" mnemonicParsing="false" onAction="#clickBodyStateButton" prefHeight="30.0" prefWidth="80.0" text="update" />
+                  <Label fx:id="BodyStateBatteryPercentage" layoutX="157.0" layoutY="136.0" />
+                  <Label fx:id="BodyStateLabelTemp" layoutX="197.0" layoutY="78.0" />
+                 </children>
+              </Pane>
+      </content>
+       </Tab>
+
+       <!-- BEHAVIOR     ____________________________-->
+      <Tab fx:id="BehaviorTab" closable="false" disable="true" text="Behavior">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                   <ComboBox fx:id="BehaviorComboBox" layoutX="63.0" layoutY="119.0" onAction="#changeBehaviorName" prefHeight="27.0" prefWidth="232.0" promptText="Choose a behavior">
+                       <items>
+                           <FXCollections fx:factory="observableArrayList">
+                               <String fx:value="User/pushups-310730/pushups" />
+                               <String fx:value="animations/Stand/Emotions/Negative/Fear_2" />
+                               <String fx:value="animations/Stand/Emotions/Positive/Proud_2" />
+                               <String fx:value="animations/Stand/Emotions/Positive/Excited_2" />
+                               <String fx:value="animations/Stand/Emotions/Neutral/AskForAttention_2" />
+                               <String fx:value="animations/Stand/Waiting/ShowMuscles_5" />
+                               <String fx:value="animations/Stand/Gestures/Wings_3" />
+                               <String fx:value="animations/Stand/Waiting/FunnyDancer_1" />
+                               <String fx:value="animations/Stand/Emotions/Positive/Hysterical_1" />
+                               <String fx:value="animations/Stand/Emotions/Negative/Humiliated_1" />
+                               <String fx:value="System/animations/Stand/Emotions/Negative/Bored_1" />
+                           </FXCollections>
+                       </items>
+                   </ComboBox>
+                  <Button fx:id="BehaviorButtonStart" layoutX="342.0" layoutY="119.0" mnemonicParsing="false" onAction="#clickBehaviorButtonStart" text="Start Behavior" />
+                  <Button fx:id="BehaviorButtonStop" layoutX="342.0" layoutY="158.0" mnemonicParsing="false" onAction="#clickBehaviorButtonStop" text="Stop Behavior" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+   </tabs>
+
+</TabPane>

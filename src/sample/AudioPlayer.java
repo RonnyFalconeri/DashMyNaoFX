@@ -1,38 +1,39 @@
 package sample;
 
 import com.aldebaran.qi.CallError;
+import com.aldebaran.qi.helper.proxies.ALAudioDevice;
 import com.aldebaran.qi.helper.proxies.ALAudioPlayer;
 
 public class AudioPlayer {
 
     // variables of instance
-    private String Audiosample;
+    private String AudioSample;
 
     // variables of other objects
-    private ALAudioPlayer audioplayer;
-    private Connection Con;
+    private ALAudioPlayer audioPlayer;
 
 
 
         // Constructor
-        public AudioPlayer(Connection pCon) throws Exception {
-            System.out.println("new AudioPlayer()...");
-            this.Con = pCon;
-            audioplayer = new ALAudioPlayer(Con.getApplication().session());
+        AudioPlayer(Connection pCon) throws Exception {
+            audioPlayer = new ALAudioPlayer(pCon.getSession());
         }
 
 
 
     // methods for NAO
-    public void playAudiosample() throws InterruptedException, CallError {
-        System.out.println("playing Audiosample: "+this.Audiosample);
-        audioplayer.playSoundSetFile("Aldebaran",this.Audiosample);
+    public void playAudioSample() throws InterruptedException, CallError {
+        try {
+            audioPlayer.playSoundSetFile("Aldebaran",this.AudioSample);
+        } catch (Exception e){
+            System.out.println("This NAO isn't able to play audio samples.");
+        }
     }
 
 
     // set n' get
-    public void setAudiosample(String audiosample) {
-        System.out.println("set Audiosample to: "+audiosample);
-        this.Audiosample = audiosample;
+    public void setAudioSample(String pAudioSample) {
+        this.AudioSample = pAudioSample;
     }
+
 }
