@@ -46,7 +46,7 @@ public class Movement {
 
     // walking
     public void moveBodyForward() throws InterruptedException, CallError {
-        motion.stopMove();
+        stopMovement();
         posture.goToPosture("StandInit", 1.0f);
         this.X_Axis = 1.0f*this.Velocity;
         this.Y_Axis = 0.0f;
@@ -55,7 +55,7 @@ public class Movement {
     }
 
     public void moveBodyBackwards() throws InterruptedException, CallError {
-        motion.stopMove();
+        stopMovement();
         posture.goToPosture("StandInit", 1.0f);
         this.Y_Axis = 0.0f;
         this.X_Axis = -0.5f;
@@ -64,7 +64,7 @@ public class Movement {
     }
 
     public void changeMovementDirectionLeft() throws InterruptedException, CallError {
-        motion.stopMove();
+        stopMovement();
         posture.goToPosture("StandInit", 1.0f);
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
@@ -73,7 +73,7 @@ public class Movement {
     }
 
     public void changeMovementDirectionRight() throws InterruptedException, CallError {
-        motion.stopMove();
+        stopMovement();
         posture.goToPosture("StandInit", 1.0f);
         this.Y_Axis = 0.0f;
         this.X_Axis = 0.0f;
