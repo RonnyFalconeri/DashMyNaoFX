@@ -26,10 +26,10 @@ public class Posture {
         pos.goToPosture(this.Posture, 1.0f);
     }
 
-        // additional method for external use
-        public void posePosture(String pPosture) throws InterruptedException, CallError {
-            pos.goToPosture(pPosture, 1.0f);
-        }
+    // additional method for external use
+    public void posePosture(String pPosture) throws InterruptedException, CallError {
+        pos.goToPosture(pPosture, 1.0f);
+    }
 
 
     // set n' get
