@@ -9,24 +9,36 @@
 .tab-pane .tab-header-area .tab-header-background {
     -fx-opacity: 0;
 }
-.tab-pane .tab:selected {
+.tab-pane .tab {                    /*normal Tab background style*/
+    -fx-background-color: #81d1ed;
+}
+.tab-pane .tab:selected {           /*selected Tab text style*/
     -fx-background-color: #444;
 }
-.tab-pane .tab {
-    -fx-background-color: #00aae0;
+.tab{
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
 }
-.tab .tab-label {
+.tab .tab-label {                   /*normal Tab text style*/
     -fx-text-fill: #000;
     -fx-font-size: 16px;
 }
-.tab:selected .tab-label {
+.tab:selected .tab-label {          /*selected Tab text style*/
     -fx-text-fill: #FFF;
 }
-.Tab-Titels{ /* Headlines inside every Tab  */
+.tab:selected .focus-indicator {
+    -fx-border-radius: 5 5 5 5, 5 5 5 5;
+}
+.Tab-Titels{                        /* Headlines inside every Tab  */
     -fx-font-size: 20px;
 }
 
-/*Style for Text Fields*/
+.tab-pane .tab-header-area {        /*Positioning Tab-Bar and Dropshadow*/
+    -fx-padding: 10 10 10 19;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 10, 0.1 , 0 , 3 );
+}
+
+                                    /*Style for Text Fields*/
 .text-field{
     -fx-background-color: #444;
     -fx-background-radius: 3;
@@ -35,8 +47,7 @@
     -fx-prompt-text-fill: #FFF;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
-
-/*Style for Combo-Boxes*/
+                                    /*Style for Combo-Boxes*/
 .combo-box{
     -fx-background-color: #444;
     -fx-background-radius: 3;
@@ -55,16 +66,14 @@
     -fx-text-fill: #444;
     -fx-background-color: #FFF;
 }
-
-/*Style for Sliders*/
+                                    /*Style for Sliders*/
 .slider .track{
     -fx-background-color: #444;
 }
 .slider .thumb{
-    -fx-background-color: #00aae0;
+    -fx-background-color: #81d1ed;
 }
-
-/*Backgroundimages for Buttons*/
+                                    /*Backgroundimages for Buttons*/
 .BackImg-UP{
      -fx-background-image: url('/sample/images/up.png');
      -fx-background-color: transparent;
@@ -105,11 +114,7 @@
     -fx-background-image: url('/sample/images/rest.png');
     -fx-background-color: transparent;
 }
-
-
-
-
-/*Backgroundimages for Buttons while Hovering*/
+                                    /*Backgroundimages for Buttons while Hovering*/
 .BackImg-UP:hover{
     -fx-background-image: url('/sample/images/upH.png');
     -fx-background-color: transparent;
