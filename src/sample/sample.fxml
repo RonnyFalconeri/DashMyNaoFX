@@ -59,8 +59,8 @@
                   <ToggleButton fx:id="MovementSwitch" layoutX="191.0" layoutY="12.0" mnemonicParsing="false" onAction="#clickMovementSwitch" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-REST" />
                   <Label layoutX="102.0" layoutY="47.0" text="Body" />
                   <Label layoutX="63.0" layoutY="171.0" text="WASD on Keyboard" />
-                  <Label layoutX="360.0" layoutY="240.0" text="Reset" />
-                  <Label layoutX="191.0" layoutY="56.0" text="Stand-By" />
+                  <Label layoutX="402.0" layoutY="232.0" text="Reset" />
+                  <Label layoutX="191.0" layoutY="61.0" text="Stand-By" />
                  </children>
               </Pane>
       </content>
