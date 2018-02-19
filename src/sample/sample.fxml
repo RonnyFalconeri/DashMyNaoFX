@@ -26,6 +26,7 @@
                      <Button fx:id="ConnectionButton" layoutX="40.0" layoutY="117.0" mnemonicParsing="false" onAction="#clickConnectionButton" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-PLAY" />
                      <TextField fx:id="ConnectionPort" layoutX="220.0" layoutY="69.0" onKeyReleased="#changePort" prefHeight="30.0" prefWidth="60.0" promptText="Port" text="9559" />
                      <Circle fx:id="ConnectionStatus" fill="#da0707" layoutX="130.0" layoutY="142.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Label layoutX="307.0" layoutY="134.0" text="Touch my head!" />
                  </children>
               </Pane>
       </content>
@@ -54,12 +55,12 @@
                   <Button fx:id="MovementRightArmLeft" layoutX="413.0" layoutY="119.0" mnemonicParsing="false" onAction="#clickMovementRightArmLeft" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-LEFT" text="" />
                   <Button fx:id="MovementRightArmRight" layoutX="513.0" layoutY="119.0" mnemonicParsing="false" onAction="#clickMovementRightArmRight" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-RIGHT" text="" />
                   <Label layoutX="461.0" layoutY="47.0" text="Right Arm" />
-                  <Button fx:id="MovementResetArms" layoutX="349.0" layoutY="189.0" mnemonicParsing="false" onAction="#clickMovementResetArms" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-RESET" />
-                  <ToggleButton fx:id="MovementSwitch" layoutX="413.0" layoutY="189.0" mnemonicParsing="false" onAction="#clickMovementSwitch" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-REST" />
+                  <Button fx:id="MovementResetArms" layoutX="377.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickMovementResetArms" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-RESET" />
+                  <ToggleButton fx:id="MovementSwitch" layoutX="191.0" layoutY="22.0" mnemonicParsing="false" onAction="#clickMovementSwitch" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-REST" />
                   <Label layoutX="102.0" layoutY="47.0" text="Body" />
                   <Label layoutX="63.0" layoutY="171.0" text="WASD on Keyboard" />
                   <Label layoutX="360.0" layoutY="240.0" text="Reset" />
-                  <Label layoutX="427.0" layoutY="240.0" text="Rest" />
+                  <Label layoutX="182.0" layoutY="72.0" text="Stand-By" />
                  </children>
               </Pane>
       </content>
