@@ -37,13 +37,13 @@ public class BodyState {
 
         switch (tempReturn){
             case 0:
-                this.Temperature = "Green - Everything is fine.";
+                this.Temperature = "Everything is fine.";
             break;
             case 1:
-                this.Temperature = "Yellow - Watch out.";
+                this.Temperature = "Watch out.";
             break;
             case 2:
-                this.Temperature = "Red - let the NAO cool down!";
+                this.Temperature = "let the NAO cool down!";
             break;
             default:
                 this.Temperature = "No value given.";
