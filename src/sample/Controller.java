@@ -90,10 +90,6 @@ public class Controller {
         setLatestConnectionIP();
     }
 
-        private void changeButtonText(Button pButtonName, String pText){
-            pButtonName.setText(pText);
-        }
-
         private void changeLabelText(Label pLabelName, String pText){
             pLabelName.setText(pText);
         }
@@ -143,7 +139,6 @@ public class Controller {
 
                 // GUI modification
                 changeConnectionState(true);
-                changeButtonText(ConnectionButton, "Disconnect");
 
             } else { // was connected at least once
 
@@ -154,7 +149,6 @@ public class Controller {
 
                     // GUI modification
                     changeConnectionState(false);
-                    changeButtonText(ConnectionButton, "Connect");
 
                 } else {
 
@@ -166,7 +160,6 @@ public class Controller {
 
                     // GUI modification
                     changeConnectionState(true);
-                    changeButtonText(ConnectionButton, "Disconnect");
                 }
             }
         }
