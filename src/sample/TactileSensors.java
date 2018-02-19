@@ -50,7 +50,7 @@ class TactileSensors {
                             detected = tracker.isNewTargetDetected();
                             if (detected) {
                                 tracker.toggleSearch(false);
-                                Con.getSpeech().sayText("Ha! found ya!","English");
+                                Con.getSpeech().sayText("Ha! cotch ya!","English");
                                 tracker.removeAllTargets();
                                 search = false;
                             }
