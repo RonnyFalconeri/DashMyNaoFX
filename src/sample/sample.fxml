@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
 <?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
 
 <TabPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="750.0" stylesheets="@/sample/standard.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <tabs>
@@ -53,24 +41,24 @@
                      <Button fx:id="MovementButtonD" layoutX="140.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementButtonD" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-RIGHT" />
                      <Slider fx:id="MovementSliderVel" layoutX="211.0" layoutY="61.0" max="1.0" onMouseReleased="#changeMovementVel" orientation="VERTICAL" prefHeight="109.0" prefWidth="14.0" value="1.0" />
                      <Label layoutX="197.0" layoutY="169.0" text="Velocity" />
-                  <Button fx:id="MovementButtonStop" layoutX="123.0" layoutY="199.0" mnemonicParsing="false" onAction="#clickMovementButtonStop" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-STOP" text="" />
-                  <Button fx:id="MovementLeftArmUp" layoutX="299.0" layoutY="66.0" mnemonicParsing="false" onAction="#clickMovementLeftArmUp" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-UP" text="" />
-                  <Button fx:id="MovementLeftArmDown" layoutX="299.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementLeftArmDown" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-DOWN" text="" />
-                  <Button fx:id="MovementLeftArmLeft" layoutX="249.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementLeftArmLeft" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-LEFT" text="" />
-                  <Button fx:id="MovementLeftArmRight" layoutX="349.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementLeftArmRight" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-RIGHT" text="" />
-                  <Label layoutX="301.0" layoutY="44.0" text="Left Arm" />
-                  <Button fx:id="MovementRightArmUp" layoutX="463.0" layoutY="66.0" mnemonicParsing="false" onAction="#clickMovementRightArmUp" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-UP" text="" />
-                  <Button fx:id="MovementRightArmDown" layoutX="463.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementRightArmDown" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-DOWN" text="" />
-                  <Button fx:id="MovementRightArmLeft" layoutX="413.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementRightArmLeft" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-LEFT" text="" />
-                  <Button fx:id="MovementRightArmRight" layoutX="513.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementRightArmRight" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-RIGHT" text="" />
-                  <Label layoutX="461.0" layoutY="44.0" text="Right Arm" />
-                  <Button fx:id="MovementResetArms" layoutX="262.0" layoutY="199.0" mnemonicParsing="false" onAction="#clickMovementResetArms" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-RESET" />
-                  <ToggleButton fx:id="MovementSwitch" layoutX="193.0" layoutY="199.0" mnemonicParsing="false" onAction="#clickMovementSwitch" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-REST" />
-                  <Label layoutX="102.0" layoutY="44.0" text="Body" />
-                  <Label layoutX="63.0" layoutY="168.0" text="WASD on Keyboard" />
-                  <Label layoutX="272.0" layoutY="249.0" text="Reset" />
-                  <Label layoutX="194.0" layoutY="249.0" text="Stand-By" />
-                  <Label layoutX="135.0" layoutY="249.0" text="Stop" />
+                      <Button fx:id="MovementButtonStop" layoutX="123.0" layoutY="199.0" mnemonicParsing="false" onAction="#clickMovementButtonStop" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-STOP" text="" />
+                      <Button fx:id="MovementLeftArmUp" layoutX="299.0" layoutY="66.0" mnemonicParsing="false" onAction="#clickMovementLeftArmUp" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-UP" text="" />
+                      <Button fx:id="MovementLeftArmDown" layoutX="299.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementLeftArmDown" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-DOWN" text="" />
+                      <Button fx:id="MovementLeftArmLeft" layoutX="249.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementLeftArmLeft" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-LEFT" text="" />
+                      <Button fx:id="MovementLeftArmRight" layoutX="349.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementLeftArmRight" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-RIGHT" text="" />
+                      <Label layoutX="301.0" layoutY="44.0" text="Left Arm" />
+                      <Button fx:id="MovementRightArmUp" layoutX="463.0" layoutY="66.0" mnemonicParsing="false" onAction="#clickMovementRightArmUp" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-UP" text="" />
+                      <Button fx:id="MovementRightArmDown" layoutX="463.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementRightArmDown" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-DOWN" text="" />
+                      <Button fx:id="MovementRightArmLeft" layoutX="413.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementRightArmLeft" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-LEFT" text="" />
+                      <Button fx:id="MovementRightArmRight" layoutX="513.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickMovementRightArmRight" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-RIGHT" text="" />
+                      <Label layoutX="461.0" layoutY="44.0" text="Right Arm" />
+                      <Button fx:id="MovementResetArms" layoutX="262.0" layoutY="199.0" mnemonicParsing="false" onAction="#clickMovementResetArms" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-RESET" />
+                      <ToggleButton fx:id="MovementSwitch" layoutX="193.0" layoutY="199.0" mnemonicParsing="false" onAction="#clickMovementSwitch" prefHeight="50.0" prefWidth="50.0" styleClass="BackImg-REST" />
+                      <Label layoutX="102.0" layoutY="44.0" text="Body" />
+                      <Label layoutX="63.0" layoutY="168.0" text="WASD on Keyboard" />
+                      <Label layoutX="272.0" layoutY="249.0" text="Reset" />
+                      <Label layoutX="194.0" layoutY="249.0" text="Stand-By" />
+                      <Label layoutX="135.0" layoutY="249.0" text="Stop" />
                  </children>
               </Pane>
       </content>

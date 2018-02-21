@@ -1,7 +1,5 @@
 package sample;
 
-import com.aldebaran.qi.CallError;
-import com.aldebaran.qi.helper.proxies.ALAudioDevice;
 import com.aldebaran.qi.helper.proxies.ALAudioPlayer;
 
 public class AudioPlayer {
@@ -22,7 +20,7 @@ public class AudioPlayer {
 
 
     // methods for NAO
-    public void playAudioSample() throws InterruptedException, CallError {
+    public void playAudioSample() {
         try {
             audioPlayer.playSoundSetFile("Aldebaran",this.AudioSample);
         } catch (Exception e){

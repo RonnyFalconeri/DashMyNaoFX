@@ -1,12 +1,3 @@
-/*
-        DASH MY NAO FX - A JAVA APPLICATION
-
-        Created by: Ronny Falconeri, Marcel Uthe, Niclas Meier
-        DHBW Lörrach DE, Feb 2018
-
- */
-
-
 package sample;
 
 import javafx.application.Application;
@@ -15,6 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+/*      DASH MY NAO FX - A JAVA APPLICATION
+
+        Created by: Ronny Falconeri, Marcel Uthe, Niclas Meier
+        DHBW Lörrach DE, Feb 2018
+ */
 
 public class Main extends Application {
 

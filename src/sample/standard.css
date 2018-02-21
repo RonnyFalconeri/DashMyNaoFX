@@ -6,37 +6,29 @@
     -fx-background-image: url('/sample/images/background.png');
     -fx-text-fill: #000;
 }
-
 .tab-pane .tab-header-area .tab-header-background {
     -fx-opacity: 0;
 }
-
 .tab-pane .tab {                    /*normal Tab background style*/
     -fx-background-color: #81d1ed;
 }
-
 .tab-pane .tab:selected {           /*selected Tab text style*/
     -fx-background-color: #444;
 }
-
 .tab{
     -fx-border-radius: 5 5 5 5;
     -fx-background-radius: 5 5 5 5;
 }
-
 .tab .tab-label {                   /*normal Tab text style*/
     -fx-text-fill: #000;
     -fx-font-size: 16px;
 }
-
 .tab:selected .tab-label {          /*selected Tab text style*/
     -fx-text-fill: #FFF;
 }
-
 .tab:selected .focus-indicator {
     -fx-border-radius: 5 5 5 5, 5 5 5 5;
 }
-
 .Tab-Titels{                        /* Headlines inside every Tab  */
     -fx-font-size: 20px;
 }
@@ -66,12 +58,10 @@
 .combo-box-base .list-cell{
     -fx-text-fill: #FFF;
 }
-
 .combo-box .list-cell{
     -fx-text-fill: #FFF;
     -fx-background-color: #444;
 }
-
 .combo-box .list-cell:hover{
     -fx-text-fill: #444;
     -fx-background-color: #FFF;
@@ -80,7 +70,6 @@
 .slider .track{
     -fx-background-color: #444;
 }
-
 .slider .thumb{
     -fx-background-color: #81d1ed;
 }
@@ -89,22 +78,18 @@
      -fx-background-image: url('/sample/images/up.png');
      -fx-background-color: transparent;
  }
-
 .BackImg-LEFT{
     -fx-background-image: url('/sample/images/left.png');
     -fx-background-color: transparent;
 }
-
 .BackImg-DOWN{
     -fx-background-image: url('/sample/images/down.png');
     -fx-background-color: transparent;
 }
-
 .BackImg-RIGHT{
     -fx-background-image: url('/sample/images/right.png');
     -fx-background-color: transparent;
 }
-
 .BackImg-PLAY{
     -fx-background-image: url('/sample/images/play.png');
     -fx-background-color: transparent;
