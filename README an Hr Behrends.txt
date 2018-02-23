@@ -14,7 +14,7 @@ Informationen zur Abgabe des Projekts für Herr Behrends.
 
 
 -   Die Leistung der jeweiligen Gruppenmitglieder sollte nicht über die Git-Historie beurteilt werden.
-    Diese gibt nämlich keine Auskunft darüber, wer wieviel getan hat. Viele Commits waren lediglich kleine Änderungen.
+    Diese gibt nämlich keine Auskunft darüber, wieviel wer getan hat. Viele Commits waren lediglich kleine Änderungen.
 
 -   Unsere kleine Dokumentation "DashMyNaoFX - Features.pdf" listet alle Funktionen auf, unterteilt in "Must-Haves"
     und "Nice-To-Haves". Diese ist in englisch verfasst, da dieses Projekt auf GitHub als OpenSource-Programm

@@ -113,10 +113,12 @@ public class Controller {
             if (isConnected){
                 // connection is true, enable tabs
                 ConnectionStatus.setFill(Paint.valueOf("0x08d833ff"));
+                ConnectionButton.setStyle("-fx-background-image: url('/sample/images/dconn.png')");
                 disableTabs(false);
             } else {
                 // connection is false, disable tabs
                 ConnectionStatus.setFill(Paint.valueOf("0xda0707ff"));
+                ConnectionButton.setStyle("-fx-background-image: url('/sample/images/play.png')");
                 disableTabs(true);
             }
         }
